@@ -1,0 +1,6 @@
+#Thu, 24 Mar 2022 13:54:54 -0300
+
+info.app.version=0.1
+info.app.name=desafio
+grails.env=development
+info.app.grailsVersion=4.0.12
