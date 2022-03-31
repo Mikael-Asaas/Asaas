@@ -1,18 +1,16 @@
+document.querySelector("#formid").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-document.querySelector("#formid").addEventListener("submit", function(event){
-event.preventDefault();
-
-  const nome = document.getElementById("nome")
-  const cpf = document.getElementById("cpf")
-  const email = document.getElementById("email")
-  const telefone = document.getElementById("telefone")
-  const cep = document.getElementById("cep")
-  const endereco = document.getElementById("endereco")
-  const numero = document.getElementById("numero")
-  const bairro = document.getElementById("bairro")
-  const localidade = document.getElementById("localidade")
-  const uf = document.getElementById("uf")
-  
+  const nome = document.getElementById("nome");
+  const cpf = document.getElementById("cpf");
+  const email = document.getElementById("email");
+  const telefone = document.getElementById("telefone");
+  const cep = document.getElementById("cep");
+  const endereco = document.getElementById("endereco");
+  const numero = document.getElementById("numero");
+  const bairro = document.getElementById("bairro");
+  const localidade = document.getElementById("localidade");
+  const uf = document.getElementById("uf");
 
   console.log(infoReturn());
 
@@ -41,5 +39,5 @@ function infoReturn() {
     bairro: bairro.value,
     localidade: localidade.value,
     uf: uf.value,
-  }
+  };
 }
