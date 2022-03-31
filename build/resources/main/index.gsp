@@ -6,8 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <%-- <link rel="stylesheet" href="style.css" /> --%>
-
     <asset:stylesheet src="Index/IndexCss.css" />
 
     <title>Asaas - Criar conta</title>
@@ -15,7 +13,6 @@
 
   </head>
   <body>
-    <!-- Titulo do form  -->
     <main class="container">
       <h2>Registro</h2>
       <form autocomplete="off" id="formid"> 
