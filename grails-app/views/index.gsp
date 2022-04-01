@@ -9,7 +9,7 @@
     <asset:stylesheet src="Index/IndexCss.css" />
 
     <title>Asaas - Criar conta</title>
-    <link rel="shortcut icon" type="image/x-icon" href= "https://www.asaas.com/assets/favicon-14e590c1a04095a343f34c60b0456560.ico"  />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
   </head>
   <body>
