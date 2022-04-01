@@ -16,61 +16,51 @@
     <main class="container">
       <h2>Registro</h2>
       <form autocomplete="off" id="formid"> 
-        <!-- Campo do Nome do cliente -->
         <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do CPF do cliente -->
         <div class="input-field">
           <input type="text" name="cpf" id="cpf" placeholder="CPF" maxlength="14" required />
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do EMAIL do cliente -->
         <div class="input-field">
           <input type="email" name="email" id="email" placeholder="Email" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do Telefone do cliente -->
         <div class="input-field">
           <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15"required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do CEP do cliente -->
         <div class="input-field">
           <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo da Endereço do cliente -->
         <div class="input-field">
           <input type="text" name="endereco" id="endereco"  placeholder="Endereço" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo da Numero do cliente -->
         <div class="input-field">
           <input type="text" name="numero" id="numero" placeholder="Nº" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do Bairro do cliente -->
         <div class="input-field">
           <input type="text" name="bairro" id="bairro" placeholder="Bairro" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo da Localidade do cliente  -->
         <div class="input-field">
           <input type="text" name="localidade" id="localidade" placeholder="Localidade" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do UF do cliente  -->
         <div class="input-field">
           <input type="text" name="uf" id="uf" placeholder="UF" required/>
           <div class="linha"></div>
