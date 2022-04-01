@@ -67,7 +67,7 @@
         </div>
 
       
-        <button type="submit" id="send" >Registrar</button>
+        <button type="submit" id="send" class="btn" >Registrar</button>
       
       </form>   
     </main>
