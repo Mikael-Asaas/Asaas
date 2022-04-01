@@ -99,7 +99,7 @@ form .input-field {
   height: 100%;
 }
 
-form button[type="submit"] {
+.btn {
   margin-top: 1rem;
   padding: 0.6rem;
   background-color: #8ebf30;
