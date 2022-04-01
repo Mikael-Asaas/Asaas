@@ -9,68 +9,58 @@
     <asset:stylesheet src="Index/IndexCss.css" />
 
     <title>Asaas - Criar conta</title>
-    <link rel="shortcut icon" type="image/x-icon" href= "https://www.asaas.com/assets/favicon-14e590c1a04095a343f34c60b0456560.ico"  />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"  />
 
   </head>
   <body>
     <main class="container">
       <h2>Registro</h2>
       <form autocomplete="off" id="formid"> 
-        <!-- Campo do Nome do cliente -->
         <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do CPF do cliente -->
         <div class="input-field">
           <input type="text" name="cpf" id="cpf" placeholder="CPF" maxlength="14" required />
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do EMAIL do cliente -->
         <div class="input-field">
           <input type="email" name="email" id="email" placeholder="Email" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do Telefone do cliente -->
         <div class="input-field">
-          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15"required/>
+          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do CEP do cliente -->
         <div class="input-field">
           <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo da Endereço do cliente -->
         <div class="input-field">
           <input type="text" name="endereco" id="endereco"  placeholder="Endereço" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo da Numero do cliente -->
         <div class="input-field">
           <input type="text" name="numero" id="numero" placeholder="Nº" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do Bairro do cliente -->
         <div class="input-field">
           <input type="text" name="bairro" id="bairro" placeholder="Bairro" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo da Localidade do cliente  -->
         <div class="input-field">
           <input type="text" name="localidade" id="localidade" placeholder="Localidade" required/>
           <div class="linha"></div>
         </div>
 
-        <!-- Campo do UF do cliente  -->
         <div class="input-field">
           <input type="text" name="uf" id="uf" placeholder="UF" required/>
           <div class="linha"></div>
@@ -83,8 +73,8 @@
     </main>
 
     <asset:javascript src="Index/IndexController.js" />
-    <asset:javascript src="Index/Mask.js" />
     <asset:javascript src="Index/Viacep.js" />
+    <asset:javascript src="Index/Mask.js" />
 
   </body>
 </html>
