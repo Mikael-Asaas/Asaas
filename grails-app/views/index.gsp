@@ -32,7 +32,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15"required/>
+          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15" required/>
           <div class="linha"></div>
         </div>
 
