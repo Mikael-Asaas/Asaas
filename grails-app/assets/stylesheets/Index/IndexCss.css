@@ -5,11 +5,10 @@
   border: 0;
   padding: 0;
   box-sizing: 0;
-  /* Resetando o css da pagina que é definido por padrão */
 }
 
 body {
-  background: #0030b9; /*  Cor predonimante Asaas   */
+  background: #0030b9;
   min-height: 100vh;
   min-width: 10vw;
   display: flex;
