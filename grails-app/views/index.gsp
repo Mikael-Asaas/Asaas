@@ -73,8 +73,8 @@
     </main>
 
     <asset:javascript src="Index/IndexController.js" />
-    <asset:javascript src="Index/Mask.js" />
     <asset:javascript src="Index/Viacep.js" />
+    <asset:javascript src="Index/Mask.js" />
 
   </body>
 </html>
