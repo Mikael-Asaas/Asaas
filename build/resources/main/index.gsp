@@ -9,7 +9,7 @@
     <asset:stylesheet src="Index/IndexCss.css" />
 
     <title>Asaas - Criar conta</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"  />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
 
   </head>
   <body>
@@ -67,7 +67,7 @@
         </div>
 
       
-        <button type="submit" id="send" >Registrar</button>
+        <button type="submit" id="send" class="btn" >Registrar</button>
       
       </form>   
     </main>
