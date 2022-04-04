@@ -1,4 +1,4 @@
 /.vscode
 */target
 node_modules
-/bin
+bin
