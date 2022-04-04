@@ -1,5 +1,3 @@
-"use strict";
-
 const ClearForm = (endereco) => {
   document.getElementById("endereco").value = "";
   document.getElementById("bairro").value = "";
