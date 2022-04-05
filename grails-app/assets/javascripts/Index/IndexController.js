@@ -2,7 +2,7 @@ document.querySelector("#formid").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const nome = document.getElementById("nome");
-  const cpf = document.getElementById("cpf");
+  const cpf = document.getElementById("cpfcnpj");
   const email = document.getElementById("email");
   const telefone = document.getElementById("telefone");
   const cep = document.getElementById("cep");
@@ -17,7 +17,7 @@ document.querySelector("#formid").addEventListener("submit", function (event) {
   alert("Formulario Enviado!");
 
   document.getElementById("nome").value = "";
-  document.getElementById("cpf").value = "";
+  document.getElementById("cpfcnpj").value = "";
   document.getElementById("email").value = "";
   document.getElementById("telefone").value = "";
   document.getElementById("cep").value = "";
@@ -31,7 +31,7 @@ document.querySelector("#formid").addEventListener("submit", function (event) {
 function infoReturn() {
   return {
     nome: nome.value,
-    cpf: cpf.value,
+    cpfCnpj: cpfCnpj.value,
     telefone: telefone.value,
     cep: cep.value,
     endereco: endereco.value,
