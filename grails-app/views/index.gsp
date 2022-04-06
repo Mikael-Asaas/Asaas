@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="Index/IndexCss.css" />
 
     <title>Asaas - Criar conta</title>
