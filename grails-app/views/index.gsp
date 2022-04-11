@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+<<<<<<< Updated upstream
     <meta name="layout" content="main"/>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+=======
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+>>>>>>> Stashed changes
     <asset:stylesheet src="index/IndexCss.css" />
     <title>Asaas - Criar conta</title>
     
