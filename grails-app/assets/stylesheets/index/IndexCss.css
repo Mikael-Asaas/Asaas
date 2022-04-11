@@ -15,7 +15,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Poppins", sans-serif;
-  background-image: url(../../images/image.jpg);
+  background-image: url("../../images/image.jpg");
   background-size: 40%;
   background-repeat: no-repeat;
   background-position-x: 80%;
@@ -33,14 +33,14 @@ main.container {
   width: 100%;
 }
 
-main h2 {
+main .h2 {
   font-weight: 600px;
   margin-bottom: 2rem;
   position: relative;
   font-size: 1.9rem;
 }
 
-main h2::before {
+main .h2::before {
   content: "";
   position: absolute;
   height: 4px;
@@ -51,18 +51,16 @@ main h2::before {
   background: #0198ff;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
 
 .input-field {
   position: relative;
-}
-
-form .input-field {
   margin-bottom: 1.6em;
 }
+
 
 .input-field .linha::before {
   content: "";
