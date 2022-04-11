@@ -1,13 +1,34 @@
-const inputcpf = document.querySelector("#cpf");
-inputcpf.addEventListener("keypress", () => {
-  let inputlenght = inputcpf.value.length;
+function Mask(o, f) {
+  v_obj = o;
+  v_fun = f;
+  setTimeout("execmascara()", 1);
+}
 
-  if (inputlenght == 3 || inputlenght == 7) {
-    inputcpf.value += ".";
-  } else if (inputlenght == 11) {
-    inputcpf.value += "-";
+function execmascara() {
+  v_obj.value = v_fun(v_obj.value);
+}
+
+function cpfCnpj(v) {
+  v = v.replace(/\D/g, "");
+
+  if (v.length <= 14) {
+    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+
+    v = v.replace(/(\d{3})(\d)/, "$1.$2");
+
+    v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+  } else {
+    v = v.replace(/^(\d{2})(\d)/, "$1.$2");
+
+    v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+
+    v = v.replace(/\.(\d{3})(\d)/, ".$1/$2");
+
+    v = v.replace(/(\d{4})(\d)/, "$1-$2");
   }
-});
+
+  return v;
+}
 
 const inputtell = document.querySelector("#telefone");
 inputtell.addEventListener("keypress", () => {

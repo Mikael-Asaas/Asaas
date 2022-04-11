@@ -14,8 +14,8 @@ const preencherForm = (endereco) => {
 };
 
 const cepValido = function (cep) {
-  let cepPattern = /^[0-9]{8}$/;
-  return cepPattern.test(cep);
+  return cepPattern = /^[0-9]{8}$/.test(cep);
+  
 };
 
 const pesquisarCep = async () => {

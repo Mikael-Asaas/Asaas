@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta name="layout" content="main" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <asset:stylesheet src="Index/IndexCss.css" />
-
-    <title>Asaas - Criar conta</title>
+    <%-- <meta name="layout" content="main"/> --%>
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+    <asset:stylesheet src="index/IndexCss.css" />
+    <title>Asaas - Criar conta</title>
+    
 
   </head>
   <body>
     <main class="container">
-      <h2>Registro</h2>
-      <form autocomplete="off" id="formid"> 
+      <h2 class="h2">Registro</h2>
+      <form autocomplete="off" id="formid" class="form"> 
         <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="cpf" id="cpf" placeholder="CPF" maxlength="14" required />
+          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
           <div class="linha"></div>
         </div>
 
@@ -72,9 +68,9 @@
       </form>   
     </main>
 
-    <asset:javascript src="Index/IndexController.js" />
-    <asset:javascript src="Index/Viacep.js" />
-    <asset:javascript src="Index/Mask.js" />
-
+    <asset:javascript src="mask.js" />
+    <asset:javascript src="index/IndexController.js" />
+    <asset:javascript src="index/BuscaCep.js" />
+   
   </body>
-</html>
+</html> 
