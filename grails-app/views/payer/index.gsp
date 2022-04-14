@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
-    <asset:stylesheet src="index/IndexCss.css" />
-    <title>Asaas - Criar conta</title>
-    
+<html>
 
-  </head>
-  <body>
+    <head>
+        
+        <asset:stylesheet src="/index/indexPayer.css"/>
+        <meta name="layout" content="menuLayout" />
+        
+    </head>
+    <body>
+    
     <main class="container">
-      <h2 class="h2">Registro</h2>
-      <form autocomplete="off" id="formid" class="form"> 
+      <h2 class="h2">Adicionar Cliente</h2>
+      <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }"> 
         <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome" required/>
           <div class="linha"></div>
@@ -64,13 +64,12 @@
 
       
         <button type="submit" id="send" class="btn" >Registrar</button>
+
       
       </form>   
     </main>
 
     <asset:javascript src="mask.js" />
-    <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="index/BuscaCep.js" />
-   
-  </body>
-</html> 
+    <asset:javascript src="index/BuscaCep.js" /> 
+    </body>
+</html>
