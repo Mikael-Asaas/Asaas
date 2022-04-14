@@ -4,7 +4,7 @@
     </head>
     <body>
     <main class="container">
-      <h2 class="h2">Adicionar um novo Pagador</h2>
+      <h2 class="h2">Novo Pagador</h2>
       <form autocomplete="off" id="formid" class="form"> 
         <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome" required/>
