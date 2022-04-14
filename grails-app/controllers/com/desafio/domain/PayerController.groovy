@@ -6,8 +6,6 @@ import com.desafio.domain.payer.Payer
 
 class PayerController {
 
-    def create(){
-    
-    }
+    def create() {}
 
 }
