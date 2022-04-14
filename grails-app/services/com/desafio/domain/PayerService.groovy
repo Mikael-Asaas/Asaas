@@ -3,5 +3,4 @@ import com.desafio.domain.payer.Payer
 
 class PayerService {
 
-    }
 }
