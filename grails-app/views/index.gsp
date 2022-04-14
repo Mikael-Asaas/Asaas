@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+    <meta name="layout" content="main"/>
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="index/IndexCss.css" />
     <title>Asaas - Criar conta</title>
-    
-
   </head>
   <body>
     <main class="container">
@@ -72,4 +71,5 @@
     <asset:javascript src="index/BuscaCep.js" />
    
   </body>
+
 </html> 
