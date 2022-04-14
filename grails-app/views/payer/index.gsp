@@ -2,10 +2,7 @@
 <html>
 
     <head>
-        
         <asset:stylesheet src="/index/indexPayer.css"/>
-        <meta name="layout" content="menuLayout" />
-        
     </head>
     <body>
     

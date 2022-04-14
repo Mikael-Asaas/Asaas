@@ -64,9 +64,12 @@
 
       
         <button type="submit" id="send" class="btn" >Registrar</button>
+
       
       </form>   
     </main>
 
+    <asset:javascript src="mask.js" />
+    <asset:javascript src="index/BuscaCep.js" /> 
     </body>
 </html>

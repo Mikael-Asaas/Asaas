@@ -41,18 +41,20 @@
                         <span class="title">Messagens</span>
                     </a>
                 </li>
-                <li class="list">
-                    <a href="#">
-                        <span class="icon"><ion-icon name="settings-outline"></ion-icon><span>
-                        <span class="title">Configurações</span>
-                    </a>
-                </li>
-                <li class="list">
-                    <a href="http://localhost:8080/">
-                        <span class="icon-sair"><ion-icon name="exit-outline"></ion-icon><span>
-                        <span class="title">Sair</span>
-                    </a>
-                </li>
+                <div class="down">
+                    <li class="list">
+                        <a href="#">
+                            <span class="icon"><ion-icon name="settings-outline"></ion-icon><span>
+                            <span class="title">Configurações</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a href="http://localhost:8080/">
+                            <span class="icon"><ion-icon name="exit-outline"></ion-icon><span>
+                            <span class="title">Sair</span>
+                        </a>
+                    </li>
+                </div>
             </ul>
         </div>
         <g:layoutBody/>
