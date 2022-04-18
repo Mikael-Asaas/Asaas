@@ -14,4 +14,8 @@ class PayerController {
         payerService.save(params)
         render("Pagador salvo")
     }
+    
+    def list(){
+        return [payerList: payerService.list()]
+    }
 }

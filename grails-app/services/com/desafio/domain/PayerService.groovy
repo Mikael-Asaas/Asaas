@@ -18,4 +18,7 @@ class PayerService {
         payer.save(failOnError: true)
     }
 
+    def list(){
+        return Payer.getAll()
+    }
 }
