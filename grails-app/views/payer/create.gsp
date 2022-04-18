@@ -5,7 +5,7 @@
     <body>
     <main class="container">
       <h2 class="h2">Novo Pagador</h2>
-      <form autocomplete="off" id="formid" class="form"> 
+      <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }">
         <div class="input-field">
           <input type="text" name="nome" id="nome" placeholder="Nome" required/>
           <div class="linha"></div>
@@ -59,7 +59,6 @@
         <button type="submit" id="send" class="btn" >Adicionar Pagador</button>
       </form>   
     </main>
-    <asset:javascript src="mask.js" />
     <asset:javascript src="index/BuscaCep.js" /> 
     </body>
 </html>

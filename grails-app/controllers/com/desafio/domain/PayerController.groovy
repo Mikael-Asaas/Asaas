@@ -12,6 +12,6 @@ class PayerController {
 
     def save(){
         payerService.save(params)
-        render("ok")
+        render("Pagador salvo")
     }
 }
