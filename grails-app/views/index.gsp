@@ -1,78 +1,80 @@
-<!doctype html>
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+<<<<<<< Updated upstream
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
-</head>
-<body>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+=======
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+>>>>>>> Stashed changes
+    <asset:stylesheet src="index/IndexCss.css" />
+    <title>Asaas - Criar conta</title>
+    
 
-<content tag="nav">
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-            <li class="dropdown-item"><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-            <li class="dropdown-item"><a href="#">App version:
-                <g:meta name="info.app.version"/></a>
-            </li>
-            <li role="separator" class="dropdown-divider"></li>
-            <li class="dropdown-item"><a href="#">Grails version:
-                <g:meta name="info.app.grailsVersion"/></a>
-            </li>
-            <li class="dropdown-item"><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-            <li class="dropdown-item"><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-            <li role="separator" class="dropdown-divider"></li>
-            <li class="dropdown-item"><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li class="dropdown-item"><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-            <li class="dropdown-item"><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-            <li class="dropdown-item"><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-            <li class="dropdown-item"><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
-        </ul>
-    </li>
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                <li class="dropdown-item"><a href="#">${plugin.name} - ${plugin.version}</a></li>
-            </g:each>
-        </ul>
-    </li>
-</content>
-
-<div class="svg" role="presentation">
-    <div class="grails-logo-container">
-        <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
-    </div>
-</div>
-
-<div id="content" role="main">
-    <section class="row colset-2-its">
-        <h1>Welcome to Grails</h1>
-
-        <p>
-            Congratulations, you have successfully started your first Grails application! At the moment
-            this is the default page, feel free to modify it to either redirect to a controller or display
-            whatever content you may choose. Below is a list of controllers that are currently deployed in
-            this application, click on each to execute its default action:
-        </p>
-
-        <div id="controllers" role="navigation">
-            <h2>Available Controllers:</h2>
-            <ul>
-                <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                    <li class="controller">
-                        <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                    </li>
-                </g:each>
-            </ul>
+  </head>
+  <body>
+    <main class="container">
+      <h2 class="h2">Registro</h2>
+      <form autocomplete="off" id="formid" class="form"> 
+        <div class="input-field">
+          <input type="text" name="nome" id="nome" placeholder="Nome" required/>
+          <div class="linha"></div>
         </div>
-    </section>
-</div>
 
-</body>
-</html>
+        <div class="input-field">
+          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="email" name="email" id="email" placeholder="Email" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="endereco" id="endereco"  placeholder="Endereço" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="numero" id="numero" placeholder="Nº" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="bairro" id="bairro" placeholder="Bairro" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="localidade" id="localidade" placeholder="Localidade" required/>
+          <div class="linha"></div>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="uf" id="uf" placeholder="UF" required/>
+          <div class="linha"></div>
+        </div>
+
+      
+        <button type="submit" id="send" class="btn" >Registrar</button>
+      
+      </form>   
+    </main>
+
+    <asset:javascript src="mask.js" />
+    <asset:javascript src="index/IndexController.js" />
+    <asset:javascript src="index/BuscaCep.js" />
+   
+  </body>
+</html> 
