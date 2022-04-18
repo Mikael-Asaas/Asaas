@@ -6,6 +6,12 @@ import com.desafio.domain.payer.Payer
 
 class PayerController {
 
-    def create() {}
+    def payerService
 
+    def create(){}
+
+    def save(){
+        payerService.save(params)
+        render("ok")
+    }
 }
