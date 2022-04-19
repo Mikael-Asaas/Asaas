@@ -4,7 +4,7 @@ node_modules
 bin
 Thumbs.db
 .DS_Store
-.gradle
+.gradle/
 build/
 out/
 .idea
