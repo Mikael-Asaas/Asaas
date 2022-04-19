@@ -18,4 +18,9 @@ class PayerController {
     def list(){
         return [payerList: payerService.list()]
     }
+
+    def show(){
+        println(params)
+        return [payer: payerService.getPayer(params.int("id"))]
+    }
 }
