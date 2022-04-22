@@ -1,10 +1,7 @@
-/.vscode
-*/target
-node_modules
-bin
 Thumbs.db
 .DS_Store
 .gradle
+bin/
 build/
 out/
 .idea
