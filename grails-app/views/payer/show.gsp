@@ -1,59 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <style>
-        .hide {
-          display:none;
-        }
-      </style>
+     <asset:javascript src="application.js" />
     </head>
     <body>
-      <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }" readonly >
-        <div class="input-field">
-          <input type="text" name="nome" id="nome" placeholder="Nome" required value="${payer.nome}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required value="${payer.cpf}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="email" name="email" id="email" placeholder="Email" required value="${payer.email}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15" required value="${payer.telefone}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required value="${payer.cep}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="endereco" id="endereco"  placeholder="Endereço" required value="${payer.endereco}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="numero" id="numero" placeholder="Nº" required value="${payer.numero}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="bairro" id="bairro" placeholder="Bairro" required value="${payer.bairro}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="cidade" id="cidade" placeholder="Localidade" required value="${payer.cidade}" readonly/>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="estado" id="estado" placeholder="UF" required value="${payer.estado}" readonly/>
-        </div>
-
+      <form action="${g.createLink(controller: 'payer', action: 'save')}" readonly>
+        <input type="hidden" class="js-payer-id" name="id" value="1">
+        <input type="text" name="nome" placeholder="Nome" value="${payer.nome}" readonly>
+        <input type="text" name="cpf" placeholder="CPF/CNPJ" value="${payer.cpf}" readonly>
+        <input type="text" name="email" placeholder="Email" value="${payer.email}" readonly>
+        <input type="text" name="telefone" placeholder="Telefone" value="${payer.telefone}" readonly> 
+        <input type="text" name="cep" placeholder="CEP" value="${payer.cep}" readonly>
+        <input type="text" name="endereco" placeholder="Endereço" value="${payer.endereco}" readonly>
+        <input type="text" name="numero" placeholder="Nº" value="${payer.numero}" readonly>
+        <input type="text" name="bairro" placeholder="Bairro" value="${payer.bairro}" readonly >
+        <input type="text" name="cidade" placeholder="Localidade" value="${payer.cidade}" readonly>
+        <input type="text" name="estado" placeholder="UF" value="${payer.estado}" readonly>
         <button class="js-edit">Editar</button>
-        <button type="submit" class="hide">Salvar</button>
+        <button type="submit" class="js-send-button hide">Salvar</button>
       </form>   
-      <script>
-      
-      </script>
+      <asset:stylesheet src="payer/payerHide.css" />
+      <asset:javascript src="payer/payerSave.js" />
+      <asset:javascript src="payer/payerShow.js" />   
     </body>
 </html>
