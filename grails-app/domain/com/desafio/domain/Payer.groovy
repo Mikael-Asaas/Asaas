@@ -9,8 +9,8 @@ class Payer {
     String bairro
     String cidade
     String estado
-    Integer numero
-    Integer cep
+    String numero
+    String cep
     String email 
     String telefone
 
