@@ -3,7 +3,6 @@ import com.desafio.domain.payer.Payer
 
 class PayerService {
     def save(Map params){
-        println(params)
         Payer payer = new Payer()
         payer.name = params.name
         payer.cpf = params.cpf
