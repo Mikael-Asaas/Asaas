@@ -1,64 +1,29 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="layout" content="main"/>
+        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <asset:javascript src="application.js" />
     </head>
     <body>
     <main class="container">
       <h2 class="h2">Novo Pagador</h2>
-      <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }">
-        <div class="input-field">
-          <input type="text" name="nome" id="nome" placeholder="Nome" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="email" name="email" id="email" placeholder="Email" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="endereco" id="endereco"  placeholder="Endereço" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="numero" id="numero" placeholder="Nº" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="bairro" id="bairro" placeholder="Bairro" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="localidade" id="localidade" placeholder="Localidade" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
-          <input type="text" name="uf" id="uf" placeholder="UF" required/>
-          <div class="linha"></div>
-        </div>
-
-        <button type="submit" id="send" class="btn" >Adicionar Pagador</button>
+      <form action="${g.createLink(controller: 'payer', action: 'save')}">
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="text" name="cpf" placeholder="CPF/CNPJ">
+        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="telefone" placeholder="Telefone">
+        <input type="text" name="cep" placeholder="CEP">
+        <input type="text" name="endereco" placeholder="Endereço">
+        <input type="text" name="numero" placeholder="Nº">
+        <input type="text" name="bairro" placeholder="Bairro">
+        <input type="text" name="cidade" placeholder="Localidade">
+        <input type="text" name="estado" placeholder="UF">
+        <button type="submit">Criar</button>
       </form>   
     </main>
-    <asset:javascript src="index/BuscaCep.js" /> 
+    <asset:javascript src="payer/payerSave.js" />
     </body>
-</html>
+</html> 
+
