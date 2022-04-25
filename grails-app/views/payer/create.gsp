@@ -7,7 +7,7 @@
       <h2 class="h2">Novo Pagador</h2>
       <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }">
         <div class="input-field">
-          <input type="text" name="nome" id="nome" placeholder="Nome" required/>
+          <input type="text" name="name" id="name" placeholder="Nome" required/>
           <div class="linha"></div>
         </div>
 
@@ -22,7 +22,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="telefone" id="telefone" placeholder="Telefone" maxlength="15" required/>
+          <input type="text" name="telephone" id="telephone" placeholder="Telefone" maxlength="15" required/>
           <div class="linha"></div>
         </div>
 
@@ -32,27 +32,27 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="endereco" id="endereco"  placeholder="Endereço" required/>
+          <input type="text" name="address" id="address"  placeholder="Endereço" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="numero" id="numero" placeholder="Nº" required/>
+          <input type="text" name="number" id="number" placeholder="Nº" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="bairro" id="bairro" placeholder="Bairro" required/>
+          <input type="text" name="district" id="district" placeholder="Bairro" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="localidade" id="localidade" placeholder="Localidade" required/>
+          <input type="text" name="city" id="city" placeholder="Localidade" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="uf" id="uf" placeholder="UF" required/>
+          <input type="text" name="state" id="state" placeholder="UF" required/>
           <div class="linha"></div>
         </div>
 

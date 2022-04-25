@@ -30,7 +30,7 @@ function cpfCnpj(v) {
   return v;
 }
 
-const inputtell = document.querySelector("#telefone");
+const inputtell = document.querySelector("#telephone");
 inputtell.addEventListener("keypress", () => {
   let inputlenght = inputtell.value.length;
 
