@@ -43,5 +43,3 @@ class CustomerController {
       return [customer: customerService.getCustomer(params.int("id"))]
    }
 }
-
-
