@@ -9,18 +9,11 @@ $(document).ready(function () {
       payer[key] = value;
     });
 
-    var redirect;
+    var url = $("form").prop("action");
 
-    if ($(this).find(".js-payer-id").val()) {
-      redirect = "/payer/update";
-    } else {
-      redirect = "/payer/save";
-    }
-
-    $.post(redirect, payer, function (response) {
-      console.log(response);
+    $.post(url, payer, function (response) {
       if (response.success) {
-        window.location.href = "/payer/index";
+        window.location.href = $("form").data("url-redirect");
         return;
       }
     });
