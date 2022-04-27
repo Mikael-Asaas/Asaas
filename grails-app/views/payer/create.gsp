@@ -9,20 +9,22 @@
     <body>
     <main class="container">
       <h2 class="h2">Novo Pagador</h2>
-      <form action="${g.createLink(controller: 'payer', action: 'save')}">
-        <input type="text" name="nome" placeholder="Nome">
-        <input type="text" name="cpf" placeholder="CPF/CNPJ">
-        <input type="text" name="email" placeholder="Email">
-        <input type="text" name="telefone" placeholder="Telefone">
-        <input type="text" name="cep" placeholder="CEP">
-        <input type="text" name="endereco" placeholder="Endereço">
-        <input type="text" name="numero" placeholder="Nº">
-        <input type="text" name="bairro" placeholder="Bairro">
-        <input type="text" name="cidade" placeholder="Localidade">
-        <input type="text" name="estado" placeholder="UF">
+      <form data-url-redirect="${g.createLink(controller: 'payer', action: 'index')}"
+            action="${g.createLink(controller: 'payer', action: 'save')}">
+        <input type="text" name="name" id="name" placeholder="Nome">
+        <input type="text" name="cpf" id="cpf" placeholder="CPF/CNPJ">
+        <input type="text" name="email" id="email" placeholder="Email">
+        <input type="text" name="telephone" id="telephone" placeholder="Telefone">
+        <input type="text" name="cep" id="cep" placeholder="CEP">
+        <input type="text" name="address" id="address" placeholder="Endereço">
+        <input type="text" name="number" id="number" placeholder="Nº">
+        <input type="text" name="district" id="district" placeholder="Bairro">
+        <input type="text" name="city" id="city" placeholder="Localidade">
+        <input type="text" name="state" id="state" placeholder="UF">
         <button type="submit">Criar</button>
       </form>   
     </main>
+    <asset:javascript src="index/BuscaCep.js" />
     <asset:javascript src="payer/payerSave.js" />
     </body>
 </html> 
