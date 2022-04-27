@@ -12,7 +12,12 @@ class PayerController {
     def create() { }
 
     def index() {
-        return [payerList: Payer.getAll()]
+        return [payerList: Payer.list(max: 3, offset: getCurrentPage()), totalCount: Payer.count()]
+    }
+
+    private Integer getCurrentPage() {
+        if (!params.offset) params.offset = 0
+        return Integer.valueOf(params.offset)
     }
 
     def save() {
