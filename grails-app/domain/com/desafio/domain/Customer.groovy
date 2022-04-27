@@ -1,20 +1,20 @@
-package com.desafio.domain
+package com.desafio.domain.customer
 
 class Customer {
-
-    String nome
+    
+    String name
     String cpf
-    String endereco
-    String bairro
-    String cidade
-    String estado
-    Integer cep
-    String email 
-    String telefone
+    String address
+    String district
+    String city
+    String state
+    String number
+    String cep
+    String email
+    String telephone
 
-
-    static constraints = {
-        nome size: 5..50, blank: false
+  static constraints = {
+        name size: 3..100, nulllable: true
         email size: 5..50, blank: false
     }
 }
