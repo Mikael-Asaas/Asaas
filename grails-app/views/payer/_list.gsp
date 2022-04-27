@@ -10,12 +10,11 @@
                 <th>E-mail</th>
             </tr>
         </thead>
-    </table>
-    <tbody>
+      <tbody>
         <g:each var="payer" in="${ payerList }">
             <div>
                 <tr>
-                    <td>${payer.nome}</td>
+                    <td>${payer.name}</td>
                     <td>${payer.email}</td>                          
                 </tr>
                 <tr>
@@ -25,6 +24,7 @@
                 </tr>
              </div>  
         </g:each>
+    </table>
     </tbody>
 </body>
 
