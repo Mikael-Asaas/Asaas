@@ -24,8 +24,6 @@
         <button type="submit" class="js-send-button hide">Salvar</button>
         <button type="reset"> Cancelar </button>
       </form>
-    
-       <asset:javascript src="customer.js" /> 
-   
-    </body>
+        <asset:javascript src="customer.js" /> 
+      </body>
 </html>
