@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta name="layout" content="main"/>
         <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
         <asset:javascript src="application.js" />
+        <title>Novo Pagador</title>
     </head>
     <body>
     <main class="container">

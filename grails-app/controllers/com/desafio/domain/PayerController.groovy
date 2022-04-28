@@ -12,7 +12,7 @@ class PayerController {
     def create() { }
 
     def index() {
-        return [payerList: Payer.list(max: 3, offset: getCurrentPage()), totalCount: Payer.count()]
+        return [payerList: Payer.list(max: 10, offset: getCurrentPage()), totalCount: Payer.count()]
     }
 
     private Integer getCurrentPage() {

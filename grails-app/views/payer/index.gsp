@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta name="layout" content="main" />
-    <title>Gerenciamento da conta</title>
-</head>
-<body>
-    <div>
-        <g:link controller="payer" action="create" update="divForm">Criar conta</g:link>
-    </div>
-    
-    <a href="/payer">Meus Clientes</a>
+<html>
+    <head>
+        <meta name="layout" content="main"/>
+        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <asset:javascript src="application.js" />
+        <title>Pagadores</title>
+    </head>
+    <body>
+        <div>
+            <g:link controller="payer" action="create" update="divForm">Novo Pagador</g:link>
+        </div>
+        
+        <a href="/payer">Meus Clientes</a>
 
-    <div id="divLista">
-        <g:render template="list" model="[payerList: payerList]"></g:render>
-    </div>
-    <div id="divForm"></div>
+        <div id="divLista">
+            <g:render template="list" model="[payerList: payerList]"></g:render>
+        </div>
+        <div id="divForm"></div>
 
-    <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="3" />
+        <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10 />
 
-</body>
+    </body>
 </html>

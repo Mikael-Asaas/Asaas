@@ -1,4 +1,4 @@
-const ClearForm = (address) => {
+const ClearForm = () => {
   document.getElementById("address").value = "";
   document.getElementById("district").value = "";
   document.getElementById("city").value = "";

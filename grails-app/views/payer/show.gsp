@@ -1,9 +1,14 @@
-<!DOCTYPE html>
 <html>
     <head>
-     <asset:javascript src="application.js" />
+        <meta name="layout" content="main"/>
+        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <asset:javascript src="application.js" />
+        <title>Editar Pagador</title>
     </head>
     <body>
+    <main class="container">
+      <h2 class="h2">Editar Pagador</h2>
       <form data-url-redirect="${g.createLink(controller: 'payer', action: 'index')}"
             action="${g.createLink(controller: 'payer', action: 'update')}" readonly>
         <input type="hidden" class="js-payer-id" name="id" value="${payer.id}">
@@ -20,7 +25,7 @@
         <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hide">Salvar</button>
       </form>   
-      <asset:stylesheet src="payer/payerHide.css" />
+    </main>
       <asset:javascript src="index/BuscaCep.js" />
       <asset:javascript src="payer/payerSave.js" />
       <asset:javascript src="payer/payerShow.js" />   

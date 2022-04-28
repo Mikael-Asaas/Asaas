@@ -3,7 +3,7 @@ $(document).ready(function () {
 
   $(".js-edit").on("click", function (e) {
     e.preventDefault();
-    $(this).addClass("hide");
+    $(this).hide();
     $(".js-send-button").removeClass("hide");
 
     listaInput.each(function (index, input) {
