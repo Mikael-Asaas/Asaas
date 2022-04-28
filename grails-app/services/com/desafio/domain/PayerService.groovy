@@ -2,7 +2,7 @@ package com.desafio.domain
 import com.desafio.domain.payer.Payer
 
 class PayerService {
-    def save(Map params){
+    def save(Map params) {
         Payer payer = new Payer()
         payer.name = params.name
         payer.cpf = params.cpf

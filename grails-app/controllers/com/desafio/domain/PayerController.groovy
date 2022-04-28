@@ -8,9 +8,9 @@ class PayerController {
 
     def payerService
 
-    def create(){}
+    def create() { }
 
-    def save(){
+    def save() {
         payerService.save(params)
         render("Pagador salvo")
     }
