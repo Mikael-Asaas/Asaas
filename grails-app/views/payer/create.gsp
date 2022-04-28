@@ -22,10 +22,10 @@
         <input type="text" name="city" id="city" placeholder="Localidade">
         <input type="text" name="state" id="state" placeholder="UF">
         <button type="submit">Criar</button>
+        <button type="reset" onclick="history.go(-1)">Cancelar</button>
       </form>   
     </main>
-    <asset:javascript src="index/BuscaCep.js" />
-    <asset:javascript src="payer/payerSave.js" />
+    <asset:javascript src="payer.js" />
     </body>
 </html> 
 

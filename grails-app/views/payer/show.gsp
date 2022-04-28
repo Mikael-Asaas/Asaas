@@ -24,10 +24,9 @@
         <input type="text" name="state" id="state" placeholder="UF" value="${payer.state}" readonly>
         <button class="js-edit">Editar</button>
         <button type="submit" class="js-send-button hide">Salvar</button>
+        <button type="reset">Cancelar</button>
       </form>   
     </main>
-      <asset:javascript src="index/BuscaCep.js" />
-      <asset:javascript src="payer/payerSave.js" />
-      <asset:javascript src="payer/payerShow.js" />   
+    <asset:javascript src="payer.js" /> 
     </body>
 </html>
