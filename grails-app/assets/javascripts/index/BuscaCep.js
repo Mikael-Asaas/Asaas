@@ -1,4 +1,4 @@
-const ClearForm = (address) => {
+const ClearForm = () => {
   document.getElementById("address").value = "";
   document.getElementById("district").value = "";
   document.getElementById("city").value = "";
@@ -6,11 +6,11 @@ const ClearForm = (address) => {
   document.getElementById("number").value = "";
 };
 
-const preencherForm = (address) => {
-  document.getElementById("address").value = address.logradouro;
-  document.getElementById("district").value = address.bairro;
-  document.getElementById("city").value = address.localidade;
-  document.getElementById("state").value = address.uf;
+const preencherForm = (location) => {
+  document.getElementById("address").value =location.logradouro;
+  document.getElementById("district").value = location.bairro;
+  document.getElementById("city").value = location.localidade;
+  document.getElementById("state").value = location.uf;
 };
 
 const cepValido = function (cep) {

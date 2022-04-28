@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-
-<html lang="pt-br">
-    <head>
-    <meta name="layout" content="main" />
-    <title>Gerenciamento da conta</title>
+<html>
+<head>
+    <meta name="layout" content="main"/>
+    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
+    <title><g:message code="default.create.label" args="[entityName]" /></title>
+    <asset:javascript src="application.js" />
+    <title>Clientes</title>
 </head>
     <body>
   

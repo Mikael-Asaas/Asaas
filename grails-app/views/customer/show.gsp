@@ -1,10 +1,13 @@
-<!DOCTYPE html>
 <html>
-  <head>
-      <asset:javascript src="application.js" />
-  </head>
+ <head>
+    <meta name="layout" content="main"/>
+    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
+    <title><g:message code="default.create.label" args="[entityName]" /></title>
+     <asset:javascript src="application.js" />
+    <title>Clientes</title>
+</head>
     <body>
-      <form data-url-redirect="${g.createLink(controller: 'customer', action 'index')}"
+      <form data-url-redirect="${g.createLink(controller: 'customer', action: 'index')}" 
             action="${g.createLink(controller: 'customer', action: 'update')}" readonly>        
         <input type="hidden" class="js-customer-id" name="id" value="${customer.id}">
         <input type="text" name="name" placeholder="Nome" value="${customer.name}" readonly>
@@ -18,12 +21,11 @@
         <input type="text" name="city" placeholder="Localidade" value="${customer.city}" readonly>
         <input type="text" name="state" placeholder="UF" value="${customer.state}" readonly>
         <button class="js-edit">Editar</button>
-        <button type="submit" class="js-send-button hide">Salvar</button>
+        <button class="js-cancel" onclick="Cancel('cancel')"> Cancelar</button>
       </form>
-
-       <asset:stylesheet src="customer/customerHide.css" />
+    
        <asset:javascript src="customer/customerSave.js" />
-       <asset:javascript src="customer/customerShow.js" />   
+        <asset:javascript src="customer/customerShow.js" />   
    
     </body>
 </html>

@@ -12,10 +12,8 @@ $(document).ready(function () {
       var url = $('form').prop('action')
     
       $.post(url, customer, function(response) {
-          console.log(response);
          if (response.success) {
          window.location.href = $('form').data('url-redirect');
-          return;
         }
       });
     });
