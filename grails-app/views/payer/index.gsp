@@ -18,7 +18,7 @@
         </div>
         <div id="divForm"></div>
 
-        <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10 />
+        <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" />
 
     </body>
 </html>
