@@ -63,8 +63,8 @@
       
       </form>   
     </main>
-    <asset:javascript src="mask.js" />
     <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="index/BuscaCep.js" />
+    <asset:javascript src="index/indexCep.js" />
+    <asset:javascript src="utils/BuscaCep.js" />
   </body>
 </html> 
