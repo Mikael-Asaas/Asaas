@@ -7,8 +7,10 @@ const cepVerify = function (cep) {
 };
 
 const pesquisarCep = async (cep, callbackfunction,) => {
-  let url = `https://viacep.com.br/ws/${cep}/json/`;
-  let dados = await fetch(url);
-  let address = await dados.json();
-  callbackfunction(address);
+  if(cepVerify(cep).length == 8){
+    let url = `https://viacep.com.br/ws/${cep}/json/`;
+    let dados = await fetch(url);
+    let address = await dados.json();
+    callbackfunction(address);
+  };
 };
