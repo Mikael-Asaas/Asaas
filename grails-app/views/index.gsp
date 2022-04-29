@@ -3,6 +3,7 @@
   <head>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="index/IndexCss.css" />
+    <asset:javascript src="application.js" />
     <title>Asaas - Criar conta</title>
   </head>
   <body>
@@ -15,7 +16,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
+          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" required />
           <div class="linha"></div>
         </div>
 
@@ -25,7 +26,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="telephone" id="telephone" placeholder="Telefone" maxlength="15" required/>
+          <input type="text" name="telephone" id="telephone" placeholder="Telefone" maxlength="16" required/>
           <div class="linha"></div>
         </div>
 
@@ -63,6 +64,8 @@
       
       </form>   
     </main>
+    <asset:javascript src="mask.lib.js" />
+    <asset:javascript src ="mask.form.js" />
     <asset:javascript src="index/IndexController.js" />
     <asset:javascript src="index/indexCep.js" />
     <asset:javascript src="utils/BuscaCep.js" />
