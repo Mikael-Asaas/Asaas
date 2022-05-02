@@ -8,7 +8,6 @@ import grails.converters.JSON
 class CustomerController {
 
    def customerService
-  
    
    def create () {}
 
