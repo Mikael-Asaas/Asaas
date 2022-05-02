@@ -9,7 +9,6 @@ class CustomerController {
 
    def customerService
   
-   
    def create () {}
 
    def index () {

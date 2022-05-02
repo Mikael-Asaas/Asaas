@@ -13,7 +13,6 @@
                 <th>E-mail</th>
             </tr>
         </thead>
-    </table>
     <tbody>
         <g:each var="customer" in ="${ customerList }">
           <tr>
@@ -26,5 +25,6 @@
                 </td>
              </tr> 
         </g:each>
+    </table>
     </tbody>
 </body>

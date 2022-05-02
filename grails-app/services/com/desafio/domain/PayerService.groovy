@@ -33,5 +33,4 @@ class PayerService {
             throw new Exception('Erro ao realizar edição')
         }
     }
-
 }

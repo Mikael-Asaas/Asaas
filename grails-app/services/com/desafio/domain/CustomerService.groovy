@@ -1,3 +1,5 @@
+package com.desafio.domain
+
 import com.desafio.domain.customer.Customer
 import grails.gorm.transactions.Transactional
 
@@ -8,17 +10,13 @@ class CustomerService {
         Customer customer = new Customer(params)
         customer.save(failOnError: true)
     }
-    
-    def list () {
-        return Customer.getAll ()
-    }
    
     def getCustomer(Integer id){
         return Customer.get(id) 
-        }
+    }
   
     def update (Map params) {
-        if (params.id){
+        if (params.id) {
             Customer customer = Customer.get(params.int("id"))
             customer.name = params.name
             customer.cpf= params.cpf
@@ -32,7 +30,7 @@ class CustomerService {
             customer.telephone = params.telephone
             customer.save(flush: true, failOnError: true)
         }else {
-        throw new Exception( "Erro ao editar!")
+            throw new Exception('Erro ao realizar edição')
     }
   }
 }
