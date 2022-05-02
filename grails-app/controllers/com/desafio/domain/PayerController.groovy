@@ -41,5 +41,4 @@ class PayerController {
     def show() {
         return [payer: payerService.getPayer(params.int('id'))]
     }
-
 }

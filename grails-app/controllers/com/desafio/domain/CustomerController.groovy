@@ -26,7 +26,7 @@ class CustomerController {
             customerService.save(params)
             render([success: true] as JSON)
       } catch(Exception e) {
-            render([success: false, message: "Erro ao tentar salvar"] as JSON)
+            render([success: false, message: message(code: 'unknow.error')] as JSON)
       } 
    }
   
@@ -35,7 +35,7 @@ class CustomerController {
             customerService.update(params)
             render([success: true] as JSON)
       } catch(Exception e) {
-            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+            render([success: false, message: message(code: 'unknow.error')] as JSON)
       } 
    }
   
