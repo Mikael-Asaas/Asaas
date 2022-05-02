@@ -1,4 +1,5 @@
 package com.desafio.domain.payer
+import com.desafio.domain.customer.Customer
 
 class Payer {
 
@@ -12,6 +13,7 @@ class Payer {
     String cep
     String email
     String telephone
+    Customer customer
 
     static constraints = {
         name size: 3..100, nulllable: true

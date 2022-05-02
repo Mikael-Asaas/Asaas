@@ -3,16 +3,19 @@ package com.desafio.domain
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 import com.desafio.domain.payer.Payer
+import com.desafio.domain.customer.Customer
 import grails.converters.JSON
 
 class PayerController {
 
     def payerService
 
-    def create() { }
+    def create() {
+        return [customerId: params.int("id")]
+     }
 
     def index() {
-        return [payerList: Payer.list(max: 10, offset: getCurrentPage()), totalCount: Payer.count()]
+        return [payerList: Payer.list(max: 10, offset: getCurrentPage()), totalCount: Payer.count(), customerId: params.int("id")]
     }
 
     private Integer getCurrentPage() {
