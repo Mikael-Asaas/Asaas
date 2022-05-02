@@ -2,98 +2,44 @@ package com.desafio.domain
 
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+import com.desafio.domain.customer.Customer
+import grails.converters.JSON
 
 class CustomerController {
 
-    CustomerService customerService
+   def customerService
+  
+   
+   def create () {}
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond customerService.list(params), model:[customerCount: customerService.count()]
+   def index () {
+     return [customerList: Customer.list(max: 10, offset: getCurrentPage()), totalCount: Customer.count()]
+   }
+   
+   private Integer getCurrentPage() {
+      if(!params.offset) params.offset = 0
+      return Integer.valueOf(params.offset)
     }
-
-    def show(Long id) {
-        respond customerService.get(id)
-    }
-
-    def create() {
-        respond new Customer(params)
-    }
-
-    def save(Customer customer) {
-        if (customer == null) {
-            notFound()
-            return
-        }
-
-        try {
-            customerService.save(customer)
-        } catch (ValidationException e) {
-            respond customer.errors, view:'create'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*' { respond customer, [status: CREATED] }
-        }
-    }
-
-    def edit(Long id) {
-        respond customerService.get(id)
-    }
-
-    def update(Customer customer) {
-        if (customer == null) {
-            notFound()
-            return
-        }
-
-        try {
-            customerService.save(customer)
-        } catch (ValidationException e) {
-            respond customer.errors, view:'edit'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*'{ respond customer, [status: OK] }
-        }
-    }
-
-    def delete(Long id) {
-        if (id == null) {
-            notFound()
-            return
-        }
-
-        customerService.delete(id)
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+  
+   def save () {
+      try {
+            customerService.save(params)
+            render([success: true] as JSON)
+      } catch(Exception e) {
+            render([success: false, message: "Erro ao tentar salvar"] as JSON)
+      } 
+   }
+  
+   def update (){
+      try {
+            customerService.update(params)
+            render([success: true] as JSON)
+      } catch(Exception e) {
+            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+      } 
+   }
+  
+   def show (){
+      return [customer: customerService.getCustomer(params.int("id"))]
+   }
 }
