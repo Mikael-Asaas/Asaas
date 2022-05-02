@@ -11,10 +11,6 @@ class CustomerService {
         customer.save(failOnError: true)
     }
     
-    def list () {
-        return Customer.getAll ()
-    }
-   
     def getCustomer(Integer id){
         return Customer.get(id) 
         }

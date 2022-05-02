@@ -14,7 +14,6 @@
                 <th>E-mail</th>
             </tr>
         </thead>
-    </table>
     <tbody>
         <g:each var="customer" in ="${ customerList }">
           <tr>
@@ -26,6 +25,7 @@
                       <a href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}">Editar Cliente</a>
                 </td>
              </tr> 
-        </g:each>
+        </g:each> 
+        </table>
     </tbody>
-</body>
+</body>  
