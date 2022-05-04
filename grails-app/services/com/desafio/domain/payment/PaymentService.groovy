@@ -11,4 +11,8 @@ class PaymentService {
         payment.save(failOnError: true)
     }
 
+    def getPayment(Integer id) {
+        return Payment.get(id)
+    }
+
 }
