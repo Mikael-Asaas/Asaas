@@ -10,7 +10,7 @@ class PayerService {
         payer.district = params.district
         payer.city = params.city
         payer.state = params.state
-        payer.number = params.int("number")
+        payer.addressNumber = params.int("addressNumber")
         payer.cep = params.int("cep")
         payer.email = params.email
         payer.phone = params.phone

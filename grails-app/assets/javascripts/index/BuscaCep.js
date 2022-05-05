@@ -3,7 +3,7 @@ const ClearForm = () => {
   document.getElementById("district").value = "";
   document.getElementById("city").value = "";
   document.getElementById("state").value = "";
-  document.getElementById("number").value = "";
+  document.getElementById("addressNumber").value = "";
 };
 
 const preencherForm = (address) => {

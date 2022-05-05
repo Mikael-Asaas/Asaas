@@ -40,7 +40,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="number" id="number" placeholder="Nº" required/>
+          <input type="text" name="addressNumber" id="addressNumber" placeholder="Nº" required/>
           <div class="linha"></div>
         </div>
 

@@ -16,7 +16,7 @@
         <input type="text" name="phone" id="phone" placeholder="Telefone">
         <input type="text" name="cep" id="cep" placeholder="CEP">
         <input type="text" name="address" id="address" placeholder="Endereço">
-        <input type="text" name="number" id="number" placeholder="Nº">
+        <input type="text" name="addressNumber" id="addressNumber" placeholder="Nº">
         <input type="text" name="district" id="district" placeholder="Bairro">
         <input type="text" name="city" id="city" placeholder="Localidade">
         <input type="text" name="state" id="state" placeholder="UF">
