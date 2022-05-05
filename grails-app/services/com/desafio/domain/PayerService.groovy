@@ -6,18 +6,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class PayerService {
     def save(Map params) {
-        Payer payer = new Payer()
-        payer.name = params.name
-        payer.cpfCnpj = params.cpfCnpj
-        payer.address = params.address
-        payer.province = params.province
-        payer.city = params.city
-        payer.state = params.state
-        payer.addressNumber = params.int("addressNumber")
-        payer.postalCode = params.int("postalCode")
-        payer.email = params.email
-        payer.phone = params.phone
+        Payer payer = new Payer(params)
         payer.save(failOnError: true)
     }
-
 }
