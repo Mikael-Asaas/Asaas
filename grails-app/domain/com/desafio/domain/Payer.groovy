@@ -1,6 +1,5 @@
 package com.desafio.domain.payer
 
-
 class Payer {
 
     String name
