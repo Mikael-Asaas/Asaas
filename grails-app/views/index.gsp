@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
+          <input type="text" name="cpfCnpj" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
           <div class="linha"></div>
         </div>
 

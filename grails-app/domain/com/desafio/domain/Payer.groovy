@@ -3,7 +3,7 @@ package com.desafio.domain.payer
 class Payer {
 
     String name
-    String cpf
+    String cpfCnpj
     String address
     String district
     String city

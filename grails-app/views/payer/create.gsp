@@ -11,7 +11,7 @@
       <h2 class="h2">Novo Pagador</h2>
       <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }">
         <input type="text" name="name" id="name" placeholder="Nome">
-        <input type="text" name="cpf" id="cpf" placeholder="CPF/CNPJ">
+        <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ">
         <input type="text" name="email" id="email" placeholder="Email">
         <input type="text" name="phone" id="phone" placeholder="Telefone">
         <input type="text" name="cep" id="cep" placeholder="CEP">

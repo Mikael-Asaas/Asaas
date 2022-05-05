@@ -5,7 +5,7 @@ class PayerService {
     def save(Map params) {
         Payer payer = new Payer()
         payer.name = params.name
-        payer.cpf = params.cpf
+        payer.cpfCnpj = params.cpfCnpj
         payer.address = params.address
         payer.district = params.district
         payer.city = params.city
