@@ -30,7 +30,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required/>
+          <input type="text" name="postalCode" id="postalCode" placeholder="CEP" maxlength="9" required/>
           <div class="linha"></div>
         </div>
 

@@ -13,26 +13,26 @@ const preencherForm = (address) => {
   document.getElementById("state").value = address.uf;
 };
 
-const cepValido = function (cep) {
-  return cepPattern = /^[0-9]{8}$/.test(cep);
+const postalCodeValido = function (postalCode) {
+  return postalCodePattern = /^[0-9]{8}$/.test(postalCode);
   
 };
 
-const pesquisarCep = async () => {
+const pesquisarpostalCode = async () => {
   ClearForm();
-  let cep = document.getElementById("cep").value.replace("-", "");
-  let url = `https://viacep.com.br/ws/${cep}/json/`;
-  if (cepValido(cep)) {
+  let postalCode = document.getElementById("postalCode").value.replace("-", "");
+  let url = `https://viacep.com.br/ws/${postalCode}/json/`;
+  if (postalCodeValido(postalCode)) {
     let dados = await fetch(url);
     let address = await dados.json();
     if (address.hasOwnProperty("erro")) {
-      document.getElementById("address").value = "CEP não encontrado";
+      document.getElementById("address").value = "postalCode não encontrado";
     } else {
       preencherForm(address);
     }
   } else {
-    document.getElementById("address").value = "CEP incorreto!";
+    document.getElementById("address").value = "postalCode incorreto!";
   }
 };
 
-document.getElementById("cep").addEventListener("focusout", pesquisarCep);
+document.getElementById("postalCode").addEventListener("focusout", pesquisarpostalCode);

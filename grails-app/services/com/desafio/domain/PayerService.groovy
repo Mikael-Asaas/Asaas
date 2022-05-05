@@ -11,7 +11,7 @@ class PayerService {
         payer.city = params.city
         payer.state = params.state
         payer.addressNumber = params.int("addressNumber")
-        payer.cep = params.int("cep")
+        payer.postalCode = params.int("postalCode")
         payer.email = params.email
         payer.phone = params.phone
         payer.save(failOnError: true)

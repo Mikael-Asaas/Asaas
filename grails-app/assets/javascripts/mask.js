@@ -45,11 +45,11 @@ phoneReferencie.addEventListener("keypress", () => {
   }
 });
 
-const inputcep = document.querySelector("#cep");
-inputcep.addEventListener("keypress", () => {
-  let inputlenght = inputcep.value.length;
+const inputpostalCode = document.querySelector("#postalCode");
+inputpostalCode.addEventListener("keypress", () => {
+  let inputlenght = inputpostalCode.value.length;
 
   if (inputlenght == 5) {
-    inputcep.value += "-";
+    inputpostalCode.value += "-";
   }
 });

@@ -9,7 +9,7 @@ class Payer {
     String province
     String city
     String state
-    Integer cep
+    Integer postalCode
     String email
     String phone
 
