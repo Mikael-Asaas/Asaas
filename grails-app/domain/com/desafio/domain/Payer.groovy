@@ -5,11 +5,11 @@ class Payer {
     String name
     String cpfCnpj
     String address
-    Integer addressNumber
+    String addressNumber
     String province
     String city
     String state
-    Integer postalCode
+    String postalCode
     String email
     String phone
 
