@@ -3,7 +3,7 @@ package com.desafio.domain
 class Customer {
 
     String nome
-    String cpf
+    String cpfCnpj
     String endereco
     String bairro
     String cidade
