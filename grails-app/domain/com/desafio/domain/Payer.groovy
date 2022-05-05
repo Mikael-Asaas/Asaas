@@ -12,7 +12,7 @@ class Payer {
     Integer number
     Integer cep
     String email
-    String telephone
+    String phone
 
 
     static constraints = {

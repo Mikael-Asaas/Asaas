@@ -25,7 +25,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="telephone" id="telephone" placeholder="Telefone" maxlength="15" required/>
+          <input type="text" name="phone" id="phone" placeholder="Telefone" maxlength="15" required/>
           <div class="linha"></div>
         </div>
 

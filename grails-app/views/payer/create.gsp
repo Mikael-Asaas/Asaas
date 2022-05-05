@@ -13,7 +13,7 @@
         <input type="text" name="name" id="name" placeholder="Nome">
         <input type="text" name="cpf" id="cpf" placeholder="CPF/CNPJ">
         <input type="text" name="email" id="email" placeholder="Email">
-        <input type="text" name="telephone" id="telephone" placeholder="Telefone">
+        <input type="text" name="phone" id="phone" placeholder="Telefone">
         <input type="text" name="cep" id="cep" placeholder="CEP">
         <input type="text" name="address" id="address" placeholder="Endereço">
         <input type="text" name="number" id="number" placeholder="Nº">

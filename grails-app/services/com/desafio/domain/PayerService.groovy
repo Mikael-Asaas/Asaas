@@ -13,7 +13,7 @@ class PayerService {
         payer.number = params.int("number")
         payer.cep = params.int("cep")
         payer.email = params.email
-        payer.telephone = params.telephone
+        payer.phone = params.phone
         payer.save(failOnError: true)
     }
 
