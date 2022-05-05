@@ -9,7 +9,7 @@
     <body>
     <main class="container">
       <h2 class="h2">Novo Pagador</h2>
-      <form autocomplete="off" id="formid" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }">
+      <form autocomplete="off" class="form" action="${ g.createLink(controller: 'payer', action: 'save') }">
         <input type="text" name="name" id="name" placeholder="Nome">
         <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ">
         <input type="text" name="email" id="email" placeholder="Email">
