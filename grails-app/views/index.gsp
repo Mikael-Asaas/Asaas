@@ -45,7 +45,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="district" id="district" placeholder="Bairro" required/>
+          <input type="text" name="province" id="province" placeholder="Bairro" required/>
           <div class="linha"></div>
         </div>
 

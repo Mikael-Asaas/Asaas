@@ -6,7 +6,7 @@ class Payer {
     String cpfCnpj
     String address
     Integer addressNumber
-    String district
+    String province
     String city
     String state
     Integer cep

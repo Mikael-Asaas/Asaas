@@ -7,7 +7,7 @@ class PayerService {
         payer.name = params.name
         payer.cpfCnpj = params.cpfCnpj
         payer.address = params.address
-        payer.district = params.district
+        payer.province = params.province
         payer.city = params.city
         payer.state = params.state
         payer.addressNumber = params.int("addressNumber")

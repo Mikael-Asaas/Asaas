@@ -1,6 +1,6 @@
 const ClearForm = () => {
   document.getElementById("address").value = "";
-  document.getElementById("district").value = "";
+  document.getElementById("province").value = "";
   document.getElementById("city").value = "";
   document.getElementById("state").value = "";
   document.getElementById("addressNumber").value = "";
@@ -8,7 +8,7 @@ const ClearForm = () => {
 
 const preencherForm = (address) => {
   document.getElementById("address").value = address.logradouro;
-  document.getElementById("district").value = address.bairro;
+  document.getElementById("province").value = address.bairro;
   document.getElementById("city").value = address.localidade;
   document.getElementById("state").value = address.uf;
 };
