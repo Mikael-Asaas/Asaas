@@ -30,18 +30,18 @@ function cpfCnpj(v) {
   return v;
 }
 
-const inputTelReference = document.querySelector("#telephone");
-inputTelReference.addEventListener("keypress", () => {
-  let inputlenght = inputTelReference.value.length;
+const phoneReferencie = document.querySelector("#phone");
+phoneReferencie.addEventListener("keypress", () => {
+  let inputlenght = phoneReferencie.value.length;
 
   if (inputlenght == 0) {
-    inputTelReference.value += "(";
+    phoneReferencie.value += "(";
   } else if (inputlenght == 3) {
-    inputTelReference.value += ")";
+    phoneReferencie.value += ")";
   } else if (inputlenght == 5) {
-    inputTelReference.value += " ";
+    phoneReferencie.value += " ";
   } else if (inputlenght == 10) {
-    inputTelReference.value += "-";
+    phoneReferencie.value += "-";
   }
 });
 
