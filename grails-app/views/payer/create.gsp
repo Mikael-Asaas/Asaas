@@ -24,6 +24,6 @@
           </form>   
       </main>
     <asset:javascript src="utils/searchPostalCode.js" />
-    <asset:javascript src="payer/payerPostalCode.js" />
+    <asset:javascript src="utils/fillFormPostalCode.js" />
     </body>
 </html>
