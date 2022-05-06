@@ -18,16 +18,16 @@ class PayerService {
         if (params.id) {
             Payer payer = Payer.get(params.int('id'))
             payer.name = params.name
-            payer.cpf = params.cpf
+            payer.cpfCnpj = params.cpfCnpj
             payer.address = params.address
-            payer.district = params.district
+            payer.province = params.province
             payer.city = params.city
             payer.state = params.state
-            payer.number = params.number
-            payer.cep = params.cep
+            payer.addressNumber = params.addressNumber
+            payer.postalCode = params.postalCode
             payer.email = params.email
-            payer.telephone = params.telephone
-            payer.save(flush: true, failOnError: true)
+            payer.phone = params.phone
+            payer.save(failOnError: true)
        } else {
             throw new Exception('Erro ao realizar edição')
         }
