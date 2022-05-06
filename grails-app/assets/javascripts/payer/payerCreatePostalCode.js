@@ -1,6 +1,6 @@
 
 document.getElementById("postalCode").addEventListener("input", function () {
-  ClearForm();
+  clearForm();
   if (validationPostalCode && verificationPostalCode(this.value)) {
     searchPostalCode(this.value, fillOutForm);
   };
@@ -16,5 +16,5 @@ function clearForm() {
   document.getElementById("province").value = "";
   document.getElementById("city").value = "";
   document.getElementById("state").value = "";
-  document.getElementById("number").value = "";
+  document.getElementById("addressNumber").value = "";
 };

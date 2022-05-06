@@ -23,6 +23,7 @@
             <button type="submit">Criar</button>
           </form>   
       </main>
-    <asset:javascript src="index/BuscaCep.js" /> 
+    <asset:javascript src="utils/searchPostalCode.js" />
+    <asset:javascript src="payer/payerCreatePostalCode.js" />
     </body>
 </html>
