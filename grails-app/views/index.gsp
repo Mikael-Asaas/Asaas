@@ -63,11 +63,8 @@
       
       </form>   
     </main>
-
     <asset:javascript src="mask.js" />
     <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="index/serchPostalCode.js" />
-   
+    <asset:javascript src="index/serchPostalCode.js" /> 
   </body>
-
 </html> 
