@@ -15,7 +15,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="cpf" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
+          <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
           <div class="linha"></div>
         </div>
 
@@ -25,27 +25,27 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="telephone" id="telephone" placeholder="Telefone" maxlength="15" required/>
+          <input type="text" name="phone" id="phone" placeholder="Telefone" maxlength="15" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="cep" id="cep" placeholder="CEP" maxlength="9" required/>
+          <input type="text" name="postalCode" id="postalCode" placeholder="CEP" maxlength="9" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="address" id="address"  placeholder="Endereço" required/>
+          <input type="text" name="address" id="address" placeholder="Endereço" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="number" id="number" placeholder="Nº" required/>
+          <input type="text" name="addressNumber" id="addressNumber" placeholder="Nº" required/>
           <div class="linha"></div>
         </div>
 
         <div class="input-field">
-          <input type="text" name="district" id="district" placeholder="Bairro" required/>
+          <input type="text" name="province" id="province" placeholder="Bairro" required/>
           <div class="linha"></div>
         </div>
 
@@ -66,7 +66,7 @@
 
     <asset:javascript src="mask.js" />
     <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="index/BuscaCep.js" />
+    <asset:javascript src="index/serchPostalCode.js" />
    
   </body>
 

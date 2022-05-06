@@ -19,16 +19,16 @@ class CustomerService {
         if (params.id){
             Customer customer = Customer.get(params.int("id"))
             customer.name = params.name
-            customer.cpf= params.cpf
+            customer.cpfCnpj= params.cpfCnpj
             customer.address = params.address
-            customer.district = params.district
+            customer.addressNumber = params.addressNumber
+            customer.province = params.province
             customer.city = params.city
             customer.state = params.state
-            customer.number = params.number
-            customer.cep = params.cep
+            customer.postalCode = params.postalCode
             customer.email = params.email
-            customer.telephone = params.telephone
-            customer.save(flush: true, failOnError: true)
+            customer.phone = params.phone
+            customer.save(true, failOnError: true)
         }else {
         throw new Exception( "Erro ao editar!")
     }

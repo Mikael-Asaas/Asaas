@@ -1,3 +1,3 @@
-//= require utils/BuscaCep
+//= require utils/serchPostalCode
 //= require customer/customerSave
 //= require customer/customerShowEdit

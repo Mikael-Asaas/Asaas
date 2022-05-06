@@ -3,15 +3,15 @@ package com.desafio.domain.customer
 class Customer {
     
     String name
-    String cpf
+    String cpfCnpj
     String address
-    String district
+    String province    
+    String addressNumber
     String city
     String state
-    String number
-    String cep
+    String postalCode
     String email
-    String telephone
+    String phone
 
   static constraints = {
         name size: 3..100, nulllable: true

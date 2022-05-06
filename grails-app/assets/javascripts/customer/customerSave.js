@@ -18,25 +18,25 @@ $(document).ready(function () {
       });
     });
 
-    document.getElementById("cep").addEventListener("input", function() {
-      ClearForm();
-      if (cepValido(this.value)) {
-        pesquisarCep(this.value, preencherForm)
+    document.getElementById("postalCode").addEventListener("input", function() {
+      clearForm();
+      if (validationPostalCode(this.value)) {
+         searchPostalCode(this.value, fillOutForm)
       }
     });
 
-    function preencherForm(location) {
+    function fillOutForm(location) {
       document.getElementById("address").value = location.logradouro;
-      document.getElementById("district").value = location.bairro;
+      document.getElementById("province").value = location.bairro;
       document.getElementById("city").value = location.localidade;
       document.getElementById("state").value = location.uf;
     };
     
-    function ClearForm() {
+    function clearForm() {
       document.getElementById("address").value = "";
-      document.getElementById("district").value = "";
+      document.getElementById("province").value = "";
       document.getElementById("city").value = "";
       document.getElementById("state").value = "";
-      document.getElementById("number").value = "";
+      document.getElementById("addressNumber").value = "";
     };
   });
