@@ -5,7 +5,7 @@ import grails.gorm.transactions.Transactional
 
 @Transactional
 class PayerService {
-    def save(Map params) {
+    public Payer save(Map params) {
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
     }
