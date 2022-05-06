@@ -22,7 +22,7 @@ class PayerController {
         try {
             payerService.save(params)
             render([success: true] as JSON)
-        } catch (Exception e) {
+        } catch (Exception exception) {
             render([success: false, message: message(code: 'unknow.error')] as JSON)
         }
     }
@@ -31,7 +31,7 @@ class PayerController {
         try {
             payerService.update(params)
             render([success: true] as JSON)
-        } catch (Exception e) {
+        } catch (Exception exception) {
             render([success: false, message: message(code:'unknow.error')] as JSON)
         }
     }
