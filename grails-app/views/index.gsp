@@ -16,7 +16,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="cpfCnpj" id="cpfcnpj" placeholder="CPF/CNPJ" onkeypress='Mask(this,cpfCnpj)' onblur='clearTimeout()' required />
+          <input type="text" name="cpfCnpj" id="cpfcnpj" placeholder="CPF/CNPJ" required />
           <div class="linha"></div>
         </div>
 
@@ -51,23 +51,15 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="city" id="city" placeholder="Localidade" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
           <input type="text" name="state" id="state" placeholder="UF" required/>
           <div class="linha"></div>
         </div>
 
         <button type="submit" id="send" class="btn" >Registrar</button>
-      
       </form>   
     </main>
-    <asset:javascript src="mask.lib.js" />
-    <asset:javascript src ="mask.form.js" />
     <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="index/indexCep.js" />
-    <asset:javascript src="utils/BuscaCep.js" />
+    <asset:javascript src="utils/searchPostalCode.js" />
+    <asset:javascript src="utils/fillFormPostalCode.js" />
   </body>
 </html> 
