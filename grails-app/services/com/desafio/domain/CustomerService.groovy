@@ -14,9 +14,9 @@ class CustomerService {
     def getCustomer(Integer id){
         return Customer.get(id) 
         }
-  
-    def update (Map params) {
-        if (params.id){
+
+    def update (Map params, Long id) {
+        if (params.id){ 
             Customer customer = Customer.get(params.int("id"))
             customer.name = params.name
             customer.cpfCnpj= params.cpfCnpj
@@ -28,7 +28,7 @@ class CustomerService {
             customer.postalCode = params.postalCode
             customer.email = params.email
             customer.phone = params.phone
-            customer.save(true, failOnError: true)
+            customer.save(failOnError: true)
         }else {
         throw new Exception( "Erro ao editar!")
     }

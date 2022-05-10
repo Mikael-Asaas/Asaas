@@ -59,7 +59,7 @@
           <div class="linha"></div>
         </div>
 
-        <button type="submit" id="send" class="btn" >Registrar</button>
+        <button type="submit" id="send" class="btn">Registrar</button>
       
       </form>   
     </main>

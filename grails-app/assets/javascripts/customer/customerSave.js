@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("form").on("submit", function(e) {
+    $("form").on("submit", function(event) {
       e.preventDefault();
   
       var data = new FormData(document.querySelector("form"));
@@ -11,7 +11,7 @@ $(document).ready(function () {
   
       var url = $('form').prop('action')
     
-      $.post(url, customer, function(response) {
+      $.post(url, params, function(response) {
          if (response.success) {
          window.location.href = $('form').data('url-redirect');
         }

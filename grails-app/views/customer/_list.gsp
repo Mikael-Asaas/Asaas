@@ -26,6 +26,6 @@
                 </td>
              </tr> 
         </g:each> 
-        </table>
-    </tbody>
+           </tbody>
+    </table> 
 </body>  
