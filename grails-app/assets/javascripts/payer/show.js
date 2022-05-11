@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var listaInput = $("input");
+  let listaInput = $("input");
 
   $(".js-edit").on("click", function (e) {
     e.preventDefault();
