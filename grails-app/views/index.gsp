@@ -16,7 +16,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ" required />
+          <input type="text" name="cpfCnpj" id="cpfcnpj" placeholder="CPF/CNPJ" required/>
           <div class="linha"></div>
         </div>
 
