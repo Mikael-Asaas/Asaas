@@ -6,18 +6,23 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CustomerService {
 
-    def save (Map params) {   
+    public Customer save (Map params) { 
+         
         Customer customer = new Customer(params)
         customer.save(failOnError: true)
+        return customer
     }
-    
-    def getCustomer(Integer id){
+
+    public Customer getCustomer(Long id){
         return Customer.get(id) 
         }
 
-    def update (Map params, Long id) {
-        if (params.id){ 
-            Customer customer = Customer.get(params.int("id"))
+    public Customer update (Long id, Map params) {
+        if (!id){ 
+        throw new Exception( "Erro ao editar!")
+        return
+        }
+            Customer customer = Customer.get(params.long("id"))
             customer.name = params.name
             customer.cpfCnpj= params.cpfCnpj
             customer.address = params.address
@@ -29,8 +34,5 @@ class CustomerService {
             customer.email = params.email
             customer.phone = params.phone
             customer.save(failOnError: true)
-        }else {
-        throw new Exception( "Erro ao editar!")
     }
-  }
 }

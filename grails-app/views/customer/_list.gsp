@@ -15,17 +15,17 @@
             </tr>
         </thead>
     <tbody>
-        <g:each var="customer" in ="${ customerList }">
-          <tr>
-              <td>${customer.name}</td>
-              <td>${customer.email}</td>                          
-         </tr>
-             <tr>
-                 <td>
-                      <a href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}">Editar Cliente</a>
-                </td>
-             </tr> 
-        </g:each> 
-           </tbody>
+         <g:each var="customer" in="${ customerList }">
+            <tr>
+                <td>${customer.name}</td>
+                <td>${customer.email}</td>                          
+            </tr>
+                <tr>
+                    <td>
+                        <a href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}">Editar Cliente</a>
+                    </td>
+                </tr> 
+         </g:each> 
+    </tbody>
     </table> 
 </body>  
