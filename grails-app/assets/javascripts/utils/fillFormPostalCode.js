@@ -1,11 +1,11 @@
 
-document.getElementById("postalCode").addEventListener("input", function () {
+document.getElementById("postalCode").addEventListener("input", function() {
   clearForm();
-  if (validationPostalCode && verificationPostalCode(this.value)) {
+  if(validationPostalCode && verificationPostalCode(this.value)) {
     searchPostalCode(this.value, fillOutForm);
   };
 });
-function fillOutForm (location) {
+function fillOutForm(location) {
   document.getElementById("address").value = location.logradouro;
   document.getElementById("province").value = location.bairro;
   document.getElementById("city").value = location.localidade;
