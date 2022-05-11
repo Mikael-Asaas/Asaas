@@ -20,7 +20,12 @@ class PayerController {
 
     def save() {
         try {
-            payerService.save(params)
+            Payer payer = payerService.save(Long.valueOf(params.id), params)
+
+            if (payer.hasErrors()) {
+                render([success: false, message: message(code: payer.errors.allErrors[0].defaultMessage ?: payer.errors.allErrors[0].codes[0])] as JSON)
+                return
+            }
             render([success: true] as JSON)
         } catch (Exception exception) {
             render([success: false, message: message(code: 'unknow.error')] as JSON)
@@ -29,7 +34,8 @@ class PayerController {
 
     def update() {
         try {
-            payerService.update(params)
+            Long id = params.long("id")
+            payerService.update(id, params)
             render([success: true] as JSON)
         } catch (Exception exception) {
             render([success: false, message: message(code:'unknow.error')] as JSON)

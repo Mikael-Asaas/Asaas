@@ -5,32 +5,34 @@ import grails.gorm.transactions.Transactional
 
 @Transactional
 class PayerService {
+
     public Payer save(Map params) {
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
+        return payer
     }
-
-    def getPayer(Integer id) {
+    
+    public Payer getPayer(Long id) {
         return Payer.get(id)
     }
 
-    def update(Map params) {
-        if (params.id) {
-            Payer payer = Payer.get(params.int('id'))
-            payer.name = params.name
-            payer.cpfCnpj = params.cpfCnpj
-            payer.address = params.address
-            payer.province = params.province
-            payer.city = params.city
-            payer.state = params.state
-            payer.addressNumber = params.addressNumber
-            payer.postalCode = params.postalCode
-            payer.email = params.email
-            payer.phone = params.phone
-            payer.save(failOnError: true)
-       } else {
-            throw new Exception('Erro ao realizar edição')
+    public Payer update(Long id, Map params) {
+        if (!id) {
+        throw new Exception('Erro ao realizar edição');
+        return 
         }
-    }
 
+        Payer payer = Payer.get(id)
+        payer.name = params.name
+        payer.cpfCnpj = params.cpfCnpj
+        payer.address = params.address
+        payer.province = params.province
+        payer.city = params.city
+        payer.state = params.state
+        payer.addressNumber = params.addressNumber
+        payer.postalCode = params.postalCode
+        payer.email = params.email
+        payer.phone = params.phone
+        payer.save(failOnError: true)
+    }
 }
