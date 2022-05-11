@@ -1,19 +1,15 @@
 $(document).ready(function () {
   $("form").on("submit", function (event) {
+
     event.preventDefault();
+    
+    var formReference = $("form");
+    var url = formReference.data("url");
+    var params = formReference.serialize();
 
-    var data = new FormData(document.querySelector("form"));
-    var payer = {};
-
-    data.forEach(function (value, key) {
-      payer[key] = value;
-    });
-
-    var url = $("form").prop("action");
-
-    $.post(url, payer, function (response) {
+    $.post(url, params, function(response) {
       if (response.success) {
-        window.location.href = $("form").data("url-redirect");
+        window.location.href = formReference.data("redirect");
       }
     });
   });
