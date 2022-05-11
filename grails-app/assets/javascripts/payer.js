@@ -4,5 +4,3 @@
 //= require payer/show
 //= require utils/mask.lib
 //= require utils/mask.form
-
-
