@@ -1,7 +1,7 @@
 
 document.getElementById("postalCode").addEventListener("input", function() {
   clearForm();
-  if(validationPostalCode && verificationPostalCode(this.value)) {
+  if(validationPostalCode && replacePostalCode(this.value)) {
     searchPostalCode(this.value, fillOutForm);
   };
 });
