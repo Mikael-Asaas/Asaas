@@ -10,6 +10,5 @@ formReference.addEventListener("submit", (event) => {
     customer[key] = value;
   });
 
-  alert("Formulario Enviado!");
   formReference.reset();
 });
