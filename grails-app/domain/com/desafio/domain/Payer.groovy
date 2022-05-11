@@ -13,7 +13,6 @@ class Payer {
     String email
     String phone
 
-
     static constraints = {
         name size: 3..100, nulllable: false, blank: false
         cpfCnpj nulllable: false, blank: false
