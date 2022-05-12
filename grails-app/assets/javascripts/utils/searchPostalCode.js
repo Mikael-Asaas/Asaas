@@ -7,7 +7,7 @@ const replacePostalCode = function(postalCode) {
 };
 
 const searchPostalCode = async(postalCode, callbackfunction) => {
-  if(replacePostalCode(postalCode).length == 8) {
+  if (replacePostalCode(postalCode).length == 8) {
     let url = `https://viacep.com.br/ws/${postalCode}/json/`;
     let dados = await fetch(url);
     let address = await dados.json();
