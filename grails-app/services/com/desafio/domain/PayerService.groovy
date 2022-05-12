@@ -34,5 +34,6 @@ class PayerService {
         payer.email = params.email
         payer.phone = params.phone
         payer.save(failOnError: true)
+        return payer
     }
 }
