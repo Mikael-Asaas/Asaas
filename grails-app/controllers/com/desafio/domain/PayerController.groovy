@@ -1,10 +1,11 @@
 package com.desafio.domain
 
+import com.desafio.base.BaseController
 import com.desafio.domain.payer.Payer
 import grails.converters.JSON
 import grails.gorm.PagedResultList
 
-class PayerController {
+class PayerController extends BaseController {
 
     def payerService
 
@@ -13,11 +14,6 @@ class PayerController {
     def index() {
         PagedResultList payerList = Payer.list(max: 10, offset: getCurrentPage())
         return [payerList: payerList , totalCount: payerList.totalCount]
-    }
-    
-    private Integer getCurrentPage() {
-        if(!params.offset) params.offset = 0
-        return Integer.valueOf(params.offset)
     }
 
     def save() {
@@ -47,5 +43,4 @@ class PayerController {
     def show() {
         return [payer: payerService.getPayer(params.long('id'))]
     }
-
 }
