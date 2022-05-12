@@ -19,7 +19,6 @@ class PayerController extends BaseController {
     def save() {
         try {
             Payer payer = payerService.save(params)
-
             if (payer.hasErrors()) {
                 render([success: false, message: message(code: payer.errors.allErrors[0].defaultMessage ?: payer.errors.allErrors[0].codes[0])] as JSON)
                 return

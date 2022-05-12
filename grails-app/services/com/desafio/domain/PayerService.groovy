@@ -18,10 +18,9 @@ class PayerService {
 
     public Payer update(Long id, Map params) {
         if (!id) {
-        throw new Exception('Erro ao realizar edição');
-        return 
+            throw new Exception('Erro ao realizar edição');
+            return 
         }
-
         Payer payer = Payer.get(id)
         payer.name = params.name
         payer.cpfCnpj = params.cpfCnpj
