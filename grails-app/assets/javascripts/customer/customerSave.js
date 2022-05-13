@@ -1,7 +1,14 @@
 $(document).ready(function() {
     $("form").on("submit", function(event) {
       event.preventDefault();
-
+  
+      var data = new FormData(document.querySelector("form"));
+      var customer = {};
+  
+      data.forEach(function(value, key) {
+        customer[key] = value;
+      });
+  
       var url = $('form').prop('action')
     
       $.post(url, customer, function(response) {
