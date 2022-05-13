@@ -1,5 +1,6 @@
 package com.desafio.domain
 
+import com.desafio.domain.BaseController.groovy
 import com.desafio.domain.customer.Customer
 import grails.gorm.transactions.Transactional
 

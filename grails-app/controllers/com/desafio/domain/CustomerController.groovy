@@ -1,10 +1,11 @@
 package com.desafio.domain
 
+import com.desafio.domain.BaseController
 import com.desafio.domain.customer.Customer
 import grails.converters.JSON
 import grails.gorm.PagedResultList
 
-class CustomerController {
+class CustomerController extends BaseController {
 
    def customerService
    
@@ -15,7 +16,7 @@ class CustomerController {
         return [customerList: customerList , totalCount: customerList.totalCount]
     }
   
-   private Integer getCurrentPage() {
+   private Integer extends getCurrentPage() {
       if(!params.offset) params.offset = 0
       return Integer.valueOf(params.offset)
     }
