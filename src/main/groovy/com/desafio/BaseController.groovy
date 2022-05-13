@@ -1,4 +1,4 @@
-package com.desafio.domain
+package com.desafio.base
 
 abstract class BaseController {
 

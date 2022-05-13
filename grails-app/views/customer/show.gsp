@@ -7,8 +7,8 @@
     <title>Clientes</title>
 </head>
     <body>
-      <form data-url-redirect="${g.createLink(controller: 'customer', action: 'index')}" 
-            action="${g.createLink(controller: 'customer', action: 'update')}" readonly>        
+      <form data-redirect="${g.createLink([controller: 'customer', action: 'index'])}" 
+            data-url="${g.createLink([controller: 'customer', action: 'update'])}" readonly>        
         <input type="hidden" class="js-customer-id" name="id" value="${customer.id}">
         <input type="text" name="name" id="name" placeholder="Nome" value="${customer.name}" readonly>
         <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ" value="${customer.cpfCnpj}" readonly>

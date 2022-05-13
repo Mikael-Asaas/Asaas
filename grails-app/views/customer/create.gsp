@@ -9,8 +9,8 @@
     <body>
       <main class="container">
         <h2 class="h2">Novo Cliente</h2>
-          <form data-url-redirect="${g.createLink(controller: 'customer', action: 'index')}"
-                action="${g.createLink(controller: 'customer', action: 'save')}">
+          <form data-redirect="${g.createLink([controller: 'customer', action: 'index'])}"
+                data-url="${g.createLink([controller: 'customer', action: 'save'])}">
             <input type="text" name="name" id ="name" placeholder="Nome">
             <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ">
             <input type="text" name="email" id="email" placeholder="Email">
