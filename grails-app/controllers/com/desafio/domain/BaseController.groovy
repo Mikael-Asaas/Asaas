@@ -6,7 +6,7 @@ abstract class BaseController {
         tablePerHierachy false
     }
     
-    public Integer getCurrentPage() {
+    private Integer getCurrentPage() {
         if (!params.offset) params.offset = 0
         return Integer.valueOf(params.offset)
     }
