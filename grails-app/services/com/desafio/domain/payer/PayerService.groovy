@@ -2,11 +2,13 @@ package com.desafio.domain
 
 import com.desafio.domain.payer.Payer
 import grails.gorm.transactions.Transactional
+import com.desafio.domain.customer.Customer
 
 @Transactional
 class PayerService {
 
     public Payer save(Map params) {
+        Customer customer = Customer.get(params.long("customerId"))
         Payer payer = new Payer(params)
         payer.save(failOnError: true)
         return payer
