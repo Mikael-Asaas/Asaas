@@ -24,7 +24,9 @@
         <button type="submit" class="js-send-button hide">Salvar</button>
         <button type="reset"> Cancelar </button>
       </form>
-        <a href="${ g.createLink(controller: 'payer', action: 'create', params: [id: customer.id])}">Adicionar um Pagador </a>
+      <div>
+          <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
+      </div>
         <asset:javascript src="payer.js" /> 
       </body>
 </html>
