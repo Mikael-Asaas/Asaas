@@ -13,7 +13,7 @@ class CustomerController extends BaseController {
 
    def index() {
         PagedResultList customerList = Customer.list(max: 10, offset: getCurrentPage())
-             return [customerList: customerList , totalCount: customerList.totalCount]
+            return [customerList: customerList , totalCount: customerList.totalCount]
     }
   
    def save(){
@@ -23,7 +23,7 @@ class CustomerController extends BaseController {
             render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
             return 
        }     
-          render([success: true] as JSON)
+            render([success: true] as JSON)
      }catch(Exception exception) {
             render([success: false, message: message(code: 'unknow.error')] as JSON)
       } 
@@ -40,6 +40,6 @@ class CustomerController extends BaseController {
    }
   
    def show(){
-      return [customer: Customer.get(params.long("id"))]
+         return [customer: Customer.get(params.long("id"))]
    }
 }
