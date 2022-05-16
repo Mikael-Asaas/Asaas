@@ -12,7 +12,7 @@ class PayerController extends BaseController {
     def create() { }
 
     def index() {
-        PagedResultList payerList = Payer.list(max: 10, offset: getCurrentPage())
+        PagedResultList payerList = Payer.list(max: getLimitPage(), offset: getCurrentPage())
         return [payerList: payerList , totalCount: payerList.totalCount]
     }
 
