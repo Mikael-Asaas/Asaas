@@ -16,7 +16,7 @@ class CustomerService {
         return Customer.get(id) 
     }
 
-    public Customer update (Long id, Map params) {
+    public Customer update(Long id, Map params) {
         if (!id) { 
             throw new Exception( "Erro ao editar!")
             return

@@ -13,7 +13,7 @@ class CustomerController extends BaseController {
 
    def index() {
         PagedResultList customerList = Customer.list(max: 10, offset: getCurrentPage())
-        return [customerList: customerList , totalCount: customerList.totalCount]
+             return [customerList: customerList , totalCount: customerList.totalCount]
     }
   
    def save(){
