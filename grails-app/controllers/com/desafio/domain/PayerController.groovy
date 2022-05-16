@@ -15,8 +15,8 @@ class PayerController extends BaseController {
     }
 
     def index() {
-        PagedResultList payerList = Payer.list(max: 10, offset: getCurrentPage())
-        return [payerList: payerList , totalCount: payerList.totalCount, customerId: params.int("id")]
+        PagedResultList payerList = Payer.list(max: getLimitPage(), offset: getCurrentPage())
+        return [payerList: payerList , totalCount: payerList.totalCount]
     }
 
     def save() {
@@ -35,7 +35,7 @@ class PayerController extends BaseController {
     def update() {
         try {
             Long id = params.long("id")
-            payerService.update(id, params)
+            payerService.update(params.long("id"), params)
             render([success: true] as JSON)
         } catch (Exception exception) {
             render([success: false, message: message(code:'unknow.error')] as JSON)

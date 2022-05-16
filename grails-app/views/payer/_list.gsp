@@ -19,12 +19,10 @@
                     <tr>
                         <td>${payer.name}</td>
                         <td>${payer.email}</td>                          
-                    </tr>
-                    <tr>
                         <td>
                             <a href="${ g.createLink(controller: 'payer', action: 'show', id: payer.id)}">Editar pagador</a>
                         </td>
-                    </tr> 
+                    </tr>
                 </g:each>
             </tbody>
         </table>
