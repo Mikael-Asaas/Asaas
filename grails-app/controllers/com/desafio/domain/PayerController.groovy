@@ -32,7 +32,7 @@ class PayerController extends BaseController {
     def update() {
         try {
             Long id = params.long("id")
-            payerService.update(id, params)
+            payerService.update(params.long("id"), params)
             render([success: true] as JSON)
         } catch (Exception exception) {
             render([success: false, message: message(code:'unknow.error')] as JSON)
