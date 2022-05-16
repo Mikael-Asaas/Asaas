@@ -1,4 +1,3 @@
-
 <head>
     <meta name="layout" content="main"/>
     <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
@@ -17,8 +16,8 @@
     <tbody>
          <g:each var="customer" in="${ customerList }">
             <tr>
-                <td>${customer.name}</td>
-                <td>${customer.email}</td>                          
+                ${customer.name}</td>
+                ${customer.email}</td>                          
             </tr>
                 <tr>
                     <td>

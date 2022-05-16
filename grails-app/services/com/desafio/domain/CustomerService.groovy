@@ -23,7 +23,7 @@ class CustomerService {
         }
         Customer customer = Customer.get(params.long("id"))
         customer.name = params.name
-        customer.cpfCnpj= params.cpfCnpj
+        customer.cpfCnpj = params.cpfCnpj
         customer.address = params.address
         customer.addressNumber = params.addressNumber
         customer.province = params.province
