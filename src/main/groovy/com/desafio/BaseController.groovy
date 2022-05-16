@@ -5,6 +5,9 @@ abstract class BaseController {
     static mapping = {
         tablePerHierachy false
     }
+    private Integer getLimitPage() {
+        return  10
+    }
     
     private Integer getCurrentPage() {
         if (!params.offset) params.offset = 0
