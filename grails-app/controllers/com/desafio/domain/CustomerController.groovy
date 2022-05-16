@@ -1,99 +1,45 @@
 package com.desafio.domain
 
-import grails.validation.ValidationException
-import static org.springframework.http.HttpStatus.*
+import com.desafio.base.BaseController
+import com.desafio.domain.customer.Customer
+import grails.converters.JSON
+import grails.gorm.PagedResultList
 
-class CustomerController {
+class CustomerController extends BaseController {
 
-    CustomerService customerService
+   def customerService
+   
+   def create() { }
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond customerService.list(params), model:[customerCount: customerService.count()]
+   def index() {
+        PagedResultList customerList = Customer.list(max: 10, offset: getCurrentPage())
+             return [customerList: customerList , totalCount: customerList.totalCount]
     }
-
-    def show(Long id) {
-        respond customerService.get(id)
-    }
-
-    def create() {
-        respond new Customer(params)
-    }
-
-    def save(Customer customer) {
-        if (customer == null) {
-            notFound()
-            return
-        }
-
-        try {
-            customerService.save(customer)
-        } catch (ValidationException e) {
-            respond customer.errors, view:'create'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*' { respond customer, [status: CREATED] }
-        }
-    }
-
-    def edit(Long id) {
-        respond customerService.get(id)
-    }
-
-    def update(Customer customer) {
-        if (customer == null) {
-            notFound()
-            return
-        }
-
-        try {
-            customerService.save(customer)
-        } catch (ValidationException e) {
-            respond customer.errors, view:'edit'
-            return
-        }
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'customer.label', default: 'Customer'), customer.id])
-                redirect customer
-            }
-            '*'{ respond customer, [status: OK] }
-        }
-    }
-
-    def delete(Long id) {
-        if (id == null) {
-            notFound()
-            return
-        }
-
-        customerService.delete(id)
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'customer.label', default: 'Customer'), id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
-    protected void notFound() {
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'customer.label', default: 'Customer'), params.id])
-                redirect action: "index", method: "GET"
-            }
-            '*'{ render status: NOT_FOUND }
-        }
-    }
+  
+   def save(){
+      try { 
+         Customer customer = customerService.save(params)
+         if (customer.hasErrors()) {
+            render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
+            return 
+       }     
+          render([success: true] as JSON)
+     }catch(Exception exception) {
+            render([success: false, message: message(code: 'unknow.error')] as JSON)
+      } 
+   }
+  
+   def update(){
+      try {
+            Long id = params.long('id')
+            customerService.update(id, params)
+            render([success: true] as JSON)
+      } catch(Exception exception) {
+            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+      } 
+   }
+  
+   def show(){
+      return [customer: Customer.get(params.long("id"))]
+   }
 }

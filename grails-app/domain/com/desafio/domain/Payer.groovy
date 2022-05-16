@@ -31,5 +31,4 @@ class Payer {
         city size: 2..50, nulllable: false, blank: false
         state size: 1..50, nulllable: false, blank: false
     }
-
 }
