@@ -9,7 +9,7 @@
     <body>
       <main class="container">
         <h2 class="h2">Editar Pagador</h2>
-        <form data-redirect="${g.createLink([controller: 'payer', action: 'index'])}"
+        <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [id: payer.customer.id]])}"
               data-url="${g.createLink([controller: 'payer', action: 'update'])}">
           <input type="hidden" class="js-payer-id" name="id" value="${payer.id}">
           <input type="text" name="name" id="name" placeholder="Nome" value="${payer.name}" readonly>

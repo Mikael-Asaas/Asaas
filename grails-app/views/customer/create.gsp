@@ -21,6 +21,7 @@
             <input type="text" name="province" id="province" placeholder="Bairro">
             <input type="text" name="city" id="city" placeholder="Localidade">
             <input type="text" name="state" id="state" placeholder="UF">
+            <input hidden value="${customerId}" name="customer" id="customer">
             <button type="submit">Criar</button>
             <button type="reset" onclick="history.go(-1)">Cancelar</button>
           </form>   
