@@ -1,9 +1,9 @@
 package com.desafio.enums
 
 enum PaymentStatus {
-    Pending,
-    Paid,
-    Overdue,
-    Refunded,
-    Cancelled;
+    PENDING,
+    PAID,
+    OVERDUE,
+    REFUNDED,
+    CANCELLED
 }

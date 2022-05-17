@@ -14,15 +14,15 @@ class Payment extends BaseEntity {
 
     BigDecimal value
 
-    String Description
+    String description
 
-    Date DueDate
+    Date dueDate
 
     Date paymentDate
 
-    Payer Payer
+    Payer payer
 
-    Customer Customer
+    Customer customer
 
     static constraints = {
         value min: 5.00
