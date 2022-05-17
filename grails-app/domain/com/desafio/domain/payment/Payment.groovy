@@ -1,8 +1,8 @@
 package com.desafio.domain
 
 import com.desafio.base.BaseEntity
-import com.desafio.domain.Payer
-import com.desafio.domain.Customer
+import com.desafio.domain.payer.Payer
+import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentStatus
 import com.desafio.enums.PaymentMethod
 
