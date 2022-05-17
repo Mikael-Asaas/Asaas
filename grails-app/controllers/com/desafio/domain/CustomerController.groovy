@@ -23,19 +23,19 @@ class CustomerController extends BaseController {
             render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
             return 
        }     
-          render([success: true] as JSON)
+         render([success: true] as JSON)
      }catch(Exception exception) {
-            render([success: false, message: message(code: 'unknow.error')] as JSON)
+         render([success: false, message: message(code: 'unknow.error')] as JSON)
       } 
    }
   
    def update(){
       try {
-            Long id = params.long('id')
-            customerService.update(id, params)
-            render([success: true] as JSON)
+         Long id = params.long('id')
+         customerService.update(id, params)
+         render([success: true] as JSON)
       } catch(Exception exception) {
-            render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+         render([success: false, message: "Erro ao tentar atualizar"] as JSON)
       } 
    }
   
