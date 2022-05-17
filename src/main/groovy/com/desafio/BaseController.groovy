@@ -1,10 +1,7 @@
 package com.desafio.base
 
 abstract class BaseController {
-
-    static mapping = {
-        tablePerHierachy false
-    }
+    
     private Integer getLimitPage() {
         return  10
     }
