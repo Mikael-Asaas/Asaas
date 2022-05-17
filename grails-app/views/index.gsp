@@ -35,7 +35,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="address" id="address" placeholder="Endereço" required/>
+          <input type="text" name="address" id="address"  placeholder="Endereço" required/>
           <div class="linha"></div>
         </div>
 
@@ -50,21 +50,15 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="city" id="city" placeholder="Cidade" required/>
-          <div class="linha"></div>
-        </div>
-
-        <div class="input-field">
           <input type="text" name="state" id="state" placeholder="UF" required/>
           <div class="linha"></div>
         </div>
 
-        <button type="submit" id="send" class="btn">Registrar</button>
-      
+        <button type="submit" id="send" class="btn" >Registrar</button>
       </form>   
     </main>
-    <asset:javascript src="mask.js" />
-    <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="index/serchPostalCode.js" /> 
+    <asset:javascript src="mask.js"/>
+    <asset:javascript src="utils/searchPostalCode.js"/>
+    <asset:javascript src="index/IndexController.js"/>
   </body>
 </html> 
