@@ -2,6 +2,7 @@ package com.desafio.domain
 
 import com.desafio.base.BaseController
 import com.desafio.domain.customer.Customer
+
 import grails.converters.JSON
 import grails.gorm.PagedResultList
 
