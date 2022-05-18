@@ -1,8 +1,6 @@
 package com.desafio.base
 
 abstract class BaseEntity {
-    
-    boolean deleted = false
 
     Date dateCreated = new Date()
 
