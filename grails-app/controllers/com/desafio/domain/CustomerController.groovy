@@ -19,13 +19,13 @@ class CustomerController extends BaseController {
   
    def save(){
       try { 
-         Customer customer = customerService.save(params)
+      Customer customer = customerService.save(params)
          if (customer.hasErrors()) {
-               render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
+            render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
          return 
          }     
             render([success: true] as JSON)
-     }catch(Exception exception) {
+      }catch(Exception exception) {
             render([success: false, message: message(code: 'unknow.error')] as JSON)
       } 
    }
