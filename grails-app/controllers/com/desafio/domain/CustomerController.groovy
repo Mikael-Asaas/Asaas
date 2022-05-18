@@ -32,7 +32,6 @@ class CustomerController extends BaseController {
   
    def update(){
       try {
-            Long id = params.long('id')
             customerService.update(params.long('id'), params)
             render([success: true, message: "Cadrastro concluído com sucesso"] as JSON)
       } catch(Exception exception) {
