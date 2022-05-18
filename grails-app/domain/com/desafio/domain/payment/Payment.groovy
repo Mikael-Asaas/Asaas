@@ -1,4 +1,4 @@
-package com.desafio.domain
+package com.desafio.domain.payment
 
 import com.desafio.base.BaseEntity
 import com.desafio.domain.payer.Payer
