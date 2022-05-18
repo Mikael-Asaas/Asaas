@@ -3,6 +3,7 @@ package com.desafio.domain
 import com.desafio.domain.payment.Payment
 import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
+import com.desafio.enums.PaymentMethod
 
 import grails.converters.JSON
 import grails.gorm.PagedResultList
@@ -39,5 +40,19 @@ class PaymentController {
         } catch (Exception exception) {
             render([success: false, message: message(code: 'unknow.error')] as JSON)
         }
+    }
+
+    def update() {
+        try {
+            Long id = params.long("id")
+            paymentService.update(params.long("id"), params)
+            render([success: true] as JSON)
+        } catch (Exception exception) {
+            render([success: false, message: message(code:'unknow.error')] as JSON)
+        }
+    }
+
+    def show() {
+        return [payment: Payment.get(params.long('id'))]
     }
 }
