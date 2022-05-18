@@ -19,7 +19,7 @@
                 <g:each var="payment" in="${paymentList}">
                 <tr>
                     <td>${payment.value}</td>
-                    <td>${payment.billingType}</td>
+                    <td>${payment.method}</td>
                     <td>${payment.status}</td>
                     <td>${payment.dueDate}</td>
                     <td>${payment.payer.name}</td>

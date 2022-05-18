@@ -14,10 +14,10 @@ class PaymentController {
 
    def index() {  
         Long customerId = params.long("id")
-        PagedResultList paymentList =  Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()){
+        PagedResultList paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()){
             like("customer", Customer.get(customerId)) 
         }
-        return [paymentList: paymentList, totalCount: Payment.count()]
+        [paymentList: paymentList, totalCount: Payment.count()]
     }
 
     def create() {
