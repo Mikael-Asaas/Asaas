@@ -20,7 +20,7 @@
                     from="${PaymentMethod?.values()}" 
                     value="${method}"
                     noSelection="['':'Tipo de pagamento']"/>
-                <select id="payerId" name="payer Id" required>
+                <select id="payerId" name="payerId" required>
                     <option>Selecione um pagador</option>
                         <g:each var="payer" in="${payerList}">
                             <option value="${payer.id}">${payer.name}</option>

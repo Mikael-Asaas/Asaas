@@ -23,7 +23,7 @@ class PaymentController extends BaseController {
 
     def create() {
         Long customerId = params.long("id")
-        PagedResultList payerList =  Payer.createCriteria().list() {
+        PagedResultList payerList = Payer.createCriteria().list() {
             like("customer", Customer.get(customerId)) 
         }
         [payerList: payerList, totalCount: Payer.count()]

@@ -7,7 +7,7 @@
         <title>Cobranças</title>
     </head>
       <body>
-        <g:if test="${paymentList.size() > 0}">
+        <g:if test="${paymentList?.size() > 0}">
             <table>
                 <tr>
                 <th>Valor</th>
