@@ -3,6 +3,7 @@
   <head>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
     <asset:stylesheet src="index/IndexCss.css" />
+    <asset:javascript src="application.js" />
     <title>Asaas - Criar conta</title>
   </head>
   <body>
@@ -25,7 +26,7 @@
         </div>
 
         <div class="input-field">
-          <input type="text" name="phone" id="phone" placeholder="Telefone" maxlength="15" required/>
+          <input type="text" name="phone" id="phone" placeholder="Telefone" maxlength="16" required/>
           <div class="linha"></div>
         </div>
 
@@ -54,11 +55,9 @@
           <div class="linha"></div>
         </div>
 
-        <button type="submit" id="send" class="btn" >Registrar</button>
+        <button type="submit" id="send" class="btn">Registrar</button>
       </form>   
     </main>
-    <asset:javascript src="index/IndexController.js" />
-    <asset:javascript src="utils/searchPostalCode.js" />
-    <asset:javascript src="utils/fillFormPostalCode.js" />
+    <asset:javascript src="index.js" />
   </body>
 </html> 
