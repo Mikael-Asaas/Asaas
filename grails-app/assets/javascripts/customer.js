@@ -1,4 +1,4 @@
-//= require utils/serchPostalCode
+//= require utils/searchPostalCode
 //= require utils/fillFormPostalCode
 //= require customer/save
 //= require customer/show
