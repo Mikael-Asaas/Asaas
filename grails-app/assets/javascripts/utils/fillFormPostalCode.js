@@ -1,9 +1,9 @@
-
-document.getElementById("postalCode").addEventListener("input", function() {
-  if(validationPostalCode && verificationPostalCode(this.value)) {
-    searchPostalCode(this.value, fillOutForm);
-  };
-});
+$(document).ready(function() {
+  document.getElementById("postalCode").addEventListener("input", function () {
+    if (validationPostalCode && replacePostalCode(this.value)) {
+      searchPostalCode(this.value, fillOutForm);
+    }
+  });
 
 function fillOutForm(location) {
   document.getElementById("address").value = location.logradouro;
@@ -11,3 +11,4 @@ function fillOutForm(location) {
   document.getElementById("city").value = location.localidade;
   document.getElementById("state").value = location.uf;
 };
+});
