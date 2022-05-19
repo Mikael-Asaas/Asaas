@@ -35,31 +35,31 @@ class PayerService {
 
     private void validate(Map params) {
         if(!params.name){
-            throw new Exception("Erro no reigstro do nome.")
+            throw new Exception("Nome não informado.")
         }
         if(!params.email){
-            throw new Exception("Erro no reigstro do email.")
+            throw new Exception("Email não informado.")
         }
         if(!params.cpfCnpj){
-            throw new Exception("Erro no reigstro do CPF/CNPJ.")
+            throw new Exception("CPF/CNPJ não informado.")
         }
         if(!params.postalCode){
-            throw new Exception("Erro no reigstro do CEP.")
+            throw new Exception("CEP não informado.")
         }
         if(!params.address){
-            throw new Exception("Erro no reigstro do Endereço.")
+            throw new Exception("Endereço não informado.")
         }
         if(!params.addressNumber){
-            throw new Exception("Erro no reigstro do Numero.")
+            throw new Exception("Numero não informado.")
         }
         if(!params.province){
-            throw new Exception("Erro no reigstro do Bairro.")
+            throw new Exception("Bairro não informado.")
         }
         if(!params.city){
-            throw new Exception("Erro no reigstro do Cidade.")
+            throw new Exception("Cidade não informado.")
         }
         if(!params.state){
-            throw new Exception("Erro no reigstro do Estado.")
+            throw new Exception("Estado não informado.")
         }
     }
 }
