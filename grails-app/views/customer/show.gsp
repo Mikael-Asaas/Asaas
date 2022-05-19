@@ -1,29 +1,31 @@
+<!DOCTYPE html>
 <html>
- <head>
-    <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
-    <title><g:message code="default.create.label" args="[entityName]" /></title>
-     <asset:javascript src="application.js" />
-    <title>Clientes</title>
-</head>
+    <head>
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
+        <title><g:message code="default.show.label" args="[entityName]" /></title>
+    </head>
     <body>
-      <form data-redirect="${g.createLink([controller: 'customer', action: 'index'])}" 
-            data-url="${g.createLink([controller: 'customer', action: 'update'])}" readonly>        
-        <input type="hidden" class="js-customer-id" name="id" value="${customer.id}">
-        <input type="text" name="name" id="name" placeholder="Nome" value="${customer.name}" readonly>
-        <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ" value="${customer.cpfCnpj}" readonly>
-        <input type="text" name="email" id="email" placeholder="Email" value="${customer.email}" readonly>
-        <input type="text" name="phone" id="phone" placeholder="Telefone" value="${customer.phone}" readonly> 
-        <input type="text" name="postalCode" id="postalCode" placeholder="CEP" value="${customer.postalCode}" readonly>
-        <input type="text" name="address" id="address" placeholder="Endereço" value="${customer.address}" readonly>
-        <input type="text" name="addressNumber" id="addressNumber" placeholder="Nº" value="${customer.addressNumber}" readonly>
-        <input type="text" name="province" id="province" placeholder="Bairro" value="${customer.province}" readonly >
-        <input type="text" name="city" id="city" placeholder="Localidade" value="${customer.city}" readonly>
-        <input type="text" name="state" id="state" placeholder="UF" value="${customer.state}" readonly>
-        <button class="js-edit">Editar</button>
-        <button type="submit" class="js-send-button hide">Salvar</button>
-        <button type="reset"> Cancelar </button>
-      </form>
-        <asset:javascript src="customer.js" /> 
-      </body>
+        <a href="#show-customer" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        <div class="nav" role="navigation">
+            <ul>
+                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+            </ul>
+        </div>
+        <div id="show-customer" class="content scaffold-show" role="main">
+            <h1><g:message code="default.show.label" args="[entityName]" /></h1>
+            <g:if test="${flash.message}">
+            <div class="message" role="status">${flash.message}</div>
+            </g:if>
+            <f:display bean="customer" />
+            <g:form resource="${this.customer}" method="DELETE">
+                <fieldset class="buttons">
+                    <g:link class="edit" action="edit" resource="${this.customer}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
+                    <input class="delete" type="submit" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+                </fieldset>
+            </g:form>
+        </div>
+    </body>
 </html>

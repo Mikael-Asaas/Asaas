@@ -1,19 +1,28 @@
+<!DOCTYPE html>
 <html>
-<head>
-    <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
-    <title><g:message code="default.create.label" args="[entityName]" /></title>
-    <asset:javascript src="application.js" />
-    <title>Clientes</title>
-</head>
+    <head>
+        <meta name="layout" content="main" />
+        <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
+        <title><g:message code="default.list.label" args="[entityName]" /></title>
+    </head>
     <body>
-        <div>
-            <g:link controller="customer" action="create" update="divForm">Criando conta</g:link>
+        <a href="#list-customer" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
+        <div class="nav" role="navigation">
+            <ul>
+                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+            </ul>
         </div>
-            <a href="/customer">Meus Clientes</a>
-        <div id="divLista">
-            <g:render template="list" model="[customerList: customerList]"> </g:render>
+        <div id="list-customer" class="content scaffold-list" role="main">
+            <h1><g:message code="default.list.label" args="[entityName]" /></h1>
+            <g:if test="${flash.message}">
+                <div class="message" role="status">${flash.message}</div>
+            </g:if>
+            <f:table collection="${customerList}" />
+
+            <div class="pagination">
+                <g:paginate total="${customerCount ?: 0}" />
+            </div>
         </div>
-            <g:paginate total="${totalCount}" controller="customer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" /><div id="divForm"></div>      
     </body>
 </html>
