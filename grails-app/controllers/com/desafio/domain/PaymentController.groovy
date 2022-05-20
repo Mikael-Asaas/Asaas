@@ -7,7 +7,6 @@ import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentMethod
 
 import grails.converters.JSON
-import grails.gorm.PagedResultList
 
 class PaymentController extends BaseController {
     
@@ -23,7 +22,7 @@ class PaymentController extends BaseController {
 
     def create() {
         Long customerId = params.long("id")
-         List<Payment> payerList = Payer.createCriteria().list() {
+         List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
         }
         [payerList: payerList, totalCount: Payer.count()]
@@ -39,6 +38,7 @@ class PaymentController extends BaseController {
             }
             render([success: true] as JSON)
         } catch (Exception exception) {
+            println exception
             render([success: false, message: message(code: 'unknow.error')] as JSON)
         }
     }

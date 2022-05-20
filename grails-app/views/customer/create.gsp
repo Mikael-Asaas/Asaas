@@ -26,6 +26,6 @@
             <button type="reset" onclick="history.go(-1)">Cancelar</button>
           </form>   
       </main>
-        <asset:javascript src="payer.js" />
+        <asset:javascript src="utility.applications.js" />
     </body>
 </html> 

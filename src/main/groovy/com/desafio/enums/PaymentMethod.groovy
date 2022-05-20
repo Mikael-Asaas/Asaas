@@ -1,7 +1,7 @@
 package com.desafio.enums
 
 enum PaymentMethod {
-    BOLETO,
-    CARTAO,
-    PIX
+    BILL_OF_PAY,
+    CARD,
+    TRANSFER
 }
