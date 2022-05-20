@@ -13,18 +13,18 @@ class PaymentController extends BaseController {
     
     def paymentService
 
-   def index() {  
+    def index() {  
         Long customerId = params.long("id")
-        PagedResultList paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()){
-            like("customer", Customer.get(customerId)) 
+         List<Payment> paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()){
+            eq("customer", Customer.get(customerId)) 
         }
         [paymentList: paymentList, totalCount: Payment.count()]
     }
 
     def create() {
         Long customerId = params.long("id")
-        PagedResultList payerList = Payer.createCriteria().list() {
-            like("customer", Customer.get(customerId)) 
+         List<Payment> payerList = Payer.createCriteria().list() {
+            eq("customer", Customer.get(customerId)) 
         }
         [payerList: payerList, totalCount: Payer.count()]
         return [customerId: customerId, payerList: payerList]
