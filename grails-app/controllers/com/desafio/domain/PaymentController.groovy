@@ -6,7 +6,6 @@ import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
 
 import grails.converters.JSON
-import grails.gorm.PagedResultList
 
 class PaymentController extends BaseController {
     
@@ -14,7 +13,7 @@ class PaymentController extends BaseController {
 
     def index() {  
         Long customerId = params.long("id")
-        PagedResultList paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
+        List<Payment> paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
             eq("customer", Customer.get(customerId)) 
         }
         return [paymentList: paymentList, totalCount: Payment.count()]
@@ -22,7 +21,7 @@ class PaymentController extends BaseController {
 
     def create() {
         Long customerId = params.long("id")
-        PagedResultList payerList = Payer.createCriteria().list() {
+        List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
         }
         [payerList: payerList, totalCount: Payer.count()]
