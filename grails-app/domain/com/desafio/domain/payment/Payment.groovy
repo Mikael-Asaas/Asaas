@@ -12,7 +12,7 @@ class Payment extends BaseEntity {
     
     PaymentStatus status
 
-    String value
+    BigDecimal value
 
     Date dueDate
 
