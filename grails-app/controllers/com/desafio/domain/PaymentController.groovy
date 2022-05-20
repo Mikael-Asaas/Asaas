@@ -38,18 +38,7 @@ class PaymentController extends BaseController {
             }
             render([success: true] as JSON)
         } catch (Exception exception) {
-            println exception
             render([success: false, message: message(code: 'unknow.error')] as JSON)
-        }
-    }
-
-    def update() {
-        try {
-            Long id = params.long("id")
-            paymentService.update(params.long("id"), params)
-            render([success: true] as JSON)
-        } catch (Exception exception) {
-            render([success: false, message: message(code:'unknow.error')] as JSON)
         }
     }
 

@@ -9,12 +9,10 @@ import com.desafio.utils.FormatDateUtils
 
 import grails.gorm.transactions.Transactional 
 
-
 @Transactional
 class PaymentService {
 
     public Payment save(Map params) {
-        println(params)
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
@@ -25,17 +23,4 @@ class PaymentService {
         payment.save(failOnError: true)
         return payment
      }
-
-    public Payment update(Long id, Map params) {
-        if (!id) throw new Exception("Erro ao realizar atualização de informação")
-        Payment payment = Payment.get(id)
-        payment.value = params.value
-        payment.method = params.method
-        payment.status = params.status
-        payment.dueDate = params.dueDate
-        payment.customer = params.customer
-        payment.payer = params.payer
-        payment.save(failOnError: true)
-        return payment
-    }
 }
