@@ -9,7 +9,7 @@
     <body>
       <main class="container">
         <h2 class="h2">Novo Pagador</h2>
-        <form data-redirect="${g.createLink([controller: 'customer', action: 'index', params: [id: customerId]])}"
+        <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [id: customerId]])}"
               data-url="${g.createLink([controller: 'payer', action: 'save'])}">
           <input type="text" name="name" id="name" placeholder="Nome">
           <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ">
