@@ -5,7 +5,7 @@ import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentMethod
 import com.desafio.enums.PaymentStatus
-import com.desafio.utils.FormatDateUtils
+import com.desafio.utils.DateUtils
 
 import grails.gorm.transactions.Transactional 
 
@@ -17,7 +17,7 @@ class PaymentService {
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
-        payment.dueDate = FormatDateUtils.toDate(params.dueDate, "yyyy-mm-dd")
+        payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-mm-dd")
         payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
