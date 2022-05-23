@@ -3,7 +3,7 @@
         <meta name="layout" content="main"/>
         <%@ page import="com.desafio.enums.PaymentMethod" %>
         <%@ page import="com.desafio.enums.PaymentStatus" %>
-        <%@ page import="com.desafio.utils.FormatDateUtils" %>
+        <%@ page import="com.desafio.utils.DateUtils" %>
         <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
         <asset:javascript src="application.js" />

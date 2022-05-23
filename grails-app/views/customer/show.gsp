@@ -30,7 +30,7 @@
             <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
             <g:link controller="payment" action="create" id='${customer.id}'><button>Criar cobrança</button></g:link>
         </div>
-      <main>
+      </main>
       <asset:javascript src="utility.applications.js" /> 
     </body>
 </html>
