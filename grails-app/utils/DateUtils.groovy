@@ -2,9 +2,9 @@ package com.desafio.utils
 
 import java.text.SimpleDateFormat
 
-class FormatDateUtils{
+class DateUtils{
 
-    public static Date toDate(String date, String pattern) {
+    public static Date formatStringToDate(String date, String pattern) {
         SimpleDateFormat formatDate = new SimpleDateFormat(pattern)
         return formatDate.parse(date)
     }
