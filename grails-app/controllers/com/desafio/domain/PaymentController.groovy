@@ -24,8 +24,7 @@ class PaymentController extends BaseController {
         List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
         }
-        [payerList: payerList, totalCount: Payer.count()]
-        return [customerId: customerId, payerList: payerList]
+        return [customerId: customerId, payerList: payerList, totalCount: Payer.count()]
     }
 
     def save() {
