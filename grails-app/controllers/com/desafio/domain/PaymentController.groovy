@@ -17,7 +17,7 @@ class PaymentController extends BaseController {
         List<Payment> paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
             eq("customer", Customer.get(customerId)) 
         }
-        [paymentList: paymentList, totalCount: Payment.count()]
+        return [paymentList: paymentList, totalCount: Payment.count()]
     }
 
     def create() {
@@ -25,8 +25,7 @@ class PaymentController extends BaseController {
         List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
         }
-        [payerList: payerList, totalCount: Payer.count()]
-        return [customerId: customerId, payerList: payerList]
+        return [customerId: customerId, payerList: payerList, totalCount: Payer.count()]
     }
 
     def save() {
