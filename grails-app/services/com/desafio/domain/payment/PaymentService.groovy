@@ -17,7 +17,8 @@ class PaymentService {
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
-         payment.customer = Customer.get(params.long("customerId"))
+        payment.dueDate = FormatDateUtils.toDate(params.dueDate, "yyyy-MM-dd")
+        payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
         return payment
