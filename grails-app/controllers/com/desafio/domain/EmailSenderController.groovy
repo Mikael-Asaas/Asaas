@@ -4,11 +4,11 @@ class EmailSenderController {
 
     def index() {}
 
-def send() {
+    def send() {
     sendMail{
-        to params.sendEmail
-        subject params.sendSubject
-        text params.sendMessage
+        to params.address
+        subject params.subject
+        text params.body
     }
 
     flash.message = "Message sent at "+new Date()

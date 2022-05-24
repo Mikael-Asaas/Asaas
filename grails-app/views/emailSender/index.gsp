@@ -16,7 +16,7 @@
                   <g:textField name="address" placeholder="seu-email@something.com" required="" />
                 </div>
                 <div class="fieldcontain">
-                  <g:textField name="subject" placeholder="Seu destinatário" required="" />
+                  <g:textField name="subject" placeholder="Assunto" required="" />
                 </div>
                 <div class="fieldcontain">
                   <g:textArea name="body" rows="5" cols="80" placeholder="Descrição" required="" />
