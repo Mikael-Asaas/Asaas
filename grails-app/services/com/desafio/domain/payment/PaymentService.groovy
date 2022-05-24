@@ -24,7 +24,7 @@ class PaymentService {
         return payment
     }
 
-    public Payment confirmedPayment(paymentId) {
+    public Payment confirmedPayment(Long paymentId) {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.save(failOnError: true)
