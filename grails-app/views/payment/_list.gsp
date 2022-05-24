@@ -34,5 +34,8 @@
                 </g:each>
             </table>
         </g:if>
+        <g:else>
+            <div>Nenhuma cobrança gerada.</div>
+      </g:else>
   </body>
 </html>
