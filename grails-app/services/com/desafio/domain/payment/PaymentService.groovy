@@ -23,4 +23,11 @@ class PaymentService {
         payment.save(failOnError: true)
         return payment
     }
+
+    public Payment confirmedPayment(paymentId) {
+        Payment payment = Payment.get(paymentId)
+        payment.status = PaymentStatus.PAID
+        payment.save(failOnError: true)
+        return payment
+    }
 }
