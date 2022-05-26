@@ -8,4 +8,8 @@ class DateUtils{
         SimpleDateFormat formatDate = new SimpleDateFormat(pattern)
         return formatDate.parse(date)
     }
+
+    public static Date getYesterdayDate() {
+        return new Date().clearTime().previous()
+    }
 }

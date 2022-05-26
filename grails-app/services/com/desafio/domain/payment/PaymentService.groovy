@@ -30,4 +30,12 @@ class PaymentService {
         payment.save(failOnError: true)
         return payment
     }
+
+    public List<Payment> returnPaymentStatusAndDate(PaymentStatus paymentStatus, Date yesterdayDate) {
+        List<Payment> paymentList = Payment.createCriteria().list() {
+            eq("status", paymentStatus)
+            ge("dueDate", yesterdayDate)
+        }
+        return paymentList
+    }
 }
