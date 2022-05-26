@@ -37,18 +37,17 @@ class PaymentController extends BaseController {
             }
             render([success: true] as JSON)
         } catch (Exception exception) {
-            render([success: false, message: message(code: 'unknow.error')] as JSON)
+            render([success: false, message: message(code: "unknow.error")] as JSON)
         }
     }
 
     def confirm() {
-        Long paymentId = params.long("id")
         try {
+            Long paymentId = params.long("id")
             paymentService.confirmedPayment(paymentId)
             redirect controller: "payment", action: "index", id: paymentId
-        }
-        catch (Exception exception) {
-            render([sucess: false, message: message(code: 'unknow.error')] as JSON)
+        } catch (Exception exception) {
+            render([sucess: false, message: message(code: "unknow.error")] as JSON)
         }
     }
 
