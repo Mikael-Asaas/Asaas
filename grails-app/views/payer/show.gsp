@@ -1,9 +1,9 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-        <asset:javascript src="application.js" />
+        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}"/>
+        <title><g:message code="default.create.label" args="[entityName]"/></title>
+        <asset:javascript src="application.js"/>
         <title>Editar Pagador</title>
     </head>
     <body>

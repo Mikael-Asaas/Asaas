@@ -6,13 +6,12 @@ import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentMethod
 import com.desafio.enums.PaymentStatus
 import com.desafio.utils.DateUtils
-
 import grails.gorm.transactions.Transactional 
 
 @Transactional
 class PaymentService {
 
-    public Payment save(BigDecimal value, PaymentMethod method, Date dueDate, Payer payer) {
+    public Payment save(Map params) {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
