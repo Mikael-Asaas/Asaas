@@ -12,7 +12,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class PaymentService {
 
-    public Payment save(Map params) {
+    public Payment save(BigDecimal value, PaymentMethod method, Date dueDate, Payer payer) {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
