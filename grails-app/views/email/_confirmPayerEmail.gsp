@@ -5,48 +5,52 @@
         <title>E-mail de Cobrança</title>
     </head>
 <body>
-    <h1><b>Comprovante de Pagamento</b></h1>   
-    <h2>Grado em <g:formatDate format="dd/MM/yyyy" type="dateTime" style="SHORT" date="${payment.paymentDate}"/></h2>  
+    <div>
+        <h1><b>Comprovante de Pagamento</b></h1>
+    </div>
     <hr>
     <div>
         <div>
-            <label>Forma de pagamento:</label>
+            <h2><b>Resumo da cobrança</b></h2>
+        </div>
+        <div>
+            <label><b>Forma de pagamento:</b></label>
             <g:message code="PaymentMethod.${payment.method}"/>
         </div>
         <div>
-            <label>Valor pago:</label>
+            <label><b>Valor pago:</b></label>
             R$${payment.value}
         </div>
         <div>
-            <label>Data do vencimento:</label>
+            <label><b>Data do vencimento:</b></label>
             <g:formatDate format="dd/MM/yyyy" date="${payment.dueDate}"/>
         </div>
         <div>
-            <lavel>Data do pagamento:</lavel>
+            <lavel><b>Data do pagamento:</b></lavel>
             <g:formatDate format="dd/MM/yyyy" type="dateTime" style="SHORT" date="${payment.paymentDate}"/>
         </div>
         <hr>
         <div>
-            <label>Dados do pagador</label>
+            <h2><b>Dados do pagador</b></h2>
         </div>
         <div>
-            <label>Nome></label>
+            <label><b>Nome:</b></label>
             ${payment.payer.name}
         </div>
         <div>
-            <label>CPF/CNPJ</label>
+            <label><b>CPF/CNPJ</b></label>
             ${payment.payer.cpfCnpj}
         </div>
         <hr>
         <div>
-            <label>Dados do destinatário</label>
+            <h2><b>Dados do destinatário</b></h2>
         </div>
         <div>
-            <label>Nome:</label>
-        ${payment.customer.name}
+            <label><b>Nome:</b></label>
+            ${payment.customer.name}
         </div>
         <div>
-            <label>CPF/CNPJ</label>
+            <label><b>CPF/CNPJ</b></label>
             ${payment.customer.cpfCnpj}
         </div>
     </div>

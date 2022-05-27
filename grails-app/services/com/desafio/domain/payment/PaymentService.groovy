@@ -28,12 +28,12 @@ class PaymentService {
         payment.save(failOnError: true)
         asynchronousMailService.sendMail {
             to payment.payer.email
-            subject "Nova cobrança"
+            subject "Asaas - Nova cobrança"
             html groovyPageRenderer.render(template:"/email/sendPayerEmail", model: [payment: payment])
         }
         asynchronousMailService.sendMail {
-            to payment.customer.sendMail
-            subject "Nova cobrança"
+            to payment.customer.email
+            subject "Asaas - Nova cobrança"
             html groovyPageRenderer.render(template:"/email/sendCustomerEmail", model: [payment: payment])
         }
         return payment
@@ -42,15 +42,16 @@ class PaymentService {
     public Payment confirmedPayment(Long paymentId) {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
+        payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
         asynchronousMailService.sendMail {
             to payment.payer.email
-            subject "Pagamento recebido"
+            subject "Asaas - Pagamento confirmado"
             html groovyPageRenderer.render(template:"/email/confirmPayerEmail", model: [payment: payment])
         }
         asynchronousMailService.sendMail {
             to payment.customer.email
-            subject "Pagamento recebido"
+            subject "Asaas - Pagamento confirmado"
             html groovyPageRenderer.render(template:"/email/confirmCustomerEmail", model: [payment: payment])
         }
         return payment
