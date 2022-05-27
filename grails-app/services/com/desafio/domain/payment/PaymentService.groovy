@@ -8,9 +8,14 @@ import com.desafio.enums.PaymentStatus
 import com.desafio.utils.DateUtils
 
 import grails.gorm.transactions.Transactional 
+import grails.plugin.asyncmail.AsynchronousMailService
+import grails.gsp.PageRenderer
 
 @Transactional
 class PaymentService {
+
+    PageRenderer groovyPageRenderer
+    def asynchronousMailService
 
     public Payment save(Map params) {
         Payment payment = new Payment()
@@ -21,6 +26,7 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
+        
         return payment
     }
 
