@@ -20,7 +20,7 @@ class OverDueJob {
 
     def execute() {
         Date yesterdayDate = DateUtils.getYesterdayDate()
-        List<Payment> paymentList = paymentService.returnPaymentStatusAndDate(PaymentStatus.PENDING, yesterdayDate)
+        List<Payment> paymentList = paymentService.list(PaymentStatus.PENDING, yesterdayDate)
         for(Payment payment : paymentList) {
             payment.status = PaymentStatus.OVERDUE
             payment.save(failOnError:true)
