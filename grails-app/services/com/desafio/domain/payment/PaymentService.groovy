@@ -26,14 +26,33 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
-        
+        asynchronousMailService.sendMail {
+            to payment.payer.email
+            subject "Nova cobrança"
+            html groovyPageRenderer.render(template:"/email/sendPayerEmail", model: [payment: payment])
+        }
+        asynchronousMailService.sendMail {
+            to payment.customer.sendMail
+            subject "Nova cobrança"
+            html groovyPageRenderer.render(template:"/email/sendCustomerEmail", model: [payment: payment])
+        }
         return payment
     }
 
     public Payment confirmedPayment(Long paymentId) {
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
-        payment.save(failOnError: true)
+        payment.save(flush: true, failOnError: true)
+        asynchronousMailService.sendMail {
+            to payment.payer.email
+            subject "Pagamento recebido"
+            html groovyPageRenderer.render(template:"/email/confirmPayerEmail", model: [payment: payment])
+        }
+        asynchronousMailService.sendMail {
+            to payment.customer.email
+            subject "Pagamento recebido"
+            html groovyPageRenderer.render(template:"/email/confirmCustomerEmail", model: [payment: payment])
+        }
         return payment
     }
 
