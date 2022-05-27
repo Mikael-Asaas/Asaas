@@ -8,13 +8,18 @@ import com.desafio.enums.PaymentStatus
 import com.desafio.utils.FormatDateUtils
 
 import grails.gorm.transactions.Transactional 
-
+import grails.plugin.asyncmail.AsynchronousMailService
+import grails.gsp.PageRenderer
 
 @Transactional
 class PaymentService {
 
+     PageRenderer groovyPageRenderer
+    def asynchronousMailService
+
     public Payment save(Map params) {
         println(params)
+
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
@@ -23,6 +28,13 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
+        println(payment.errors)
+        asynchronousMailService.sendMail {
+            to payment.payer.email
+            subject "Cobrança Emitida"
+            html groovyPageRenderer.render(template:"email/_sendPayment", model: [payment: payment])
+
+            }
         return payment
      }
 
@@ -36,6 +48,11 @@ class PaymentService {
         payment.customer = params.customer
         payment.payer = params.payer
         payment.save(failOnError: true)
+         asynchronousMailService.sendMail {
+            to payment.payer.email
+            subject "Pagamento Confirmado"
+            html groovyPageRenderer.render(template:"email/_confirmPayment", model: [payment: payment])
+        }
         return payment
     }
 }

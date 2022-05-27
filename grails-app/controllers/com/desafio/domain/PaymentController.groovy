@@ -34,11 +34,12 @@ class PaymentController extends BaseController {
             Payment payment = paymentService.save(params) 
             if (payment.hasErrors()) {
                 render([success: false, message: message(code: payment.errors.allErrors[0].defaultMessage ?: payment.errors.allErrors[0].codes[0])] as JSON)
+
                 return
             }
             render([success: true] as JSON)
         } catch (Exception exception) {
-            println exception
+            exception.printStackTrace()
             render([success: false, message: message(code: 'unknow.error')] as JSON)
         }
     }

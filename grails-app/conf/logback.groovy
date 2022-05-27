@@ -35,3 +35,8 @@ if (Environment.isDevelopmentMode() && targetDir != null) {
     logger("StackTrace", ERROR, ['FULL_STACKTRACE'], false)
 }
 root(ERROR, ['STDOUT'])
+
+logger('grails.app.jobs.grails.plugin.asyncmail', TRACE, ['STDOUT'])
+logger('grails.app.services.grails.plugin.asyncmail', TRACE, ['STDOUT'])
+logger('grails.plugin.asyncmail', TRACE, ['STDOUT'])
+logger('grails.plugins.quartz', DEBUG, ['STDOUT'])

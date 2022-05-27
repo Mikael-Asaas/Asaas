@@ -11,6 +11,7 @@ $(document).ready(function () {
       if (response.success) {
         window.location.href = formReference.data("redirect");
       }
+      console.log(response)
     });
   });
 });
