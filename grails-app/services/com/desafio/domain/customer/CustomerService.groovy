@@ -2,6 +2,7 @@ package com.desafio.domain
 
 import com.desafio.domain.customer.Customer
 import grails.gorm.transactions.Transactional
+import com.desafio.utils.ValidateUtils
 
 @Transactional
 class CustomerService {
