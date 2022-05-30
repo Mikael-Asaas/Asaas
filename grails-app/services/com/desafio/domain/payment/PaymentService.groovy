@@ -38,4 +38,13 @@ class PaymentService {
         }
         return paymentList
     }
+
+    public Payment verifyDueDates() {
+        Date yesterdayDate = DateUtils.getYesterdayDate()
+        List<Payment> paymentList = list(PaymentStatus.PENDING, yesterdayDate)
+        for(Payment payment : paymentList) {
+            payment.status = PaymentStatus.OVERDUE
+            payment.save(failOnError:true)
+        }
+    }
 }
