@@ -19,11 +19,6 @@ class OverDueJob {
     static concurrent = false
 
     def execute() {
-        Date yesterdayDate = DateUtils.getYesterdayDate()
-        List<Payment> paymentList = paymentService.list(PaymentStatus.PENDING, yesterdayDate)
-        for(Payment payment : paymentList) {
-            payment.status = PaymentStatus.OVERDUE
-            payment.save(failOnError:true)
-        }      
-    }
+        paymentService.verifyDueDates()
+    }      
 }
