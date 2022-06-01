@@ -1,14 +1,28 @@
 package com.desafio.domain
 
 import com.desafio.domain.customer.Customer
-import grails.gorm.transactions.Transactional
+import com.desafio.utils.DomainUtils
 import com.desafio.utils.ValidateUtils
+import grails.gorm.transactions.Transactional
 
 @Transactional
 class CustomerService {
 
     public Customer save(Map params) { 
-        Customer customer = new Customer(params)
+        Customer customer = new Customer()
+        // customer = validate(customer, params)
+        // if (customer.hasErrors()) return customer
+        // validate(postalCode)
+        customer.name = params.name
+        customer.cpfCnpj = params.cpfCnpj
+        customer.address = params.address
+        customer.addressNumber = params.addressNumber
+        customer.province = params.province
+        customer.city = params.city
+        customer.state = params.state
+        customer.postalCode = ValidateUtils.digitsOnlyCleaner(params.postalCode)
+        customer.email = params.email
+        customer.phone = params.phone
         customer.save(failOnError: true)
         return customer
     }
@@ -35,5 +49,9 @@ class CustomerService {
         customer.phone = params.phone
         customer.save(failOnError: true)
         return customer
+    }
+
+    public Customer validate(Customer customer, Map params) {
+        if (!ValidateUtils.validatePostalCode(params.postalCode)) DomainUtils.addError(customer, "CEP inválido")
     }
 }

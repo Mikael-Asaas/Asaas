@@ -21,7 +21,11 @@ class CustomerController extends BaseController {
       try { 
          Customer customer = customerService.save(params)
          if (customer.hasErrors()) {
-            render([success: false, message: message(code: customer.errors.allErrors[0].defaultMessage ?: customer.errors.allErrors[0].codes[0])] as JSON)
+            List<String> errorMessages = []
+            customer.errors.allErrors.each {
+               errorMessages.add(it.defaultMessage)
+            }
+            render([success: false, messages: errorMessages] as JSON)
             return 
        }     
          render([success: true] as JSON)

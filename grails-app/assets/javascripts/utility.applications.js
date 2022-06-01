@@ -1,3 +1,4 @@
+//= require utils/validate
 //= require utils/searchPostalCode
 //= require utils/fillFormPostalCode
 //= require utils/save
