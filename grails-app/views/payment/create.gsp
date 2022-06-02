@@ -11,8 +11,8 @@
     <body>
         <main class="container">
         <h2 class="h2">Nova cobrança</h2>
-            <form data-redirect="${ g.createLink([controller: 'payment', action: 'index', params: [id: customerId]]) }"
-                data-url="${ g.createLink(controller: 'payment', action: 'save') }">
+            <form data-redirect="${g.createLink([controller: 'payment', action: 'index', params: [id: customerId]])}"
+                data-url="${g.createLink(controller: 'payment', action: 'save')}">
                 <input type="text" name="value" placeholder="valor">
                 <input type="date" name="dueDate" placeholder="Data de vencimento">
                 <g:select id="method"
