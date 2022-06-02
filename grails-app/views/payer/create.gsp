@@ -29,4 +29,3 @@
     <asset:javascript src="payer.js" />
     </body>
 </html> 
-
