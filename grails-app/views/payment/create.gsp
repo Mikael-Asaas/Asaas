@@ -2,10 +2,10 @@
     <head>
         <%@ page import="com.desafio.enums.PaymentMethod" %>
         <meta name="layout" content="main"/>
-        <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-        <asset:javascript src="application.js" />
-        <asset:javascript src="payment.js" />
+        <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}"/>
+        <title><g:message code="default.create.label" args="[entityName]"/></title>
+        <asset:javascript src="application.js"/>
+        <asset:javascript src="payment.js"/>
         <title>Nova cobrança</title>
     </head>
     <body>
