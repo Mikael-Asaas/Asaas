@@ -19,6 +19,10 @@ class OverDueJob {
     static concurrent = false
 
     def execute() {
-        paymentService.verifyDueDates()
-    }      
+       try {
+            paymentService.verifyDueDates()
+        } catch (Exception exception) {
+            log.error "Ocorreu um erro"
+        }
+    }
 }
