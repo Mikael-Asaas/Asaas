@@ -9,7 +9,7 @@ class DateUtils{
         return formatDate.parse(date)
     }
 
-    public static Date getYesterdayDate() {
+    public static Date getYesterday() {
         return new Date().clearTime().previous()
     }
 }

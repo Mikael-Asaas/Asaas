@@ -1,9 +1,9 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-        <asset:javascript src="application.js" />
+        <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}"/>
+        <title><g:message code="default.create.label" args="[entityName]"/></title>
+        <asset:javascript src="application.js"/>
         <title>Cobrança</title>
     </head>
     <body>
