@@ -30,17 +30,17 @@ class PaymentService {
         return payment
     }
 
-    public List<Payment> list(PaymentStatus paymentStatus, Date yesterdayDate) {
+    public List<Payment> list(PaymentStatus paymentStatus, Date yesterday) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus)
-            le("dueDate", yesterdayDate)
+            le("dueDate", yesterday)
         }
         return paymentList
     }
 
     public Payment verifyDueDates() {
-        Date yesterdayDate = DateUtils.getYesterdayDate()
-        List<Payment> paymentList = list(PaymentStatus.PENDING, yesterdayDate)
+        Date yesterday = DateUtils.getYesterday()
+        List<Payment> paymentList = list(PaymentStatus.PENDING, yesterday)
         for(Payment payment : paymentList) {
             payment.status = PaymentStatus.OVERDUE
             payment.save(failOnError:true)
