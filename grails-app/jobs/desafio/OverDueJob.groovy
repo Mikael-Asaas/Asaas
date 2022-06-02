@@ -5,6 +5,7 @@ import com.desafio.domain.payment.Payment
 import com.desafio.domain.PaymentService
 import com.desafio.enums.PaymentStatus
 
+import grails.converters.JSON
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -19,6 +20,10 @@ class OverDueJob {
     static concurrent = false
 
     def execute() {
-        paymentService.verifyDueDates()
-    }      
+       try {
+            paymentService.verifyDueDates()
+        } catch (Exception exception) {
+            log.error "Ocorreu um erro"
+        }
+    }
 }
