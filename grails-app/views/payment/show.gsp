@@ -17,22 +17,22 @@
                 data-url="${ g.createLink(controller: 'payment', action: 'update') }" >
                 <input type="hidden" class="js-payment-id" name="id" value="${payment.id}">
                 <div class="form-center">
-                    <h4>Cobrança para: ${payment.payer.name}</h4>
+                    <h4 class="h3">Cobrança para: ${payment.payer.name}</h4>
                 </div>
                 <div class="form-center">
-                    <h4>Data de vencimento: <g:formatDate format="dd/MM/yyyy" date="${payment.dueDate}" /></h4>
+                    <h4 class="h3">Data de vencimento: <g:formatDate format="dd/MM/yyyy" date="${payment.dueDate}" /></h4>
                 </div>
                 <div class="form-center">
-                    <h4>Método do pagamento: <g:message code="PaymentMethod.${payment.method}" /></h4>
+                    <h4 class="h3">Método do pagamento: <g:message code="PaymentMethod.${payment.method}" /></h4>
                 </div>
                 <div class="form-center">
-                    <h4>Status do pagamento: <g:message code="PaymentStatus.${payment.status}" /></h4>
+                    <h4 class="h3">Status do pagamento: <g:message code="PaymentStatus.${payment.status}" /></h4>
                 </div>
                 <div class="form-center">
-                    <h4>Valor: ${payment.value}</h4>
+                    <h4 class="h3">Valor: ${payment.value}</h4>
                 </div>
             </form> 
+            <g:link controller="payment" action="index" id="${payment.id}"><button class="btn">Voltar</button></g:link>
         </main>
-        <button><a href="${ g.createLink(controller: "payment", action: "index", id: payment.id)}">Voltar</a></button>
     </body>
 </html> 
