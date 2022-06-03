@@ -1,5 +1,8 @@
 <html>
     <head>
+        <script
+            src="https://kit.fontawesome.com/c8d140aaae.js" crossorigin="anonymous">
+        </script>
         <%@ page import="com.desafio.enums.PaymentMethod" %>
         <meta name="layout" content="main"/>
         <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
@@ -14,18 +17,21 @@
         <h2 class="h2">Nova cobrança</h2>
             <form data-redirect="${ g.createLink([controller: "payment", action: "index", params: [id: customerId]]) }"
                 data-url="${ g.createLink(controller: "payment", action: "save") }">
-
-                <div class="form-center">
+                <div class="form-controller">
                     <label class="h3" for="value">Valor:</label>
                     <input type="text" name="value" placeholder="valor">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                    <small class="js-msg"></small>
                 </div>
-
-                <div class="form-center">
+                <div class="form-controller">
                     <label class="h3" for="dueDate">Data de vencimento:</label>
                     <input type="date" name="dueDate" placeholder="Data de vencimento">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                    <small class="js-msg"></small>
                 </div>
-
-                <div class="form-center">
+                <div class="form-controller">
                     <label class="h3" for="method">Formato de pagamento:</label>
                     <g:select id="method"
                         name="method"
@@ -33,9 +39,11 @@
                         value="${method}"
                         noSelection="['':'Tipo de pagamento']"
                         valueMessagePrefix="PaymentMethod"/>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                    <small class="js-msg"></small>
                 </div>
-
-                <div class="form-center">
+                <div class="form-controller">
                     <label class="h3" for="payerId">Selecione o cliente:</label>
                     <select id="payerId" name="payerId" required>
                         <option>Selecione um pagador</option>
@@ -43,8 +51,10 @@
                                 <option value="${payer.id}">${payer.name}</option>
                             </g:each>
                     </select>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+                    <small class="js-msg"></small>
                 </div>
-
                 <input hidden value="${customerId}" name="customerId" id="customerId"> 
                 <button class="btn" type="submit">Salvar</button>
             </form>
