@@ -7,22 +7,30 @@ body {
 main.container {
   padding-top: 5em;
   max-width: 600px;
-  min-height: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 main .h2 {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2.5rem;
-  
 }
 
-main .h3 {
-  padding-left: 1%;
-  font-size: 1.0rem;
+.form-controller {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.two-colums {
+.form-controller input {
+  width: 100%;
+}
+
+.form-controller textarea {
+  width: 100%;
+}
+
+.two {
   float: left;
   width: 50%;
   margin-bottom: 20px;
@@ -30,30 +38,6 @@ main .h3 {
 
 .left {
   padding-left: 2%;
-}
-
-.two-colums input {
-  width: 100%;
-  float: left;
-}
-
-@media only screen and (max-width: 767px) {
-  .formulario-item-50 {
-    width: 100%
-  }
-}
-
-.form-center {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.form-center input {
-  width: 100%;
-}
-
-.form-center textarea {
-  width: 100%;
 }
 
 .btn {
@@ -66,4 +50,60 @@ main .h3 {
   font-weight: 300;
   border-radius: 4px;
   transition: all 0.3s ease;
+}
+
+.form-controller {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-controller label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.form-controller input {
+  display: block;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+}
+
+.form-controller i {
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form-controller small {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.form-controller.success input {
+  border-color: #8ebf30;
+}
+
+.form-controller.error input {
+  border-color: #e7473c;
+}
+
+.form-controller.success i.fa-check-circle {
+  color: #8ebf30;
+  visibility: visible;
+}
+
+.form-controller.error i.fa-exclamation-circle {
+  color: #e7473c;
+  visibility: visible;
+}
+
+.form-controller.error small {
+  visibility: visible;
+  color: #e7473c;
 }
