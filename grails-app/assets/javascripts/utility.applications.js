@@ -4,3 +4,4 @@
 //= require utils/show
 //= require utils/mask.lib
 //= require utils/mask.form
+//= require utils/validate
