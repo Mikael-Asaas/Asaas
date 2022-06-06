@@ -2,9 +2,14 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  min-width: 10vw;
+  align-items: center;
+  justify-content: center;
 }
 
 main.container {
+  padding: 1em;
   padding-top: 5em;
   max-width: 600px;
   margin-left: auto;
@@ -106,4 +111,19 @@ main .h2 {
 .form-controller.error small {
   visibility: visible;
   color: #e7473c;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px !important;
+    background-image: none;
+  }
+  .two {
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .left {
+    padding-left: 0%;
+  }
 }
