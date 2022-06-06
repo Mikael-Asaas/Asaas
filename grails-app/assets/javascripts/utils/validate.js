@@ -85,7 +85,7 @@ function FormValidationsController() {
     function validateCity() {
       let  = cityValue = cityReference.value;
       if (!cityValue) {
-        setErrorFor(cityReference, "O seu Estado é obrigatório!");
+        setErrorFor(cityReference, "A sua Cidade é obrigatório!");
         return;
       }
       setSucessFor(cityReference);
