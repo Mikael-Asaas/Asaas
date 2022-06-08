@@ -15,7 +15,7 @@
       <h2 class="h2">Dados de ${payer.name}</h2>
         <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [id: payer.customer.id]])}"
               data-url="${g.createLink([controller: 'payer', action: 'update'])}">
-        <input type="hidden" class="js-payer-id" name="id" value="${payer.id}">
+        <input type="hidden" class="js-payer-id" name="id" id="id" value="${payer.id}">
         <div class="form-controller">
           <label class="h3" for="name">Nome:</label>
           <input type="text" name="name" id="name" placeholder="Nome" value="${payer.name}" readonly>
