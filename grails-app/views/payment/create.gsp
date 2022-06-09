@@ -58,6 +58,6 @@
                 <button class="btn" type="submit">Salvar</button>
             </form>
         </main>
-        <asset:javascript src="applicationMaskMoney.js"/>
+        <asset:javascript src="applicationMoney.js" />
     </body>
 </html>
