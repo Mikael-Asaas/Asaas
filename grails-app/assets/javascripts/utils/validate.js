@@ -276,8 +276,8 @@ function FormValidationsController() {
     function bindInputPostalCode() {
       postalCodeReference.addEventListener("focusout", function () {
         validatePostal();
-        if (validatePostalCode(this.value)) {
-          getPostalCode(this.value, fillAddress);
+        if (validationPostalCode(this.value)) {
+          searchPostalCode(this.value, fillOutForm());
         }
       });
     }
