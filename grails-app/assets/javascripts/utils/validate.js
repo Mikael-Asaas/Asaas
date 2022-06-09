@@ -171,35 +171,12 @@ function FormValidationsController() {
     function validateFormIsValid() {
       let formControls = formReference.querySelectorAll(".form-control");
       let formIsValid = [...formControls].every((formControl) => {
-        return formControl.className === "form-control success";
+        return formControl.className.includes("success");
       });
+      if (formIsValid != true) return alert("Favor verificar os campos.");
+      
     }
-  
-    function fillAddress(data) {
-      if (data.erro) {
-        setErrorFor(postalCodeReference, "Não foi possível localizar o endereço");
-        addressReference.value = "";
-        provinceReference.value = "";
-        stateReference.value = "";
-        cityReference.value = "";
-        document.querySelector("#address").value = "";
-        document.querySelector("#province").value = "";
-        document.querySelector("#city").value = "";
-        document.querySelector("#state").value = "";
-        return;
-      }
-      setSucessFor(postalCodeReference);
-      setSucessFor(addressReference);
-      setSucessFor(provinceReference);
-      setSucessFor(stateReference);
-      setSucessFor(cityReference);
-      setSucessFor(complementReference);
-      document.querySelector("#address").value = data.logradouro;
-      document.querySelector("#province").value = data.bairro;
-      document.querySelector("#city").value = data.localidade;
-      document.querySelector("#state").value = data.uf;
-    }
-  
+    
     function setSucessFor(input) {
       let formControl = input.parentElement;
   
