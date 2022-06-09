@@ -21,7 +21,10 @@
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>
           </div>
-          <div class="form-controller">jquery-3.3.1.min
+          <div class="form-controller">
+            <label for="email">E-mail:</label>
+            <input type="text" name="email" id="email" placeholder="Email">
+            <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>
           </div>            
@@ -55,7 +58,31 @@
           </div>
           <div class="form-controller two">
             <label for="addressNumber">Nº:</label>
-            <input type="text" name="addressNumberjquery-3.3.1.min
+            <input type="text" name="addressNumber" id="addressNumber" placeholder="Nº">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small class="js-msg"></small>
+          </div>
+          <div class="form-controller two left">
+            <label for="province">Bairro:</label>
+            <input type="text" name="province" id="province" placeholder="Bairro">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small class="js-msg"></small>
+          </div>
+          <div class="form-controller two">
+            <label for="City">Localidade:</label>
+            <input type="text" name="city" id="city" placeholder="Localidade">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small class="js-msg"></small>
+          </div>
+          <div class="form-controller two left">
+            <label for="state">Estado:</label>
+            <input type="text" name="state" id="state" placeholder="UF">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small class="js-msg"></small>
           </div>
           <input hidden value="${customerId}" name="customer" id="customer">
           <button class="btn" type="submit" id="button">Criar</button>
