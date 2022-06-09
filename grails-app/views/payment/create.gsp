@@ -8,25 +8,24 @@
         <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
         <asset:stylesheet src="utility/form.css" />
-        <asset:javascript src="application.js" />
-        <asset:javascript src="payment.js" />
+        <asset:javascript src="applicationPayment.js" />
         <title>Nova cobrança</title>
     </head>
     <body>
         <main class="container">
         <h2 class="h2">Nova cobrança</h2>
-            <form data-redirect="${ g.createLink([controller: "payment", action: "index", params: [id: customerId]]) }"
+            <form class="form" data-redirect="${ g.createLink([controller: "payment", action: "index", params: [id: customerId]]) }"
                 data-url="${ g.createLink(controller: "payment", action: "save") }">
                 <div class="form-controller">
                     <label class="h3" for="value">Valor:</label>
-                    <input type="text" name="value" placeholder="valor">
+                    <input type="text" name="value" id="value" placeholder="valor">
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small class="js-msg"></small>
                 </div>
                 <div class="form-controller">
                     <label class="h3" for="dueDate">Data de vencimento:</label>
-                    <input type="date" name="dueDate" placeholder="Data de vencimento">
+                    <input type="date" name="dueDate" id="dueDate" placeholder="Data de vencimento">
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small class="js-msg"></small>
@@ -59,5 +58,6 @@
                 <button class="btn" type="submit">Salvar</button>
             </form>
         </main>
+        <asset:javascript src="applicationMaskMoney.js"/>
     </body>
 </html>
