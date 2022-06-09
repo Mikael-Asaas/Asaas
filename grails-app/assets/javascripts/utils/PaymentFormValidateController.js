@@ -146,9 +146,9 @@ function PaymentFormValidateController() {
   }
 
   function validateForm() {
-    var formControls = formReference.querySelectorAll(".form-control");
+    var formControls = formReference.querySelectorAll(".form-controller");
     var formIsValid = [...formControls].every((formControl) => {
-      return formControl.className === "form-control success";
+      return formControl.className === "form-controller success";
     });
     if (formIsValid !== true) return alert("Favor verificar os campos.");
     bindPostFormSubmit();
@@ -171,7 +171,7 @@ function PaymentFormValidateController() {
   function setSucessFor(input) {
     let formControl = input.parentElement;
 
-    $(formControl).addClass("form-control success").removeClass("error");
+    $(formControl).addClass("form-controller success").removeClass("error");
   }
 
   function setErrorFor(input, message) {
@@ -179,7 +179,7 @@ function PaymentFormValidateController() {
     let smallDisplayError = formControl.querySelector(".js-msg");
 
     smallDisplayError.innerText = message;
-    $(formControl).addClass("form-control error").removeClass("success");
+    $(formControl).addClass("form-controller error").removeClass("success");
   }
 }
 
