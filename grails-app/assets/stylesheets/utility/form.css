@@ -116,7 +116,6 @@ main .h2 {
 @media (max-width: 600px) {
   body {
     padding: 10px !important;
-    background-image: none;
   }
   .two {
     float: left;
