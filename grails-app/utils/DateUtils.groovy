@@ -1,6 +1,8 @@
 package com.desafio.utils
 
 import java.text.SimpleDateFormat
+import java.text.DateFormat;
+import java.util.Date;
 
 class DateUtils{
 

@@ -2,6 +2,8 @@ package com.desafio.utils
 
 import com.desafio.domain.customer.Customer
 import com.desafio.domain.payer.Payer
+import com.desafio.enums.PaymentMethod
+import com.desafio.enums.PaymentStatus
 
 import groovy.json.JsonSlurper
 import java.lang.String
@@ -44,5 +46,27 @@ class ValidateUtils {
             return false
         }
             return true
+    }
+
+    public static Boolean validateMinValue(String value) {
+        BigDecimal intValue = new BigDecimal(value)
+        if (intValue < 5.00) {
+            return false
+        }
+        return true
+    }
+
+    public static Boolean validatePaymentDueDate(String dueDate) {
+
+        Date todayDate = new Date()
+
+        if (DateUtils.formatStringToDate(dueDate, "yyyy-MM-dd") < todayDate) {
+            return false
+        }
+        return true
+    }
+
+    public static Boolean validatePaymentMethod(String method) {
+        return PaymentMethod.values().contains(PaymentMethod.valueOf(method))
     }
 }

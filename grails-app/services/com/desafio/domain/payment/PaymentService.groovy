@@ -7,6 +7,8 @@ import com.desafio.enums.PaymentMethod
 import com.desafio.enums.PaymentStatus
 import com.desafio.utils.DateUtils
 import com.desafio.domain.EmailService
+import com.desafio.utils.DomainUtils
+import com.desafio.utils.ValidateUtils
 
 import grails.gorm.transactions.Transactional 
 import grails.plugin.asyncmail.AsynchronousMailService
@@ -20,6 +22,8 @@ class PaymentService {
 
     public Payment save(Map params) {
         Payment payment = new Payment()
+        payment = validate(payment, params)
+        if (payment.hasErrors()) return payment
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
@@ -67,5 +71,21 @@ class PaymentService {
         String  subject = "Asaas - Pagamento confirmado"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmCustomerEmail", model: [payment: payment]))
         emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmPayerEmail", model: [payment: payment]))
+    }
+
+    public Payment validate(Payment payment, Map params) {
+        if (!ValidateUtils.validateMinValue(params.value)) {
+            DomainUtils.addError(payment, "")
+        }
+        if (!ValidateUtils.isNotNull(params.payerId)) {
+            DomainUtils.addError(payment, "")
+        }
+        if (!ValidateUtils.validatePaymentMethod(params.method)) {
+            DomainUtils.addError(payment, "")
+        }
+        if (!ValidateUtils.validatePaymentDueDate(params.dueDate)){
+             DomainUtils.addError(payment, "")
+        }
+        return payment
     }
 }
