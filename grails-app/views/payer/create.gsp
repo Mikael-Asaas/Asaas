@@ -52,7 +52,7 @@
           </div>
           <div class="form-controller two left">
             <label for="address">Endereço:</label>
-            <input type="text" name="address" id="address" placeholder="Endereço">
+            <input type="text" name="address" id="address" placeholder="Endereço" readonly>
             <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>     
@@ -66,21 +66,21 @@
           </div>
           <div class="form-controller two left">
             <label for="province">Bairro:</label>
-            <input type="text" name="province" id="province" placeholder="Bairro">
+            <input type="text" name="province" id="province" placeholder="Bairro" readonly>
             <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>
           </div>
           <div class="form-controller two">
             <label for="City">Localidade:</label>
-            <input type="text" name="city" id="city" placeholder="Localidade">
+            <input type="text" name="city" id="city" placeholder="Localidade" readonly>
             <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>
           </div>
           <div class="form-controller two left">
             <label for="state">Estado:</label>
-            <input type="text" name="state" id="state" placeholder="UF">
+            <input type="text" name="state" id="state" placeholder="UF" readonly>
             <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>
