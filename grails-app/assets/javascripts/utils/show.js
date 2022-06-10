@@ -7,7 +7,7 @@ $(document).ready(function () {
     $(".js-send-button").removeClass("hide");
 
     inputList.each(function (index, input) {
-      $(input).removeAttr("readonly");
+      $(input).removeAttr("readonly").focus();
     });
   });
 });
