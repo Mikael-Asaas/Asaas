@@ -15,8 +15,7 @@ function PaymentFormValidateController() {
   var payerReference = document.getElementById("payerId");
   var todayDate = new Date();
   var zeroValue = 0;
-  var dueDateMaxOver = 30;
-  var minValue = 2;
+  var minValue = 5;
 
   function bindPreventDefaultForm() {
     $("form").on("submit", function (e) {
@@ -59,7 +58,7 @@ function PaymentFormValidateController() {
     if (inputValue < minValue) {
       setErrorFor(
         valueReference,
-        "Valor minimo para geração de cobrança de R$ 2,00"
+        "Valor minimo para geração de cobrança de R$ 5,00"
       );
       return;
     }
@@ -106,13 +105,6 @@ function PaymentFormValidateController() {
       setErrorFor(
         dueDateReference,
         "Data não pode ser anterior ao dia de hoje"
-      );
-      return;
-    }
-    if (diff > dueDateMaxOver) {
-      setErrorFor(
-        dueDateReference,
-        "Data não pode ser mais do que 30 dias pra frente"
       );
       return;
     }
