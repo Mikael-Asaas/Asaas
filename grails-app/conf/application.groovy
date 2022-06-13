@@ -1,3 +1,6 @@
+
+
+// Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.desafio.domain.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.desafio.domain.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.desafio.domain.Role'
