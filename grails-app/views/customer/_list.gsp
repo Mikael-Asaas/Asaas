@@ -22,7 +22,7 @@
             </tr>
                 <tr>
                     <td>
-                        <a href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}">Editar Cliente</a>
+                       <g:link controller="customer" action="show" update="form" params="${[customerId: customer.id]}">Editar cliente</g:link>
                     </td>
                 </tr> 
          </g:each> 

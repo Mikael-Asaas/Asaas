@@ -8,13 +8,13 @@
     </head>
     <body>
         <div>
-            <g:link controller="payer" action="create" update="divForm">Novo Pagador</g:link>
+            <g:link controller="payer" action="create" update="form">Novo Pagador</g:link>
         </div>
 
-        <div id="divLista">
+        <div id="lista">
             <g:render template="list" model="[payerList: payerList]"></g:render>
         </div>
-        <div id="divForm"></div>
+        <div id="form"></div>
 
         <g:paginate total="${totalCount}" controller="payer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" />
     </body>
