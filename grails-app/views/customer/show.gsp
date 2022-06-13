@@ -3,7 +3,7 @@
     <meta name="layout" content="main"/>
     <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}"/>
     <title><g:message code="default.create.label" args="[entityName]"/></title>
-     <asset:javascript src="application.js"/>
+    <asset:javascript src="application.js"/>
     <title>Clientes</title>
 </head>
     <body>
@@ -27,8 +27,8 @@
             <button type="reset"> Cancelar </button>
           </form>
         <div>
-            <g:link controller="payer" action="create" id="${customer.id}"><button>Criar pagador</button></g:link>
-            <g:link controller="payment" action="create" id="${customer.id}"><button>Criar cobrança</button></g:link>
+            <g:link controller="payer" action="create" params="${customerId}"><button>Criar pagador</button></g:link>
+            <g:link controller="payment" action="create" params="${customerId}"><button>Criar cobrança</button></g:link>
         </div>
       </main>
       <asset:javascript src="utility.applications.js" /> 

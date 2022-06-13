@@ -8,12 +8,12 @@
 </head>
     <body>
         <div>
-            <g:link controller="customer" action="create" update="divForm">Criando conta</g:link>
+            <g:link controller="customer" action="create" update="form">Criando conta</g:link>
         </div>
             <a href="/customer">Meus Clientes</a>
-        <div id="divLista">
+        <div id="lista">
             <g:render template="list" model="[customerList: customerList]"> </g:render>
         </div>
-            <g:paginate total="${totalCount}" controller="customer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" /><div id="divForm"></div>      
+            <g:paginate total="${totalCount}" controller="customer" action="index" params="${params}" next="Próximo" prev="Anterior" max="10" /><div id="form"></div>      
     </body>
 </html>
