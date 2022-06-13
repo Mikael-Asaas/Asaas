@@ -13,7 +13,6 @@
         <g:if test="${paymentList}">
             <table>
                 <tr>
-                    <th>ID</th>
                     <th>Valor</th>
                     <th>Forma de pagamento</th>
                     <th>Status</th>
@@ -22,7 +21,6 @@
                 </tr>
                 <g:each var="payment" in="${paymentList}">
                     <tr>
-                        <td>${payment.id}</td>
                         <td>${payment.value}</td>
                         <td><g:message code="PaymentMethod.${payment.billingType}"/></td>
                         <td><g:message code="PaymentStatus.${payment.status}"/></td>
