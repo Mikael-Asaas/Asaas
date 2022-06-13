@@ -2,7 +2,7 @@ package com.desafio.utils
 
 import java.text.SimpleDateFormat
 
-class DateUtils{
+class DateUtils {
 
     public static Date formatStringToDate(String date, String pattern) {
         SimpleDateFormat formatDate = new SimpleDateFormat(pattern)
