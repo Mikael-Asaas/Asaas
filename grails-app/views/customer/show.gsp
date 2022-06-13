@@ -27,8 +27,8 @@
             <button type="reset"> Cancelar </button>
           </form>
         <div>
-            <g:link controller="payer" action="create" params="${customerId}"><button>Criar pagador</button></g:link>
-            <g:link controller="payment" action="create" params="${customerId}"><button>Criar cobrança</button></g:link>
+            <g:link controller="payer" action="create" params="${[customerId: customer.id]}"><button>Criar pagador</button></g:link>
+            <g:link controller="payment" action="create" params="${[customerId: customer.id]}"><button>Criar cobrança</button></g:link>
         </div>
       </main>
       <asset:javascript src="utility.applications.js" /> 
