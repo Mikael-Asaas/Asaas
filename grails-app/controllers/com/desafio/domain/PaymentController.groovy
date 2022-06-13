@@ -21,7 +21,7 @@ class PaymentController extends BaseController {
     }
 
     def create() {
-        Long customerId = params.long("id")
+        Long customerId = Long.valueOf(params.customerId)
         List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
         }
@@ -42,6 +42,6 @@ class PaymentController extends BaseController {
     }
 
     def show() {
-        return [payment: Payment.get(params.long('id'))]
+        return [payment: Payment.get(params.long('paymentId'))]
     }
 }
