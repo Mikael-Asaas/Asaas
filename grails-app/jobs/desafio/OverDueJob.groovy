@@ -5,9 +5,6 @@ import com.desafio.domain.payment.Payment
 import com.desafio.domain.PaymentService
 import com.desafio.enums.PaymentStatus
 
-import grails.gorm.transactions.Transactional
-
-@Transactional
 class OverDueJob {
    
     def paymentService
@@ -20,7 +17,7 @@ class OverDueJob {
 
     def execute() {
        try {
-            paymentService.verifyDueDates()
+            paymentService.verifyOverDueDates()
         } catch (Exception exception) {
             log.error "Ocorreu um erro"
         }

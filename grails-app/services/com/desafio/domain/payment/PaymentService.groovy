@@ -38,10 +38,10 @@ class PaymentService {
         return paymentList
     }
 
-    public Payment verifyDueDates() {
+    public Payment verifyOverDueDates() {
         Date yesterday = DateUtils.getYesterday()
         List<Payment> paymentList = list(PaymentStatus.PENDING, yesterday)
-        for(Payment payment : paymentList) {
+        for (Payment payment : paymentList) {
             payment.status = PaymentStatus.OVERDUE
             payment.save(failOnError:true)
         }
