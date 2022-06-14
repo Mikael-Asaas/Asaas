@@ -7,20 +7,20 @@ import grails.converters.JSON
 import grails.gorm.PagedResultList
 import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class CustomerController extends BaseController {
 
    def customerService
+   // def registerService
+   // def springSecurityService
    
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
    def create() { }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
    def index() {
       PagedResultList customerList = Customer.list(max: getLimitPage(), offset: getCurrentPage())
       return [customerList: customerList , totalCount: customerList.totalCount]
     }
   
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
    def save(){
       try { 
          Customer customer = customerService.save(params)
@@ -34,7 +34,6 @@ class CustomerController extends BaseController {
       } 
    }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
    def update(){
       try {
          Long id = params.long('id')
@@ -45,8 +44,7 @@ class CustomerController extends BaseController {
       } 
    }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
    def show(){
-      return [customer: Customer.get(params.long("id"))]
+      // return [customer: springSecurityService.currentUser.customer]
    }
 }

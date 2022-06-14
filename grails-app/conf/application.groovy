@@ -1,7 +1,7 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.desafio.domain.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.desafio.domain.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.desafio.domain.Role'
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/customer/create'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/customer/show'
 grails.plugin.springsecurity.logout.postOnly=false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
