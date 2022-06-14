@@ -19,7 +19,7 @@
         </div>
         <div>
             <label><b>Valor pago:</b></label>
-            R$${payment.value}
+            R$ ${payment.value}
         </div>
         <div>
             <label><b>Data do vencimento:</b></label>
