@@ -13,9 +13,9 @@
             </tr>
             <tr>
                 <td>
-                    <g:link controller="customer" action="show" id='${customer.id}'><button>Editar cliente</button></g:link>
-                    <g:link controller="payer" action="create" id='${customer.id}'><button>Criar pagador</button></g:link>
-                    <g:link controller="payment" action="create" id='${customer.id}'><button>Criar cobrança</button></g:link>
+                    <g:link controller="customer" action="show" id="${customer.id}"><button>Editar cliente</button></g:link>
+                    <g:link controller="payer" action="create" id="${customer.id}"><button>Criar pagador</button></g:link>
+                    <g:link controller="payment" action="create" id="${customer.id}"><button>Criar cobrança</button></g:link>
                 </td>
             </tr> 
         </g:each> 
