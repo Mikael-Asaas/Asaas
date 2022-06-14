@@ -30,56 +30,56 @@
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two">
+        <div class="form-controller two-columns">
           <label class="h3" for="cpfCnpj">CPF/CNPJ:</label>
           <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ" value="${payer.cpfCnpj}" readonly>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two left">
+        <div class="form-controller two-columns left">
           <label class="h3" for="phone">Telefone:</label>
           <input type="text" name="phone" id="phone" placeholder="Telefone" value="${payer.phone}" readonly>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two">
+        <div class="form-controller two-columns">
           <label class="h3" for="postalCode">CEP:</label>
           <input type="text" name="postalCode" id="postalCode" placeholder="CEP" value="${payer.postalCode}" readonly>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two left">
+        <div class="form-controller two-columns left">
           <label class="h3" for="address">Endereço:</label>
           <input type="text" name="address" id="address" placeholder="Endereço" value="${payer.address}" readonly>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
-        </div class="two-colums">
-        <div class="form-controller two">
+        </div>
+        <div class="form-controller two-columns">
           <label class="h3" for="addressNumber">Nº:</label>
           <input type="text" name="addressNumber" id="addressNumber" placeholder="Nº" value="${payer.addressNumber}" readonly>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two left">
+        <div class="form-controller two-columns left">
           <label class="h3" for="province">Bairro:</label>
           <input type="text" name="province" id="province" placeholder="Bairro" value="${payer.province}" readonly >
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two">
+        <div class="form-controller two-columns">
           <label class="h3" for="city">Localidade:</label>
           <input type="text" name="city" id="city" placeholder="Localidade" value="${payer.city}" readonly>
           <i class="fas fa-exclamation-circle"></i>
           <i class="fas fa-check-circle"></i>
           <small class="js-msg"></small>
         </div>
-        <div class="form-controller two left">
+        <div class="form-controller two-columns left">
           <label class="h3" for="state">Estado:</label>
           <input type="text" name="state" id="state" placeholder="UF" value="${payer.state}" readonly>
           <i class="fas fa-exclamation-circle"></i>
