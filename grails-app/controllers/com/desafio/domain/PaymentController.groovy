@@ -49,7 +49,7 @@ class PaymentController extends BaseController {
             
             if (payment) {
                 redirect (controller: "payment", action: "index", params: [customerId: payment.customerId])
-            return
+                return
             }
         } catch (Exception exception) {
             render([sucess: false, message: message(code: "unknow.error")] as JSON)
