@@ -1,9 +1,6 @@
 package desafio
 
-import com.desafio.utils.DateUtils
-import com.desafio.domain.payment.Payment
 import com.desafio.domain.PaymentService
-import com.desafio.enums.PaymentStatus
 
 class OverDueJob {
    
