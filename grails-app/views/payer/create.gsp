@@ -1,15 +1,15 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-        <asset:javascript src="application.js" />
+        <g:set var="entityName" value="${message(code: 'payer.label', default: 'Payer')}"/>
+        <title><g:message code="default.create.label" args="[entityName]"/></title>
+        <asset:javascript src="application.js"/>
         <title>Novo Pagador</title>
     </head>
     <body>
       <main class="container">
         <h2 class="h2">Novo Pagador</h2>
-        <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [id: customerId]])}"
+        <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [customerId: customerId]])}"
               data-url="${g.createLink([controller: 'payer', action: 'save'])}">
           <input type="text" name="name" id="name" placeholder="Nome">
           <input type="text" name="cpfCnpj" id="cpfCnpj" placeholder="CPF/CNPJ">
@@ -21,7 +21,7 @@
           <input type="text" name="province" id="province" placeholder="Bairro">
           <input type="text" name="city" id="city" placeholder="Localidade">
           <input type="text" name="state" id="state" placeholder="UF">
-          <input hidden value="${ customerId }" name="customer" id="customer">
+          <input hidden value="${customerId}" name="customerId" id="customerId">
           <button type="submit">Criar</button>
           <button type="reset" onclick="history.go(-1)">Cancelar</button>
         </form>   
@@ -29,4 +29,3 @@
     <asset:javascript src="payer.js" />
     </body>
 </html> 
-

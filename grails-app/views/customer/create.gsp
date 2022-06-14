@@ -1,9 +1,9 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
-        <title><g:message code="default.create.label" args="[entityName]" /></title>
-        <asset:javascript src="application.js" />
+        <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}"/>
+        <title><g:message code="default.create.label" args="[entityName]"/></title>
+        <asset:javascript src="application.js"/>
     </head>
     <body>
       <main class="container">
@@ -27,4 +27,4 @@
       </main>
         <asset:javascript src="payer.js" />
     </body>
-</html> 
+</html>
