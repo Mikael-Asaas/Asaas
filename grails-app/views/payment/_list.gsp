@@ -1,3 +1,6 @@
+<%@ page import="com.desafio.enums.PaymentMethod" %>
+<%@ page import="com.desafio.enums.PaymentStatus" %>
+<%@ page import="com.desafio.utils.DateUtils" %>
 <g:if test="${paymentList?.size() > 0}">
     <table>
         <tr>
