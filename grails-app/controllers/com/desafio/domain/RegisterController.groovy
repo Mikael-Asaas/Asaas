@@ -18,12 +18,12 @@ class RegisterController {
     def index() { }
 
     def register() {
-        if(!params.password.equals(params.repassword)) {
-            flash.message = "Senha diferente"
-            redirect action: "index"
-            return
-        } else {
             try {
+                if (!params.password.equals(params.repassword)) {
+                    flash.message = "Senha diferente"
+                    redirect action: "index"
+                    return
+                }
                 def user = User.findByUsername(params.username)?: new User(username: params.username, password: params.password).save()
                 def role = Role.get(2)
                 if(user && role) {
@@ -48,4 +48,3 @@ class RegisterController {
             }
         }
     }
-}
