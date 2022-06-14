@@ -43,8 +43,8 @@ class PaymentController extends BaseController {
     }
 
     def confirm() {
-        Long paymentId = params.long("paymentId")
         try {
+            Long paymentId = params.long("paymentId")
             Payment payment = paymentService.confirmPayment(paymentId)
             
             if (payment) {
