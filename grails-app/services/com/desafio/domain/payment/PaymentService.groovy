@@ -75,16 +75,19 @@ class PaymentService {
 
     public Payment validate(Payment payment, Map params) {
         if (!ValidateUtils.validateMinValue(params.value)) {
-            DomainUtils.addError(payment, "")
+            DomainUtils.addError(payment, "Cobrança mínima de R$5.00")
         }
+
         if (!ValidateUtils.isNotNull(params.payerId)) {
-            DomainUtils.addError(payment, "")
+            DomainUtils.addError(payment, "Cliente inválido")
         }
+
         if (!ValidateUtils.validatePaymentMethod(params.method)) {
-            DomainUtils.addError(payment, "")
+            DomainUtils.addError(payment, "Método de pagamento inválido")
         }
+        
         if (!ValidateUtils.validatePaymentDueDate(params.dueDate)){
-             DomainUtils.addError(payment, "")
+             DomainUtils.addError(payment, "Data de vencimento inválida")
         }
         return payment
     }
