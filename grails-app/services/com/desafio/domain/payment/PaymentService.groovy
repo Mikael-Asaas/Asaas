@@ -26,7 +26,9 @@ class PaymentService {
         payment.customer = Customer.get(params.long("customerId"))
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
+
         newPaymentNotify(payment)
+        
         return payment
     }
 
@@ -35,7 +37,9 @@ class PaymentService {
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
+
         confirmPaymentNotify(payment)
+        
         return payment
     }
 
