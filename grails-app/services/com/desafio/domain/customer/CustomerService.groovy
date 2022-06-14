@@ -52,24 +52,31 @@ class CustomerService {
         if (!ValidateUtils.emailIsValid(params.email)) {
             DomainUtils.addError(customer, "")
         }
+        
         if (!ValidateUtils.validateCpfCnpj(params.cpfCnpj)) {
             DomainUtils.addError(customer, "")
         }
+
         if (!ValidateUtils.validatePostalCode(params.postalCode)) {
             DomainUtils.addError(customer, "")
         }
+
         if (!ValidateUtils.isNotNull(params.name)) {
             DomainUtils.addError(customer, "")
         }
+
         if (!ValidateUtils.isNotNull(params.address)) {
             DomainUtils.addError(customer, "")
         }
+        
         if (!ValidateUtils.isNotNull(params.province)) {
             DomainUtils.addError(customer, "")
         }
+
         if (!ValidateUtils.isNotNull(params.city)) {
             DomainUtils.addError(customer, "")
         }
+
         if (!ValidateUtils.isNotNull(params.state)) {
             DomainUtils.addError(customer, "")
         }
