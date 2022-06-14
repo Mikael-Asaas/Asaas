@@ -11,7 +11,6 @@ import grails.plugin.springsecurity.annotation.Secured
 class CustomerController extends BaseController {
 
    def customerService
-   def registerService
    def springSecurityService
    
    def create() { }
