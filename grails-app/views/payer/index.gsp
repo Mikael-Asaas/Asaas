@@ -8,7 +8,7 @@
     </head>
     <body>
         <div>
-            <g:link controller="payer" action="create" update="form">Novo Pagador</g:link>
+            <g:link controller="customer" action="index" update="form">Asaas - Cliente</g:link>
         </div>
 
         <div id="lista">

@@ -20,7 +20,7 @@ class PayerController extends BaseController {
         PagedResultList payerList =  Payer.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
             eq("customer.id", customerId) 
         }
-        return [payerList: payerList , totalCount: payerList.totalCount]
+        return [payerList: payerList, totalCount: payerList.totalCount]
     }
 
     def save() {
