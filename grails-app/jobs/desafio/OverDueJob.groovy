@@ -14,7 +14,7 @@ class OverDueJob {
 
     def execute() {
        try {
-            paymentService.verifyOverDueDates()
+            paymentService.updateToOverdue()
         } catch (Exception exception) {
             log.error "Ocorreu um erro"
         }

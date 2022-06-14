@@ -38,7 +38,7 @@ class PaymentService {
         return paymentList
     }
 
-    public Payment verifyOverDueDates() {
+    public Payment updateToOverdue() {
         Date yesterday = DateUtils.getYesterday()
         List<Payment> paymentList = list(PaymentStatus.PENDING, yesterday)
         for (Payment payment : paymentList) {
