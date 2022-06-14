@@ -50,35 +50,35 @@ class CustomerService {
 
     public Customer validate(Customer customer, Map params) {
         if (!ValidateUtils.emailIsValid(params.email)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "E-mail inválido")
         }
         
         if (!ValidateUtils.validateCpfCnpj(params.cpfCnpj)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "CPF/CNPJ inválido")
         }
 
         if (!ValidateUtils.validatePostalCode(params.postalCode)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "CEP inválido")
         }
 
         if (!ValidateUtils.isNotNull(params.name)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "Nome é obrigatório")
         }
 
         if (!ValidateUtils.isNotNull(params.address)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "Endereço é obrigatório")
         }
         
         if (!ValidateUtils.isNotNull(params.province)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "Bairro é obrigatório")
         }
 
         if (!ValidateUtils.isNotNull(params.city)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "Cidade é obrigatório")
         }
 
         if (!ValidateUtils.isNotNull(params.state)) {
-            DomainUtils.addError(customer, "")
+            DomainUtils.addError(customer, "Estado é obrigatório")
         }
         return customer
     }
