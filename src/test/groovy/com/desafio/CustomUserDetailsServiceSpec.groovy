@@ -5,11 +5,9 @@ import spock.lang.Specification
 
 class CustomUserDetailsServiceSpec extends Specification implements ServiceUnitTest<CustomUserDetailsService>{
 
-    def setup() {
-    }
+    def setup() { }
 
-    def cleanup() {
-    }
+    def cleanup() { }
 
     void "test something"() {
         expect:"fix me"
