@@ -6,7 +6,6 @@ import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentMethod
 import com.desafio.enums.PaymentStatus
 import com.desafio.utils.DateUtils
-import com.desafio.domain.EmailService
 
 import grails.gorm.transactions.Transactional 
 import grails.plugin.asyncmail.AsynchronousMailService
