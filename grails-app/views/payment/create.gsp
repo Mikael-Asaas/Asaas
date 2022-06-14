@@ -1,9 +1,6 @@
 <%@ page import="com.desafio.enums.PaymentMethod" %>
 <html>
     <head>
-        <script
-            src="https://kit.fontawesome.com/c8d140aaae.js" crossorigin="anonymous">
-        </script>
         <meta name="layout" content="main"/>
         <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
