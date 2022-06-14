@@ -28,7 +28,7 @@ class PaymentService {
         payment.save(failOnError: true)
 
         newPaymentNotify(payment)
-        
+
         return payment
     }
 
@@ -62,13 +62,13 @@ class PaymentService {
     
     public void newPaymentNotify(Payment payment) {
         String subject = "Asaas - Nova cobrança"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/sendCustomerEmail", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/sendPayerEmail", model: [payment: payment]))
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/sendPaymentCustomerNotification", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/sendPaymentPayerNotification", model: [payment: payment]))
     }
 
     public void confirmPaymentNotify(Payment payment) {
         String  subject = "Asaas - Pagamento confirmado"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmCustomerEmail", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmPayerEmail", model: [payment: payment]))
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentCustomerNotification", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmPaymentPayerNotification", model: [payment: payment]))
     }
 }
