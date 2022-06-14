@@ -1,7 +1,5 @@
 package desafio
 
-import com.desafio.domain.PaymentService
-
 class OverDueJob {
    
     def paymentService
