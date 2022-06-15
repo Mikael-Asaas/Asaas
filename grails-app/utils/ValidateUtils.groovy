@@ -43,6 +43,6 @@ class ValidateUtils {
         if (parameter == null) {
             return false
         }
-            return true
+        return true
     }
 }
