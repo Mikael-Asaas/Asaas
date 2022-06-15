@@ -38,7 +38,6 @@ class PaymentService {
     }
 
     public Payment confirmPayment(Long paymentId) {
-        if (payment.status == PaymentService.OVERDUE) throw new Exception("Erro ao realizar confirmação de cobrança")
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
