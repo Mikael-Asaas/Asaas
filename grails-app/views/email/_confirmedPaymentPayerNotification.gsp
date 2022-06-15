@@ -1,7 +1,7 @@
+<%@ page import="com.desafio.utils.DateUtils" %> 
+<%@ page import="com.desafio.enums.PaymentMethod" %>
 <html>
     <head>
-        <%@ page import="com.desafio.utils.DateUtils" %> 
-        <%@ page import="com.desafio.enums.PaymentMethod" %>
         <title>E-mail de Cobrança</title>
     </head>
 <body>

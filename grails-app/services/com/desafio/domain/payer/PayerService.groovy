@@ -25,15 +25,19 @@ class PayerService {
         payer.postalCode = params.postalCode
         payer.email = params.email
         payer.phone = params.phone
-        payer.save(failOnError: true)
+        payer.save(failOnError: true) 
         return payer
     }
     
-    public Payer update(Long id, Map params) {
-        if (!id) throw new Exception("Erro ao realizar atualização de informação")
-        Payer payer = Payer.get(params.long("id"))
-        payer = validate(payer, params)
+    public Payer update(Long payerId, Map params) {
+        if (!payerId) throw new Exception("Erro ao realizar atualização de informação")
+        
+        Payer payer = Payer.get(params.long("payerId"))
+        if (!payer) throw new Exception("Pagador não encontrado")
+        
+        payer = validate(params)
         if (payer.hasErrors()) return payer
+
         payer.name = params.name
         payer.cpfCnpj = params.cpfCnpj
         payer.address = params.address
@@ -45,34 +49,43 @@ class PayerService {
         payer.email = params.email
         payer.phone = params.phone
         payer.save(failOnError: true)
+
         return payer
     }
 
     public Payer validate(Payer payer, Map params) {
         if (!ValidateUtils.emailIsValid(params.email)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "E-mail inválido")
         }
+
         if (!ValidateUtils.validateCpfCnpj(params.cpfCnpj)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "CPF/CNPJ inválido")
         }
+
         if (!ValidateUtils.validatePostalCode(params.postalCode)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "CEP inválido")
         }
+
         if (!ValidateUtils.isNotNull(params.name)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "Nome é obrigatório")
         }
+
         if (!ValidateUtils.isNotNull(params.address)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "Endereço é obrigatório")
         }
+
         if (!ValidateUtils.isNotNull(params.province)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "Bairro é obrigatório")
         }
+        
         if (!ValidateUtils.isNotNull(params.city)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "Cidade é obrigatório")
         }
+
         if (!ValidateUtils.isNotNull(params.state)) {
-            DomainUtils.addError(payer, "")
+            DomainUtils.addError(payer, "Estado é obrigatório")
         }
+
         return payer
     }
 }

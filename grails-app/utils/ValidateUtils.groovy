@@ -45,7 +45,7 @@ class ValidateUtils {
         if (parameter == null) {
             return false
         }
-            return true
+        return true
     }
 
     public static Boolean validateMinValue(String value) {

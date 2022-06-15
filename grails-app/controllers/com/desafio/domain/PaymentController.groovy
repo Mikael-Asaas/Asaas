@@ -7,25 +7,26 @@ import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentMethod
 
 import grails.converters.JSON
+import grails.gorm.PagedResultList
 
 class PaymentController extends BaseController {
     
     def paymentService
 
     def index() {
-        Long customerId = params.long("id")
-        List<Payment> paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
+        Long customerId = Long.valueOf(params.customerId)
+        PagedResultList paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
             eq("customer", Customer.get(customerId)) 
         }
-        return [paymentList: paymentList, totalCount: Payment.count()]
+        return [paymentList: paymentList, totalCount: paymentList.totalCount]
     }
 
     def create() {
-        Long customerId = params.long("id")
+        Long customerId = Long.valueOf(params.customerId)
         List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
         }
-        return [customerId: customerId, payerList: payerList, totalCount: Payer.count()]
+        return [customerId: customerId, payerList: payerList]
     }
 
     def save() {
@@ -43,15 +44,19 @@ class PaymentController extends BaseController {
 
     def confirm() {
         try {
-            Long paymentId = params.long("id")
-            paymentService.confirmedPayment(paymentId)
-            redirect controller: "payment", action: "index", id: paymentId
+            Long paymentId = params.long("paymentId")
+            Payment payment = paymentService.confirmPayment(paymentId)
+            
+            if (payment) {
+                redirect (controller: "payment", action: "index", params: [customerId: payment.customerId])
+                return
+            }
         } catch (Exception exception) {
             render([sucess: false, message: message(code: "unknow.error")] as JSON)
         }
     }
 
     def show() {
-        return [payment: Payment.get(params.long('id'))]
+        return [payment: Payment.get(params.long('paymentId'))]
     }
 }
