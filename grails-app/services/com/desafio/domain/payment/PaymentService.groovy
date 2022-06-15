@@ -15,15 +15,16 @@ class PaymentService {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
-        payment.method = PaymentMethod.valueOf(params.method)
+        payment.billingType = PaymentMethod.valueOf(params.billingType)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
-        payment.customer = Customer.get(params.long("customerId"))
-        payment.payer = Payer.get(params.long("payerId"))
+        payment.customer = Customer.get(Long.valueOf(params.customerId))
+        payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
         return payment
     }
 
-    public Payment confirmedPayment(Long paymentId) {
+    public Payment confirmPayment(Long paymentId) {
+        if (payment.status = PaymentService.OVERDUE) throw new Exception("Erro ao realizar confirmação de cobrança")
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.save(failOnError: true)
