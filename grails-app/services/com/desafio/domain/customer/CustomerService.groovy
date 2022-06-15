@@ -23,6 +23,7 @@ class CustomerService {
         customer.email = params.email
         customer.phone = params.phone
         customer.save(failOnError: true)
+        
         return customer
     }
 
@@ -45,6 +46,7 @@ class CustomerService {
         customer.email = params.email
         customer.phone = params.phone
         customer.save(failOnError: true)
+
         return customer
     }
 
@@ -80,6 +82,7 @@ class CustomerService {
         if (!ValidateUtils.isNotNull(params.state)) {
             DomainUtils.addError(customer, "Estado é obrigatório")
         }
+
         return customer
     }
 }
