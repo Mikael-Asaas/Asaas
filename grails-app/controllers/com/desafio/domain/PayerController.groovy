@@ -8,16 +8,15 @@ import grails.converters.JSON
 import grails.gorm.PagedResultList
 import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class PayerController extends BaseController {
 
     def payerService
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def create() {
         return [customerId: params.long("id")]
     }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def index() {
         Integer customerId = params.int("id")
         PagedResultList payerList =  Payer.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()){
@@ -26,7 +25,6 @@ class PayerController extends BaseController {
         return [payerList: payerList , totalCount: payerList.totalCount]
     }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def save() {
         try {
             Payer payer = payerService.save(params) 
@@ -40,7 +38,6 @@ class PayerController extends BaseController {
         }
     }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def update() {
         try {
             Long id = params.long("id")
@@ -51,7 +48,6 @@ class PayerController extends BaseController {
         }
     }
 
-   @Secured(['ROLE_ADMIN', 'ROLE_USER'])
     def show() {
         return [payer: Payer.get(params.long('id'))]
     }
