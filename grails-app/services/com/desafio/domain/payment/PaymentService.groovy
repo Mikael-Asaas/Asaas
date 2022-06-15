@@ -27,7 +27,7 @@ class PaymentService {
         payment.payer = Payer.get(params.long("payerId"))
         payment.save(failOnError: true)
 
-        newPaymentNotify(payment)
+        notifyNewPayment(payment)
 
         return payment
     }
@@ -38,7 +38,7 @@ class PaymentService {
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
 
-        confirmPaymentNotify(payment)
+        notifyConfirmPayment(payment)
         
         return payment
     }
@@ -60,13 +60,13 @@ class PaymentService {
         }
     }
     
-    public void newPaymentNotify(Payment payment) {
+    public void notifyNewPayment(Payment payment) {
         String subject = "Asaas - Nova cobrança"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentCustomerNotification", model: [payment: payment]))
         emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentPayerNotification", model: [payment: payment]))
     }
 
-    public void confirmPaymentNotify(Payment payment) {
+    public void notifyConfirmPayment(Payment payment) {
         String  subject = "Asaas - Pagamento confirmado"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentCustomerNotification", model: [payment: payment]))
         emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentPayerNotification", model: [payment: payment]))
