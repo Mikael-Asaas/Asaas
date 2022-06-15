@@ -20,7 +20,7 @@
                         <td>${payer.name}</td>
                         <td>${payer.email}</td>                          
                         <td>
-                            <a href="${ g.createLink(controller: 'payer', action: 'show', id: payer.id)}">Editar pagador</a>
+                            <g:link controller="payer" action="show" update="form" params="${[payerId: payer.id]}">Editar pagador</g:link>
                         </td>
                     </tr>
                 </g:each>
