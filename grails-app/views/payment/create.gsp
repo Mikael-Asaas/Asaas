@@ -15,7 +15,7 @@
                 data-url="${ g.createLink(controller: "payment", action: "save") }">
                 <div class="form-controller">
                     <label class="h3" for="value">Valor:</label>
-                    <input type="text" name="value" id="value" placeholder="Valor">
+                    <input type="text" name="value" id="value" placeholder="Valor min R$ 5,00">
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small class="js-msg"></small>

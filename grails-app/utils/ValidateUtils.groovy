@@ -49,15 +49,14 @@ class ValidateUtils {
     }
 
     public static Boolean validateMinValue(String value) {
-        BigDecimal intValue = new BigDecimal(value)
-        if (intValue < 5.00) {
+        final BigDecimal authorizationValue = 5.00
+        if (intValue < authorizationValue) {
             return false
         }
         return true
     }
 
     public static Boolean validatePaymentDueDate(String dueDate) {
-
         Date todayDate = new Date()
 
         if (DateUtils.formatStringToDate(dueDate, "yyyy-MM-dd") < todayDate) {

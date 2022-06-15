@@ -24,6 +24,7 @@ class PaymentService {
         Payment payment = new Payment()
         payment = validate(payment, params)
         if (payment.hasErrors()) return payment
+
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.billingType = PaymentMethod.valueOf(params.billingType)
@@ -78,20 +79,21 @@ class PaymentService {
     }
 
     public Payment validate(Payment payment, Map params) {
+        Payment validatedPayment = new Payment()
         if (!ValidateUtils.validateMinValue(params.value)) {
-            DomainUtils.addError(payment, 'O valor mínimo para cobranças é R$ 5,00')
+            DomainUtils.addError(validatedPayment, 'O valor mínimo para cobranças é R$ 5,00')
         }
 
         if (!ValidateUtils.isNotNull(params.payerId)) {
-            DomainUtils.addError(payment, "Cliente não informado")
+            DomainUtils.addError(validatedPayment, "Cliente não informado")
         }
 
         if (!ValidateUtils.validatePaymentMethod(params.billingType)) {
-            DomainUtils.addError(payment, "Forma de pagamento não informada")
+            DomainUtils.addError(validatedPayment, "Forma de pagamento não informada")
         }
         
         if (!ValidateUtils.validatePaymentDueDate(params.dueDate)){
-             DomainUtils.addError(payment, "Data de vencimento inválida")
+             DomainUtils.addError(validatedPayment, "Data de vencimento inválida")
         }
         return payment
     }
