@@ -14,8 +14,7 @@ import grails.gsp.PageRenderer
 @Transactional
 class PaymentService {
 
-    PageRenderer groovyPageRenderer
-    def emailService
+    def paymentNotificationService
 
     public Payment save(Map params) {
         Payment payment = new Payment()
@@ -27,7 +26,7 @@ class PaymentService {
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
 
-        notifyNewPayment(payment)
+        paymentNotificationService.notifyNewPayment(payment)
 
         return payment
     }
@@ -38,7 +37,7 @@ class PaymentService {
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
 
-        notifyConfirmPayment(payment)
+        paymentNotificationService.notifyConfirmPayment(payment)
         
         return payment
     }
@@ -63,24 +62,6 @@ class PaymentService {
         payment.status = PaymentStatus.OVERDUE
         payment.save(failOnError:true)
 
-        notifyOverduePayment(); 
-    }
-
-
-    public void notifyNewPayment(Payment payment) {
-        String subject = "Asaas - Nova cobrança"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentCustomerNotification", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentPayerNotification", model: [payment: payment]))
-    }
-
-    public void notifyConfirmPayment(Payment payment) {
-        String  subject = "Asaas - Pagamento confirmado"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentCustomerNotification", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentPayerNotification", model: [payment: payment]))
-    }
-
-    public void notifyOverduePayment(Payment payment) {
-        String  subject = "Asaas - Cobrança vencida"
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/overduePaymentPayerNotification", model: [payment: payment]))
+        paymentNotificationService.notifyOverduePayment(); 
     }
 }
