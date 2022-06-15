@@ -84,11 +84,11 @@ class PaymentService {
         }
 
         if (!ValidateUtils.isNotNull(params.payerId)) {
-            DomainUtils.addError(payment, "Cliente inválido")
+            DomainUtils.addError(payment, "Cliente não informado")
         }
 
         if (!ValidateUtils.validatePaymentMethod(params.method)) {
-            DomainUtils.addError(payment, "Método de pagamento inválido")
+            DomainUtils.addError(payment, "Forma de pagamento não informada")
         }
         
         if (!ValidateUtils.validatePaymentDueDate(params.dueDate)){
