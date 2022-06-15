@@ -50,7 +50,7 @@ class ValidateUtils {
 
     public static Boolean validateMinValue(String value) {
         final BigDecimal authorizationValue = 5.00
-        if (intValue < authorizationValue) {
+        if (value < authorizationValue) {
             return false
         }
         return true
@@ -66,6 +66,7 @@ class ValidateUtils {
     }
 
     public static Boolean validatePaymentMethod(String method) {
+        PaymentMethod paymentMethod = PaymentMethod.convert(method)
         return PaymentMethod.values().contains(PaymentMethod.valueOf(method))
     }
 }

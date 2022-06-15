@@ -88,7 +88,7 @@ class PaymentService {
             DomainUtils.addError(validatedPayment, "Cliente não informado")
         }
 
-        if (!ValidateUtils.validatePaymentMethod(params.billingType)) {
+        if (!PaymentMethod.convert(params.billingType)) {
             DomainUtils.addError(validatedPayment, "Forma de pagamento não informada")
         }
         
