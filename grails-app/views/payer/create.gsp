@@ -10,7 +10,7 @@
   <body>
     <main class="container">
       <h2 class="h2">Novo Pagador</h2>
-      <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [id: customerId]])}"
+      <form data-redirect="${g.createLink([controller: 'payer', action: 'index', params: [customerId: customerId]])}"
             data-url="${g.createLink([controller: 'payer', action: 'save'])}">
           <div class="form-controller">
             <label for="name">Nome:</label>
