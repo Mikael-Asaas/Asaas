@@ -12,15 +12,15 @@ class PayerController extends BaseController {
     def payerService
 
     def create() {
-        return [customerId: params.long("id")]
+        return [customerId: params.long("customerId")]
     }
 
     def index() {
-        Integer customerId = params.int("id")
+        Long customerId = Long.valueOf(params.customerId)
         PagedResultList payerList =  Payer.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
-            eq("customer", Customer.get(customerId)) 
+            eq("customer.id", customerId) 
         }
-        return [payerList: payerList, totalCount: Payer.count()]
+        return [payerList: payerList, totalCount: payerList.totalCount]
     }
 
     def save() {
@@ -38,8 +38,8 @@ class PayerController extends BaseController {
 
     def update() {
         try {
-            Long id = params.long("id")
-            payerService.update(params.long("id"), params)
+            Long payerId = params.long("payerId")
+            payerService.update(payerId, params)
             render([success: true] as JSON)
         } catch (Exception exception) {
             render([success: false, message: message(code:'unknow.error')] as JSON)
@@ -47,6 +47,6 @@ class PayerController extends BaseController {
     }
 
     def show() {
-        return [payer: Payer.get(params.long('id'))]
+        return [payer: Payer.get(params.long('payerId'))]
     }
 }

@@ -1,9 +1,6 @@
+<%@ page import="com.desafio.enums.PaymentMethod" %>
 <html>
     <head>
-        <script
-            src="https://kit.fontawesome.com/c8d140aaae.js" crossorigin="anonymous">
-        </script>
-        <%@ page import="com.desafio.enums.PaymentMethod" %>
         <meta name="layout" content="main"/>
         <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
@@ -15,11 +12,11 @@
     <body>
         <main class="container">
         <h2 class="h2">Nova cobrança</h2>
-            <form data-redirect="${ g.createLink([controller: "payment", action: "index", params: [id: customerId]]) }"
+            <form data-redirect="${ g.createLink([controller: "payment", action: "index", params: [customerId: customerId]])}"
                 data-url="${ g.createLink(controller: "payment", action: "save") }">
                 <div class="form-controller">
                     <label class="h3" for="value">Valor:</label>
-                    <input type="text" name="value" placeholder="valor">
+                    <input type="text" name="value" placeholder="Valor">
                     <i class="fas fa-exclamation-circle"></i>
                     <i class="fas fa-check-circle"></i>
                     <small class="js-msg"></small>
@@ -34,7 +31,7 @@
                 <div class="form-controller">
                     <label class="h3" for="method">Formato de pagamento:</label>
                     <g:select id="method"
-                        name="method"
+                        name="billingType"
                         from="${PaymentMethod?.values()}" 
                         value="${method}"
                         noSelection="['':'Tipo de pagamento']"

@@ -1,7 +1,7 @@
+<%@ page import="com.desafio.utils.DateUtils" %> 
+<%@ page import="com.desafio.enums.PaymentMethod" %>
 <html>
     <head>
-        <%@ page import="com.desafio.utils.DateUtils" %> 
-        <%@ page import="com.desafio.enums.PaymentMethod" %>
         <title>E-mail de Cobrança</title>
     </head>
 <body>
@@ -19,7 +19,7 @@
         </div>
         <div>
             <label><b>Valor pago:</b></label>
-            R$${payment.value}
+            R$ ${payment.value}
         </div>
         <div>
             <label><b>Data do vencimento:</b></label>
