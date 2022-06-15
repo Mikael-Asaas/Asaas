@@ -38,7 +38,7 @@ class PaymentService {
     }
 
     public Payment confirmPayment(Long paymentId) {
-        if (payment.status = PaymentService.OVERDUE) throw new Exception("Erro ao realizar confirmação de cobrança")
+        if (payment.status == PaymentService.OVERDUE) throw new Exception("Erro ao realizar confirmação de cobrança")
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
@@ -80,7 +80,7 @@ class PaymentService {
 
     public Payment validate(Payment payment, Map params) {
         if (!ValidateUtils.validateMinValue(params.value)) {
-            DomainUtils.addError(payment, "O valor mínimo para cobranças é R$ 5,00")
+            DomainUtils.addError(payment, 'O valor mínimo para cobranças é R$ 5,00')
         }
 
         if (!ValidateUtils.isNotNull(params.payerId)) {
