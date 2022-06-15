@@ -1,7 +1,9 @@
 package com.desafio.domain
 
 import grails.plugin.asyncmail.AsynchronousMailService
+import grails.gorm.transactions.Transactional 
 
+@Transactional
 class EmailService {
 
     AsynchronousMailService asynchronousMailService

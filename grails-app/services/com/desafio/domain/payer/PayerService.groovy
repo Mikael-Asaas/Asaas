@@ -29,10 +29,10 @@ class PayerService {
         return payer
     }
     
-    public Payer update(Long id, Map params) {
-        if (!id) throw new Exception("Erro ao realizar atualização de informação")
+    public Payer update(Long payerId, Map params) {
+        if (!payerId) throw new Exception("Erro ao realizar atualização de informação")
         
-        Payer payer = Payer.get(params.long("id"))
+        Payer payer = Payer.get(params.long("payerId"))
         if (!payer) throw new Exception("Pagador não encontrado")
         
         payer = validate(params)
