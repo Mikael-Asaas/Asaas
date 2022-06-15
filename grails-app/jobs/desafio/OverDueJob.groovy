@@ -14,7 +14,7 @@ class OverDueJob {
        try {
             paymentService.updateToOverdue()
         } catch (Exception exception) {
-            log.error "Ocorreu um erro"
+            log.error "Ocorreu um erro ao marcar as cobranças como vencidas"
         }
     }
 }
