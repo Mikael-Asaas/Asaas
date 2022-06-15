@@ -21,24 +21,25 @@ class PaymentService {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
-        payment.method = PaymentMethod.valueOf(params.method)
+        payment.billingType = PaymentMethod.valueOf(params.billingType)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
-        payment.customer = Customer.get(params.long("customerId"))
-        payment.payer = Payer.get(params.long("payerId"))
+        payment.customer = Customer.get(Long.valueOf(params.customerId))
+        payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
 
-        newPaymentNotify(payment)
+        notifyNewPayment(payment)
 
         return payment
     }
 
-    public Payment confirmedPayment(Long paymentId) {
+    public Payment confirmPayment(Long paymentId) {
+        if (payment.status = PaymentService.OVERDUE) throw new Exception("Erro ao realizar confirmação de cobrança")
         Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
 
-        confirmPaymentNotify(payment)
+        notifyConfirmPayment(payment)
         
         return payment
     }
@@ -60,15 +61,15 @@ class PaymentService {
         }
     }
     
-    public void newPaymentNotify(Payment payment) {
+    public void notifyNewPayment(Payment payment) {
         String subject = "Asaas - Nova cobrança"
-        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/sendPaymentCustomerNotification", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/sendPaymentPayerNotification", model: [payment: payment]))
+        emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentCustomerNotification", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentPayerNotification", model: [payment: payment]))
     }
 
-    public void confirmPaymentNotify(Payment payment) {
+    public void notifyConfirmPayment(Payment payment) {
         String  subject = "Asaas - Pagamento confirmado"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentCustomerNotification", model: [payment: payment]))
-        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmPaymentPayerNotification", model: [payment: payment]))
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentPayerNotification", model: [payment: payment]))
     }
 }

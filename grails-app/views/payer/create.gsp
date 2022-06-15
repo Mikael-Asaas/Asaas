@@ -82,7 +82,7 @@
             <i class="fas fa-check-circle"></i>
             <small class="js-msg"></small>
           </div>
-        <input hidden value="${ customerId }" name="customer" id="customer">
+        <input hidden value="${customerId}" name="customerId" id="customerId">
         <button class="btn" type="submit">Criar</button>
         <button class="btn" type="reset" onclick="history.go(-1)">Voltar</button>
       </form>   

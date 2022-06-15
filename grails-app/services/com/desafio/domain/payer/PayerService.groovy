@@ -8,17 +8,16 @@ import com.desafio.domain.customer.Customer
 class PayerService {
 
     public Payer save(Map params) {
-        Customer customer = Customer.get(params.long("customerId"))
-        validate(params)
+        Customer customer = Customer.get(params.customerId)
         Payer payer = new Payer(params)
+        payer.customer = customer
         payer.save(failOnError: true)
         return payer
     }
     
-    public Payer update(Long id, Map params) {
-        if (!id) throw new Exception("Erro ao realizar atualização de informação")
-        validate(params)
-        Payer payer = Payer.get(id)
+    public Payer update(Long payerId, Map params) {
+        if (!payerId) throw new Exception("Erro ao realizar atualização de informação")
+        Payer payer = Payer.get(params.long("payerId"))
         payer.name = params.name
         payer.cpfCnpj = params.cpfCnpj
         payer.address = params.address
@@ -31,35 +30,5 @@ class PayerService {
         payer.phone = params.phone
         payer.save(failOnError: true)
         return payer
-    }
-
-    private void validate(Map params) {
-        if(!params.name){
-            throw new Exception("Erro no reigstro do nome.")
-        }
-        if(!params.email){
-            throw new Exception("Erro no reigstro do email.")
-        }
-        if(!params.cpfCnpj){
-            throw new Exception("Erro no reigstro do CPF/CNPJ.")
-        }
-        if(!params.postalCode){
-            throw new Exception("Erro no reigstro do CEP.")
-        }
-        if(!params.address){
-            throw new Exception("Erro no reigstro do Endereço.")
-        }
-        if(!params.addressNumber){
-            throw new Exception("Erro no reigstro do Numero.")
-        }
-        if(!params.province){
-            throw new Exception("Erro no reigstro do Bairro.")
-        }
-        if(!params.city){
-            throw new Exception("Erro no reigstro do Cidade.")
-        }
-        if(!params.state){
-            throw new Exception("Erro no reigstro do Estado.")
-        }
     }
 }
