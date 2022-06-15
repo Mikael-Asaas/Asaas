@@ -10,21 +10,21 @@ class CustomerService {
 
     public Customer save(Map params) { 
         Customer customer = new Customer()
-        customer = validate(customer, params)
-        if (customer.hasErrors()) return customer
-        customer.name = params.name
-        customer.cpfCnpj= params.cpfCnpj
-        customer.address = params.address
-        customer.addressNumber = params.addressNumber
-        customer.province = params.province
-        customer.city = params.city
-        customer.state = params.state
-        customer.postalCode = params.postalCode
-        customer.email = params.email
-        customer.phone = params.phone
-        customer.save(failOnError: true)
-        
-        return customer
+        Customer validatedCustomer = validate(customer, params)
+            if (validatedCustomer.hasErrors()) return validatedCustomer
+
+            customer.name = params.name
+            customer.cpfCnpj= params.cpfCnpj
+            customer.address = params.address
+            customer.addressNumber = params.addressNumber
+            customer.province = params.province
+            customer.city = params.city
+            customer.state = params.state
+            customer.postalCode = params.postalCode
+            customer.email = params.email
+            customer.phone = params.phone
+
+            return customer.save(failOnError: true)
     }
 
     public Customer getCustomer(Long id) {
@@ -35,6 +35,7 @@ class CustomerService {
         Customer customer = Customer.get(params.long("id"))
         customer = validate(customer, params)
         if (customer.hasErrors()) return customer
+
         customer.name = params.name
         customer.cpfCnpj= params.cpfCnpj
         customer.address = params.address
@@ -45,9 +46,8 @@ class CustomerService {
         customer.postalCode = params.postalCode
         customer.email = params.email
         customer.phone = params.phone
-        customer.save(failOnError: true)
-
-        return customer
+        
+        return customer.save(failOnError: true)
     }
 
     public Customer validate(Customer customer, Map params) {
