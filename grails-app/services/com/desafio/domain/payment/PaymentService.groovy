@@ -80,7 +80,7 @@ class PaymentService {
 
     public Payment validate(Payment payment, Map params) {
         if (!ValidateUtils.validateMinValue(params.value)) {
-            DomainUtils.addError(payment, "Cobrança mínima de 5.00")
+            DomainUtils.addError(payment, "O valor mínimo para cobranças é R$ 5,00")
         }
 
         if (!ValidateUtils.isNotNull(params.payerId)) {
