@@ -55,11 +55,18 @@ class PaymentService {
         Date yesterday = DateUtils.getYesterday()
         List<Payment> paymentList = list(PaymentStatus.PENDING, yesterday)
         for (Payment payment : paymentList) {
-            payment.status = PaymentStatus.OVERDUE
-            payment.save(failOnError:true)
+            setAsOverdue();
         }
     }
     
+    public Payment setAsOverdue() { 
+        payment.status = PaymentStatus.OVERDUE
+        payment.save(failOnError:true)
+
+        notifyOverduePayment(); 
+    }
+
+
     public void notifyNewPayment(Payment payment) {
         String subject = "Asaas - Nova cobrança"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/createdPaymentCustomerNotification", model: [payment: payment]))
@@ -70,5 +77,10 @@ class PaymentService {
         String  subject = "Asaas - Pagamento confirmado"
         emailService.sendEmail(payment.customer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentCustomerNotification", model: [payment: payment]))
         emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/confirmedPaymentPayerNotification", model: [payment: payment]))
+    }
+
+    public void notifyOverduePayment(Payment payment) {
+        String  subject = "Asaas - Cobrança vencida"
+        emailService.sendEmail(payment.payer.email, subject, groovyPageRenderer.render(template: "/email/overduePaymentPayerNotification", model: [payment: payment]))
     }
 }
