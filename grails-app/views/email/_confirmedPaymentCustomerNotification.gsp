@@ -8,6 +8,7 @@
     <div>
         <div>
             <h1><b>Olá ${payment.customer.name}.<br> O pagamento referente a cobrança emitida para ${payment.payer.name} foi debitada com sucesso.</br></b></h1>
+            <a href="payment/show/${payment.customerId}">Acesse sua cobrança</a>
         </div>
         <hr>
         <div>
