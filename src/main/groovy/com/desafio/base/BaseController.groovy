@@ -10,4 +10,4 @@ abstract class BaseController {
         if (!params.offset) params.offset = 0
         return Integer.valueOf(params.offset)
     }
-}   
+}
