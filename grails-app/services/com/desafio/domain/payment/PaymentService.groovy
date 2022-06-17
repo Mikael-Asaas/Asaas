@@ -20,7 +20,7 @@ class PaymentService {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
-        payment.billingType = PaymentMethod.valueOf(params.billingType)
+        payment.method = PaymentMethod.valueOf(params.method)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
         payment.customer = Customer.get(Long.valueOf(params.customerId))
         payment.payer = Payer.get(Long.valueOf(params.payerId))
@@ -33,6 +33,7 @@ class PaymentService {
 
     public Payment confirmPayment(Long paymentId) {
         Payment payment = Payment.get(paymentId)
+        if (payment.status != PaymentStatus.PENDING) throw new Exception("Somente podem ser confirmadas cobranças que estejam pendentes de recebimento")
         payment.status = PaymentStatus.PAID
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
@@ -42,17 +43,17 @@ class PaymentService {
         return payment
     }
 
-    public List<Payment> list(PaymentStatus paymentStatus, Date yesterday) {
+    public List<Payment> list(PaymentStatus paymentStatus, Date date) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus)
-            le("dueDate", yesterday)
+            le("dueDate", date)
         }
         return paymentList
     }
 
     public Payment updateToOverdue() {
-        Date yesterday = DateUtils.getYesterday()
-        List<Payment> paymentList = list(PaymentStatus.PENDING, yesterday)
+        Date date = DateUtils.getYesterday()
+        List<Payment> paymentList = list(PaymentStatus.PENDING, date)
         for (Payment payment : paymentList) {
             setAsOverdue();
         }
