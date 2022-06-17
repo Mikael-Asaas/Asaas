@@ -52,9 +52,8 @@ class PaymentController extends BaseController {
                 return
             }
         } catch (Exception exception) {
-            flash.message = "Não foi possivel confirmar a cobrança"
             redirect action: "index"
-            return
+            flash.message = "Erro ao confirmar cobrança"
         }
     }
 
