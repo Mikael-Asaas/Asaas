@@ -34,6 +34,7 @@ class PayerController extends BaseController {
             }
             render([success: true] as JSON)
         } catch (Exception exception) {
+            exception.printStackTrace()
             render([success: false, message: message(code: 'unknow.error')] as JSON)
         }
     }
