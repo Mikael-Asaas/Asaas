@@ -25,7 +25,7 @@ class PaymentService {
 
     public Payment confirmPayment(Long paymentId) {
         Payment payment = Payment.get(paymentId)
-        if (payment.status == PaymentStatus.OVERDUE) throw new Exception("Erro ao confirmar recebimento de cobrança")
+        if (payment.status != PaymentStatus.PENDING) throw new Exception("Somente podem ser confirmadas cobranças que estejam pendentes de recebimento")
         payment.status = PaymentStatus.PAID
         payment.save(failOnError: true)
         return payment
