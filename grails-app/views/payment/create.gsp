@@ -30,7 +30,7 @@
                 <div class="form-controller">
                     <label class="h3" for="method">Formato de pagamento:</label>
                     <g:select id="method"
-                        name="billingType"
+                        name="method"
                         from="${PaymentMethod?.values()}" 
                         value="${method}"
                         noSelection="['':'Tipo de pagamento']"

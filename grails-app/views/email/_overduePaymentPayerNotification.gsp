@@ -4,10 +4,10 @@
     <head>
         <title>E-mail de Cobrança</title>
     </head>
-<body>
+<body> 
     <div>
         <div>
-            <h1><b>Olá ${payment.customer.name}, você gerou uma nova cobrança</b></h1>
+            <h1><b>Olá ${payment.payer.name}. Sua cobrança está vencida.</b></h1>
             <a href="payment/show/${payment.customerId}">Acesse sua cobrança</a>
         </div>
         <hr>
@@ -15,20 +15,20 @@
             <p><h2>Dados da cobrança.</h2></p>
         </div>
         <div>
-            <label><b>Cobrança gerada para:</b></label>
-            ${payment.payer.name}
+            <label><b>Cobrança gerada por:</b></label>
+            ${payment.customer.name}
         <div>
             <label><b>Portador do CPF/CNPJ:</b></label>
-            ${payment.payer.cpfCnpj}
+            ${payment.customer.cpfCnpj}
         </div>
         <div>
-            <label><b>Valor de:</b></label>
+            <label><b>Valor:</b></label>
             R$${payment.value}
         </div>
         <div>
             <label><b>Data do vencimento:</b></label>
             <g:formatDate format="dd/MM/yyyy" date="${payment.dueDate}"/>
-        </div>    
-    </div>    
+        </div>   
+    </div>
 </body>
 </html>
