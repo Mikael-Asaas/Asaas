@@ -16,7 +16,7 @@
                 <input type="text" name="value" placeholder="Valor">
                 <input type="date" name="dueDate" placeholder="Data de vencimento">
                 <g:select id="method"
-                    name="billingType"
+                    name="method"
                     from="${PaymentMethod?.values()}" 
                     value="${method}"
                     noSelection="['':'Tipo de pagamento']"

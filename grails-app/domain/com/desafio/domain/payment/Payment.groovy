@@ -8,7 +8,7 @@ import com.desafio.enums.PaymentMethod
 
 class Payment extends BaseEntity {
 
-    PaymentMethod billingType
+    PaymentMethod method
     
     PaymentStatus status
 

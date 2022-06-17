@@ -15,7 +15,7 @@ class PaymentService {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
-        payment.billingType = PaymentMethod.valueOf(params.billingType)
+        payment.method = PaymentMethod.valueOf(params.method)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
         payment.customer = Customer.get(Long.valueOf(params.customerId))
         payment.payer = Payer.get(Long.valueOf(params.payerId))
@@ -25,6 +25,7 @@ class PaymentService {
 
     public Payment confirmPayment(Long paymentId) {
         Payment payment = Payment.get(paymentId)
+        if (payment.status != PaymentStatus.PENDING) throw new Exception("Somente podem ser confirmadas cobranças que estejam pendentes de recebimento")
         payment.status = PaymentStatus.PAID
         payment.save(failOnError: true)
         return payment
