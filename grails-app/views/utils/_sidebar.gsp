@@ -8,7 +8,7 @@
     </div>
     <ul class="nav_list">
         <li>
-            <g:link controller="payment" action="create">
+            <g:link controller="dashboard" action="index">
             <i class="fa-solid fa-chart-line"></i>
             <span class="links_name">Dashboard</span>
             </g:link>
@@ -22,28 +22,28 @@
             <span class="tooltips">Criar cobrança</span>
         </li>
         <li>
-            <g:link controller="payment" action="create">
+            <g:link controller="payment" action="list">
             <i class="fa-solid fa-clipboard-list"></i>
             <span class="links_name">Minhas cobranças</span>
             </g:link>
             <span class="tooltips">Cobranças</span>
         </li>
         <li>
-            <g:link controller="payment" action="create">
+            <g:link controller="payer" action="create">
             <i class="fa-solid fa-address-book"></i>
             <span class="links_name">Cadastrar cliente</span>
             </g:link>
             <span class="tooltips">Novo cliente</span>
         </li>
         <li>
-            <g:link controller="payment" action="create">
+            <g:link controller="customer" action="show">
             <i class="fa-solid fa-circle-user"></i>
             <span class="links_name">Meus dados</span>
             </g:link>
             <span class="tooltips">Meus dados</span>
         </li>
         <li>
-            <g:link controller="payment" action="create">
+            <g:link controller="logout">
             <i class="fa-solid fa-arrow-right-from-bracket" id="log_out"></i>
             <span class="links_name">Sair</span>
             </g:link>
