@@ -7,6 +7,9 @@
         <title>Cobrança</title>
     </head>
     <body>
+        <g:if test='${flash.message}'>
+            <div class="alert alert-danger" role="alert">${flash.message}</div>
+        </g:if>
         <div>
             <g:link controller="customer" action="index" params="${[customerId: customerId]}" update="form">Asaas - Cliente</g:link>
         </div>

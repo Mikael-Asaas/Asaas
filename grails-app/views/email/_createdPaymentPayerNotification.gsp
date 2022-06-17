@@ -8,6 +8,7 @@
     <div>
         <div>
             <h1><b>Olá ${payment.payer.name}, você recebeu uma nova cobrança de ${payment.customer.name}.</b></h1>
+            <a href="payment/show/${payment.customerId}">Acesse sua cobrança</a>
         </div>
         <hr>
         <div>
