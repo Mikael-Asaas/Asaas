@@ -5,7 +5,9 @@ import com.desafio.domain.customer.Customer
 
 import grails.converters.JSON
 import grails.gorm.PagedResultList
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class CustomerController extends BaseController {
 
    def customerService
@@ -29,7 +31,7 @@ class CustomerController extends BaseController {
          render([success: false, message: message(code: 'unknow.error')] as JSON)
       } 
    }
-  
+
    def update(){
       try {
          Long id = params.long('id')
@@ -39,7 +41,7 @@ class CustomerController extends BaseController {
          render([success: false, message: "Erro ao tentar atualizar"] as JSON)
       } 
    }
-  
+
    def show(){
       return [customer: Customer.get(params.long("customerId"))]
    }
