@@ -8,17 +8,16 @@ import com.desafio.domain.customer.Customer
 class PayerService {
 
     public Payer save(Map params) {
-        Customer customer = Customer.get(params.long("customerId"))
-        validate(params)
+        Customer customer = Customer.get(params.customerId)
         Payer payer = new Payer(params)
+        payer.customer = customer
         payer.save(failOnError: true)
         return payer
     }
     
-    public Payer update(Long id, Map params) {
-        if (!id) throw new Exception("Erro ao realizar atualização de informação")
-        validate(params)
-        Payer payer = Payer.get(id)
+    public Payer update(Long payerId, Map params) {
+        if (!payerId) throw new Exception("Erro ao realizar atualização de informação")
+        Payer payer = Payer.get(params.long("payerId"))
         payer.name = params.name
         payer.cpfCnpj = params.cpfCnpj
         payer.address = params.address
@@ -31,35 +30,5 @@ class PayerService {
         payer.phone = params.phone
         payer.save(failOnError: true)
         return payer
-    }
-
-    private void validate(Map params) {
-        if(!params.name){
-            throw new Exception("Nome não informado.")
-        }
-        if(!params.email){
-            throw new Exception("Email não informado.")
-        }
-        if(!params.cpfCnpj){
-            throw new Exception("CPF/CNPJ não informado.")
-        }
-        if(!params.postalCode){
-            throw new Exception("CEP não informado.")
-        }
-        if(!params.address){
-            throw new Exception("Endereço não informado.")
-        }
-        if(!params.addressNumber){
-            throw new Exception("Numero não informado.")
-        }
-        if(!params.province){
-            throw new Exception("Bairro não informado.")
-        }
-        if(!params.city){
-            throw new Exception("Cidade não informado.")
-        }
-        if(!params.state){
-            throw new Exception("Estado não informado.")
-        }
     }
 }

@@ -1,9 +1,9 @@
 
 <head>
     <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}" />
-    <title><g:message code="default.create.label" args="[entityName]" /></title>
-    <asset:javascript src="application.js" />
+    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}"/>
+    <title><g:message code="default.create.label" args="[entityName]"/></title>
+    <asset:javascript src="application.js"/>
     <title>Clientes</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
             </tr>
                 <tr>
                     <td>
-                        <a href="${ g.createLink(controller: 'customer', action: 'show', id: customer.id)}">Editar Cliente</a>
+                       <g:link controller="customer" action="show" update="form" params="${[customerId: customer.id]}">Editar cliente</g:link>
                     </td>
                 </tr> 
          </g:each> 

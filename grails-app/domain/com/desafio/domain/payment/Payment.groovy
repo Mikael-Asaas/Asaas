@@ -1,4 +1,4 @@
-package com.desafio.domain
+package com.desafio.domain.payment
 
 import com.desafio.base.BaseEntity
 import com.desafio.domain.payer.Payer
@@ -8,13 +8,11 @@ import com.desafio.enums.PaymentMethod
 
 class Payment extends BaseEntity {
 
-    PaymentMethod method
+    PaymentMethod billingType
     
     PaymentStatus status
 
     BigDecimal value
-
-    String description
 
     Date dueDate
 
@@ -25,7 +23,6 @@ class Payment extends BaseEntity {
     Customer customer
 
     static constraints = {
-        value min: 5.00
         paymentDate nullable: true
     }    
 }
