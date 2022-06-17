@@ -22,7 +22,7 @@
                 <g:each var="payment" in="${paymentList}">
                     <tr>
                         <td>${payment.value}</td>
-                        <td><g:message code="PaymentMethod.${payment.billingType}"/></td>
+                        <td><g:message code="PaymentMethod.${payment.method}"/></td>
                         <td><g:message code="PaymentStatus.${payment.status}"/></td>
                         <td><g:formatDate format="dd/MM/yyyy" date="${payment.dueDate}"/></td>
                         <td>${payment.payer.name}</td>

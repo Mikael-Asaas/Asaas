@@ -52,11 +52,13 @@ class PaymentController extends BaseController {
                 return
             }
         } catch (Exception exception) {
-            render([sucess: false, message: message(code: "unknow.error")] as JSON)
+            flash.message = "Não foi possivel confirmar a cobrança"
+            redirect action: "index"
+            return
         }
     }
 
-    def show() {
+    def show() { 
         return [payment: Payment.get(params.long('paymentId'))]
     }
 }
