@@ -23,13 +23,16 @@ class Customer {
     String phone
 
     static constraints = {
-        name blank: false
-        cpfCnpj blank: false
-        postalCode blank: false
-        address blank: false
-        province blank: false
-        city blank: false
-        state blank: false
+        name nullable: true 
+        phone nullable: true
+        email email: true
+        cpfCnpj nullable: true 
+        postalCode nullable: true 
+        address nullable: true 
+        addressNumber nullable: true
+        province nullable: true 
+        city nullable: true 
+        state nullable: true 
     }
 
 }
