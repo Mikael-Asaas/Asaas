@@ -7,10 +7,13 @@ import com.desafio.domain.customer.Customer
 
 import grails.converters.JSON
 import grails.gorm.PagedResultList
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class PaymentController extends BaseController {
     
     def paymentService
+    def springSecurityService
 
     def index() {
         Long customerId = Long.valueOf(params.customerId)
@@ -37,6 +40,7 @@ class PaymentController extends BaseController {
             }
             render([success: true] as JSON)
         } catch (Exception exception) {
+             exception.printStackTrace()
             render([success: false, message: message(code: "unknow.error")] as JSON)
         }
     }

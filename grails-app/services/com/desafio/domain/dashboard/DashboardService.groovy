@@ -2,14 +2,14 @@ package com.desafio.domain
 
 import com.desafio.enums.PaymentStatus
 import com.desafio.base.BaseController
-import com.desafio.domain.Payment
+import com.desafio.domain.payment.Payment
 import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
+import com.desafio.enums.PaymentMethod
 
 import grails.converters.JSON
 import grails.gorm.PagedResultList
 
-// @Transactional
 class DashboardService{
 
     def payerService
@@ -43,11 +43,11 @@ class DashboardService{
         return payerList
     }
 
-    public List<Payment> listPaymentByCustomerAndStatus(PaymentStatus paymentStatus, Long customerId) {
+    public List<Payment> listPaymentByCustomerAndStatus(Long customerId, PaymentStatus paymentStatus) { 
         List<Payment> paymentList= Payment.createCriteria().list() {
-            eq("customer", Customer.get(customerId))
+            eq("status", paymentStatus)
             and {
-                eq("status",Payment.get(paymentStatus))
+             eq("customer", Customer.get(customerId))
             }
         }
         return paymentList
@@ -57,10 +57,7 @@ class DashboardService{
     public Map getDashboardInfo(Long customerId) { 
         List<Payer> payerList = getPayersByCustomer(customerId)
         Integer totalPayers = payerList.size()
-        Map dashboard = [totalPayers: totalPayers, defaulters: defaulters, nonDefaulters: nonDefaulters, received: received, foreseen: foreseen, overdue: overdue]
-        return dashboard
-        
-        
+     
         List<Payment> overduePaymentList = listPaymentByCustomerAndStatus(customerId, PaymentStatus.OVERDUE)
         List<Payer> defaultersList = overduePaymentList.unique { Payment payment -> payment.payer }
 

@@ -14,6 +14,7 @@ class DashboardController{
 
     def index() {
         Long customerId = params.long("id")
+        println "customerId ${customerId}"
         Map dashboard = dashboardService.getDashboardInfo(customerId)
         return [dashboard: dashboard]
     }
