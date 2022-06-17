@@ -11,6 +11,7 @@ import grails.plugin.springsecurity.annotation.Secured
 class CustomerController extends BaseController {
 
    def customerService
+   def springSecurityService
    
    def create() { }
 
@@ -43,6 +44,6 @@ class CustomerController extends BaseController {
    }
 
    def show(){
-      return [customer: Customer.get(params.long("customerId"))]
+      return [customer: springSecurityService.currentUser.customer]
    }
 }

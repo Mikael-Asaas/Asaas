@@ -4,6 +4,8 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
 
+import com.desafio.domain.customer.Customer
+
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
@@ -23,6 +25,8 @@ class User implements Serializable {
     boolean accountLocked
 
     boolean passwordExpired
+
+    Customer customer
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
