@@ -53,9 +53,9 @@ class PaymentService {
 
     public Payment updateToOverdue() {
         Date date = DateUtils.getYesterday()
-        List<Payment> paymentList = list(PaymentStatus.PENDING, date)
+        List<Payment> paymentList = list()
         for (Payment payment : paymentList) {
-            setAsOverdue();
+            setAsOverdue()
         }
     }
     
@@ -63,6 +63,6 @@ class PaymentService {
         payment.status = PaymentStatus.OVERDUE
         payment.save(failOnError:true)
 
-        paymentNotificationService.notifyOverduePayment(); 
+        paymentNotificationService.notifyOverduePayment() 
     }
 }
