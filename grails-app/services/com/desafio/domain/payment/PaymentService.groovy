@@ -31,7 +31,7 @@ class PaymentService {
         return payment
     }
 
-    public List<Payment> list(PaymentStatus paymentStatus, Date date) {
+    public List<Payment> list(PaymentStatus paymentStatus, Date dueDate) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus)
             le("dueDate", date)
