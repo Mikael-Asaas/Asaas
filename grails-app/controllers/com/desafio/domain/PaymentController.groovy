@@ -4,6 +4,7 @@ import com.desafio.base.BaseController
 import com.desafio.domain.payment.Payment
 import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
+import com.desafio.enums.PaymentMethod
 
 import grails.converters.JSON
 import grails.gorm.PagedResultList
@@ -41,7 +42,22 @@ class PaymentController extends BaseController {
         }
     }
 
-    def show() {
+    def confirm() {
+        try {
+            Long paymentId = params.long("paymentId")
+            Payment payment = paymentService.confirmPayment(paymentId)
+            
+            if (payment) {
+                redirect (controller: "payment", action: "index", params: [customerId: payment.customerId])
+                return
+            }
+        } catch (Exception exception) {
+            redirect action: "index"
+            flash.message = "Erro ao confirmar cobrança"
+        }
+    }
+
+    def show() { 
         return [payment: Payment.get(params.long('paymentId'))]
     }
 }
