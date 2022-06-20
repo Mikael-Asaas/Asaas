@@ -14,6 +14,7 @@ class PayerService {
         Payer payer = new Payer()
         payer = validate(payer, params)
         if (payer.hasErrors()) return payer
+
         payer.customer = customer
         payer.name = params.name
         payer.cpfCnpj = params.cpfCnpj
@@ -26,6 +27,7 @@ class PayerService {
         payer.email = params.email
         payer.phone = params.phone
         payer.save(failOnError: true) 
+        
         return payer
     }
     
