@@ -26,7 +26,7 @@ class PaymentService {
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
 
-        paymentNotificationService.notifyNewPayment(payment)
+        paymentNotificationService.notifyCreatedPayment(payment)
 
         return payment
     }
@@ -38,7 +38,7 @@ class PaymentService {
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
 
-        paymentNotificationService.notifyConfirmPayment(payment)
+        paymentNotificationService.notifyConfirmedPayment(payment)
         
         return payment
     }
