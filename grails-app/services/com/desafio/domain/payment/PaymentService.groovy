@@ -8,12 +8,9 @@ import com.desafio.enums.PaymentStatus
 import com.desafio.utils.DateUtils
 
 import grails.gorm.transactions.Transactional 
-import grails.gorm.PagedResultList
 
 @Transactional
 class PaymentService {
-
-    PagedResultList groovyPagedResultList
 
      public Payment save(Map params) {
         Payment payment = new Payment()
