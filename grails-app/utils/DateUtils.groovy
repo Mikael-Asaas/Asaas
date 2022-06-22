@@ -4,9 +4,9 @@ import java.text.SimpleDateFormat
 
 class DateUtils {
 
-    public static Date formatStringToDate(String date, String pattern) {
+    public static Date formatStringToDate(String dueDate, String pattern) {
         SimpleDateFormat formatDate = new SimpleDateFormat(pattern)
-        return formatDate.parse(date)
+        return formatDate.parse(dueDate)
     }
 
     public static Date getYesterday() {
