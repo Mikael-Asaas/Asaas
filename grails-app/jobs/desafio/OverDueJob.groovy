@@ -15,8 +15,7 @@ class OverDueJob {
     def execute() {
         try {
             paymentService.updateToOverdue()
-        }catch (Exception e) {
-            throw e
+        }catch (Exception e)
             log.error "OverDueJob.execute : Ocorreu um erro ao marcar as cobranças como vencidas"
         }
      }
