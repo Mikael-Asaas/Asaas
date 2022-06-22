@@ -6,12 +6,16 @@ import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentMethod
 import com.desafio.enums.PaymentStatus
 import com.desafio.utils.DateUtils
+
 import grails.gorm.transactions.Transactional 
+import grails.gorm.PagedResultList
 
 @Transactional
 class PaymentService {
 
-    public Payment save(Map params) {
+    PagedResultList groovyPagedResultList
+
+     public Payment save(Map params) {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
@@ -31,17 +35,17 @@ class PaymentService {
         return payment
     }
 
-    public List<Payment> list(PaymentStatus paymentStatus, Date dueDate) {
+    public List<Payment> listStatus(PaymentStatus paymentStatus, Date dueDate) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus)
-            le("dueDate", date)
+            le("dueDate", dueDate)
         }
         return paymentList
     }
 
     public Payment updateToOverdue() {
-        Date date = DateUtils.getYesterday()
-        List<Payment> paymentList = list(PaymentStatus.PENDING, date)
+        Date dueDate = DateUtils.getYesterday()
+        List<Payment> paymentList = listStatus(PaymentStatus.PENDING, dueDate)
         for (Payment payment : paymentList) {
             payment.status = PaymentStatus.OVERDUE
             payment.save(failOnError:true)
