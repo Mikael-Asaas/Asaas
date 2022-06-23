@@ -1,3 +1,7 @@
-// Place your Spring DSL code here
+import com.desafio.UserPasswordEncoderListener
+import com.desafio.domain.CustomUserDetailsService
+
 beans = {
+    userPasswordEncoderListener(UserPasswordEncoderListener)
+    userDetailsService(CustomUserDetailsService)
 }
