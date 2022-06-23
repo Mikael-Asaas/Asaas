@@ -59,7 +59,8 @@ class PaymentService {
         }
     }
     
-    public Payment setAsOverdue() { 
+    public Payment setAsOverdue(Long paymentId) { 
+        Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.OVERDUE
         payment.save(failOnError:true)
 
