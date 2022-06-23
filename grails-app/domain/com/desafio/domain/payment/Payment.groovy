@@ -4,6 +4,7 @@ import com.desafio.base.BaseEntity
 import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentStatus
+import com.desafio.enums.PaymentMethod
 
 class Payment extends BaseEntity {
 
