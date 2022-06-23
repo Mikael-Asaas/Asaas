@@ -6,6 +6,8 @@ import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentStatus
 
 class Payment extends BaseEntity {
+
+    PaymentMethod method
     
     PaymentStatus status
 
