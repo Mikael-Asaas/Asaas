@@ -1,4 +1,4 @@
-package com.desafio.domain
+spackage com.desafio.domain
 
 import com.desafio.domain.payment.Payment
 import com.desafio.domain.payer.Payer
@@ -43,17 +43,17 @@ class PaymentService {
         return payment
     }
 
-    public List<Payment> list(PaymentStatus paymentStatus, Date date) {
+    public List<Payment> listStatus(PaymentStatus paymentStatus, Date dueDate) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus)
-            le("dueDate", date)
+            le("dueDate", dueDate)
         }
         return paymentList
     }
 
     public Payment updateToOverdue() {
-        Date date = DateUtils.getYesterday()
-        List<Payment> paymentList = list()
+        Date dueDate = DateUtils.getYesterday()
+        List<Payment> paymentList = listStatus(PaymentStatus.PENDING, dueDate)
         for (Payment payment : paymentList) {
             setAsOverdue()
         }

@@ -6,7 +6,9 @@ import com.desafio.domain.customer.Customer
 
 import grails.converters.JSON
 import grails.gorm.PagedResultList
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class PayerController extends BaseController {
 
     def payerService
