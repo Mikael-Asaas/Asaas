@@ -1,4 +1,4 @@
-spackage com.desafio.domain
+package com.desafio.domain
 
 import com.desafio.domain.payment.Payment
 import com.desafio.domain.payer.Payer
@@ -66,4 +66,17 @@ class PaymentService {
 
         paymentNotificationService.notifyOverduePayment() 
     }
-}
+    public List<Payment> getPaymentByCustomer(Long customerId, Integer max = null, Integer offset = null) {
+
+        if (max == null || offset == null) {
+            List<Payment> paymentList = Payment.createCriteria().list() {
+                eq("customer", Customer.get("customerId"))
+            }
+            return paymentList
+        }
+        List<Payment> paymentList = Payment.createCriteria().list() {
+            eq("customer", Customer.get("customerId"))
+        }
+        return paymentList
+        }
+    }

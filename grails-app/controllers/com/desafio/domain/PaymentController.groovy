@@ -5,11 +5,15 @@ import com.desafio.domain.payment.Payment
 import com.desafio.domain.payer.Payer
 import com.desafio.domain.customer.Customer
 import com.desafio.enums.PaymentStatus
+import com.desafio.enums.PaymentMethod
 
 import grails.validation.ValidationException
 import grails.converters.JSON
 import grails.gorm.PagedResultList
 import grails.gsp.PageRenderer
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(['ROLE_ADMIN', 'ROLE_USER'])
 
 class PaymentController extends BaseController {
     
@@ -17,10 +21,8 @@ class PaymentController extends BaseController {
     
     def index() {
         Long customerId = params.long("customerId")
-        PagedResultList paymentList = Payment.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
-            eq("customer", Customer.get(customerId)) 
-        }
-        return [paymentList: paymentList, totalCount: paymentList.totalCount]
+        List<Payment> paymentList = paymentService.getPaymentByCustomer(customerId, getLimitPage(), getCurrentPage())
+        return [customerId: customerId, paymentList: paymentList, totalCount: paymentList.size()]
     }
 
     def create() {
