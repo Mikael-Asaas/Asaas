@@ -33,10 +33,10 @@ class CustomerController extends BaseController {
    def update(){
       try {
          Long id = params.long('id')
-         customerService.update(id, params)
+         customerService.update(params.long("id"), params)
          render([success: true] as JSON)
       } catch(Exception exception) {
-         render([success: false, message: "Erro ao tentar atualizar"] as JSON)
+         render([success: false, message: message(code:'unknow.error')] as JSON)
       } 
    }
   
