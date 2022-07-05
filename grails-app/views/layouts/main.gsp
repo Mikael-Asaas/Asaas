@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<g:link controller="logout">Sair</g:link>
 <g:layoutBody/>
 <asset:javascript src="application.js"/>
 

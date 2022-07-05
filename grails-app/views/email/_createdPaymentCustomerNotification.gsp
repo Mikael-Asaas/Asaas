@@ -7,7 +7,7 @@
 <body>
     <div>
         <div>
-            <h1><b>Olá ${payment.customer.name}, você gerou uma nova cobrança</b></h1>
+            <h1><b>Olá ${payment.customer.name}, você emitiu uma nova cobrança</b></h1>
             <a href="payment/show/${payment.customerId}">Acesse sua cobrança</a>
         </div>
         <hr>

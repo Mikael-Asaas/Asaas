@@ -26,7 +26,7 @@ class PaymentService {
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
 
-        paymentNotificationService.notifyNewPayment(payment)
+        paymentNotificationService.notifyCreatedPayment(payment)
 
         return payment
     }
@@ -38,31 +38,45 @@ class PaymentService {
         payment.paymentDate = new Date()
         payment.save(flush: true, failOnError: true)
 
-        paymentNotificationService.notifyConfirmPayment(payment)
+        paymentNotificationService.notifyConfirmedPayment(payment)
         
         return payment
     }
 
-    public List<Payment> list(PaymentStatus paymentStatus, Date date) {
+    public List<Payment> listStatus(PaymentStatus paymentStatus, Date dueDate) {
         List<Payment> paymentList = Payment.createCriteria().list() {
             eq("status", paymentStatus)
-            le("dueDate", date)
+            le("dueDate", dueDate)
         }
         return paymentList
     }
 
     public Payment updateToOverdue() {
-        Date date = DateUtils.getYesterday()
-        List<Payment> paymentList = list(PaymentStatus.PENDING, date)
+        Date dueDate = DateUtils.getYesterday()
+        List<Payment> paymentList = listStatus(PaymentStatus.PENDING, dueDate)
         for (Payment payment : paymentList) {
-            setAsOverdue();
+            setAsOverdue()
         }
     }
     
-    public Payment setAsOverdue() { 
+    public Payment setAsOverdue(Long paymentId) { 
+        Payment payment = Payment.get(paymentId)
         payment.status = PaymentStatus.OVERDUE
         payment.save(failOnError:true)
 
-        paymentNotificationService.notifyOverduePayment(); 
+        paymentNotificationService.notifyOverduePayment() 
     }
-}
+    public List<Payment> getPaymentByCustomer(Long customerId, Integer max = null, Integer offset = null) {
+
+        if (max == null || offset == null) {
+            List<Payment> paymentList = Payment.createCriteria().list() {
+                eq("customer", Customer.get("customerId"))
+            }
+            return paymentList
+        }
+        List<Payment> paymentList = Payment.createCriteria().list() {
+            eq("customer", Customer.get("customerId"))
+        }
+        return paymentList
+        }
+    }
