@@ -1,31 +1,23 @@
-
-<head>
-    <meta name="layout" content="main"/>
-    <g:set var="entityName" value="${message(code: 'customer.label', default: 'Customer')}"/>
-    <title><g:message code="default.create.label" args="[entityName]"/></title>
-    <asset:javascript src="application.js"/>
-    <title>Clientes</title>
-</head>
-<body>
-    <table>
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>E-mail</th>
-            </tr>
-        </thead>
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+        </tr>
+    </thead>
     <tbody>
-         <g:each var="customer" in="${ customerList }">
+        <g:each var="customer" in="${ customerList }">
             <tr>
                 <td>${customer.name}</td>
                 <td>${customer.email}</td>                          
             </tr>
-                <tr>
-                    <td>
-                       <g:link controller="customer" action="show" update="form" params="${[customerId: customer.id]}">Editar cliente</g:link>
-                    </td>
-                </tr> 
-         </g:each> 
+            <tr>
+                <td>
+                    <g:link controller="customer" action="show" params="${[customerId: customer.id]}"><button>Editar cliente</button></g:link>
+                    <g:link controller="payer" action="create" params="${[customerId: customer.id]}"><button>Criar pagador</button></g:link>
+                    <g:link controller="payment" action="create" params="${[customerId: customer.id]}"><button>Criar cobrança</button></g:link>
+                </td>
+            </tr> 
+        </g:each> 
     </tbody>
-    </table> 
-</body>  
+</table> 

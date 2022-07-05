@@ -2,10 +2,11 @@
 <html>
     <head>
         <meta name="layout" content="main"/>
-        <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}"/>
-        <title><g:message code="default.create.label" args="[entityName]"/></title>
-        <asset:javascript src="application.js"/>
-        <asset:javascript src="payment.js"/>
+        <g:set var="entityName" value="${message(code: 'payment.label', default: 'Payment')}" />
+        <title><g:message code="default.create.label" args="[entityName]" /></title>
+        <asset:stylesheet src="utility/form.css" />
+        <asset:javascript src="application.js" />
+        <asset:javascript src="payment.js" />
         <title>Nova cobrança</title>
     </head>
     <body>
@@ -28,7 +29,7 @@
                         </g:each>
                 </select>
                 <input hidden value="${customerId}" name="customerId" id="customerId"> 
-                <button type="submit">Salvar</button>
+                <button class="btn" type="submit">Salvar</button>
             </form>
         </main>
     </body>
