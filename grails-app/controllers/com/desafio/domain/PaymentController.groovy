@@ -14,7 +14,6 @@ import grails.gsp.PageRenderer
 import grails.plugin.springsecurity.annotation.Secured
 
 @Secured(['ROLE_ADMIN', 'ROLE_USER'])
-
 class PaymentController extends BaseController {
     
     def paymentService
@@ -29,7 +28,7 @@ class PaymentController extends BaseController {
         Long customerId = params.long("customerId")
         List<Payer> payerList = Payer.createCriteria().list() {
             eq("customer", Customer.get(customerId)) 
-        }
+        }   
         return [customerId: customerId, payerList: payerList]
     }
 

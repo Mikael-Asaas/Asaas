@@ -35,7 +35,7 @@ class CustomerController extends BaseController {
 
    def update(){
       try {
-         Long id = params.long('id')
+         Long customerId = params.long("customerId")
          customerService.update(id, params)
          render([success: true] as JSON)
       } catch(Exception exception) {
@@ -44,6 +44,8 @@ class CustomerController extends BaseController {
    }
 
    def show(){
+      Customer customer = Customer.get(params.id)
+      Long customerId = params.long("id")
       return [customer: springSecurityService.currentUser.customer]
    }
 }
