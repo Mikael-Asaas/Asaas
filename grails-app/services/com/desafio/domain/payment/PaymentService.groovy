@@ -18,11 +18,12 @@ class PaymentService {
 
     public Payment save(Map params) {
         Payment payment = new Payment()
+        Customer customer = springSecurityService.getCurrentUser().customer 
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
-        payment.customer = Customer.get(Long.valueOf(params.customerId))
+        payment.customer = customer
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
 
@@ -66,17 +67,17 @@ class PaymentService {
 
         paymentNotificationService.notifyOverduePayment() 
     }
-    public List<Payment> getPaymentByCustomer(Long customerId, Integer max = null, Integer offset = null) {
+    // public List<Payment> getPaymentByCustomer(Long customerId, Integer max = null, Integer offset = null) {
 
-        if (max == null || offset == null) {
-            List<Payment> paymentList = Payment.createCriteria().list() {
-                eq("customer", Customer.get("customerId"))
-            }
-            return paymentList
-        }
-        List<Payment> paymentList = Payment.createCriteria().list() {
-            eq("customer", Customer.get("customerId"))
-        }
-        return paymentList
-        }
+    //     if (max == null || offset == null) {
+    //         List<Payment> paymentList = Payment.createCriteria().list() {
+    //             eq("customer", Customer.get("customerId"))
+    //         }
+    //         return paymentList
+    //     }
+    //     List<Payment> paymentList = Payment.createCriteria().list() {
+    //         eq("customer", Customer.get("customerId"))
+    //     }
+    //     return paymentList
+    //     }
     }

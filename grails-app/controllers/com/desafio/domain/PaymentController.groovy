@@ -17,20 +17,23 @@ import grails.plugin.springsecurity.annotation.Secured
 
 class PaymentController extends BaseController {
     
+    def springSecurityService
     def paymentService
     
     def index() {
-        Long customerId = params.long("customerId")
-        List<Payment> paymentList = paymentService.getPaymentByCustomer(customerId, getLimitPage(), getCurrentPage())
-        return [customerId: customerId, paymentList: paymentList, totalCount: paymentList.size()]
+        Customer customer = springSecurityService.getCurrentUser().customer 
+        List<Payment> paymentList = Payment.createCriteria().list() {
+            eq("customer", customer)
+        }
+        return [customer: customer, paymentList: paymentList, totalCount: paymentList.size()]
     }
 
     def create() {
-        Long customerId = params.long("customerId")
+        Customer customer = springSecurityService.getCurrentUser().customer 
         List<Payer> payerList = Payer.createCriteria().list() {
-            eq("customer", Customer.get(customerId)) 
+            eq("customer", customer) 
         }
-        return [customerId: customerId, payerList: payerList]
+        return [customer: customer, payerList: payerList]
     }
 
     def save() {
