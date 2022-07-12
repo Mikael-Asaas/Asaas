@@ -6,12 +6,6 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class CustomerService {
 
-    public Customer save(Map params) { 
-        Customer customer = springSecurityService.getCurrentUser().customer 
-        customer.save(failOnError: true)
-        return customer
-    }
-
     public Customer update(Customer customer, Map params) {
         customer.name = params.name
         customer.cpfCnpj= params.cpfCnpj
