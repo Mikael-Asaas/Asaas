@@ -15,8 +15,7 @@ class PayerController extends BaseController {
     def payerService
 
     def create() {
-        Customer customer = springSecurityService.getCurrentUser().customer  
-        return [customer: springSecurityService.currentUser.customer]
+        return [customerId: params.long("customerId")]
     }
 
     def index() {

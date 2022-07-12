@@ -16,14 +16,13 @@ class PaymentService {
 
     def paymentNotificationService
 
-    public Payment save(Map params) {
+    public Payment save(Customer customer, Map params) {
         Payment payment = new Payment()
-        Customer customer = springSecurityService.getCurrentUser().customer 
+        payment.customer = springSecurityService.getCurrentUser().customer 
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
-        payment.customer = customer
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
 
