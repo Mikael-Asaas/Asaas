@@ -16,10 +16,9 @@ class CustomerController extends BaseController {
    def create() { }
 
    def index() {
-      Customer customer = springSecurityService.getCurrentUser().customer  
          redirect action: "show"
    }
-   
+
    def update(){
          Customer customer = springSecurityService.getCurrentUser().customer  
          customerService.update(customer, params)
