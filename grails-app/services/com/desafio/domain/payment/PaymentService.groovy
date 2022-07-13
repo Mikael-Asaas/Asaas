@@ -18,7 +18,6 @@ class PaymentService {
 
     public Payment save(Customer customer, Map params) {
         Payment payment = new Payment()
-        payment.customer = springSecurityService.getCurrentUser().customer 
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
