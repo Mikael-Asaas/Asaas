@@ -29,11 +29,11 @@ class PaymentController extends BaseController {
     }
 
     def create() {
-        Customer customer = springSecurityService.getCurrentUser().customer 
+          Long customerId = params.long("customerId")
         List<Payer> payerList = Payer.createCriteria().list() {
-            eq("customer", customer) 
+            eq("customer", Customer.get(customerId)) 
         }
-        return [customer: customer, payerList: payerList]
+        return [customerId: customerId, payerList: payerList]
     }
 
     def save() {

@@ -86,7 +86,6 @@
           </div>
           <button type="submit" class="btn">Salvar</button>
           <button class="btn" type="reset"> Cancelar </button> 
-          <button class="btn" data-redirect="${g.createLink([controller: 'payer', action: 'show'])}">Meus Pagadores</button>
         </form>
     </main>
     <asset:javascript src="utility.applications.js" /> 
