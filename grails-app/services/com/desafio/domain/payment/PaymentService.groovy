@@ -24,7 +24,8 @@ class PaymentService {
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
-
+        payment.customer = Customer.get(Long.valueOf(params.customerId))
+        
         paymentNotificationService.notifyCreatedPayment(payment)
 
         return payment
