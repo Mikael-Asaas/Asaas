@@ -16,16 +16,16 @@ class PaymentService {
 
     def paymentNotificationService
 
-    public Payment save(Map params) {
+    public Payment save(Customer customer, Map params) {
         Payment payment = new Payment()
         payment.value = new BigDecimal(params.value)
         payment.status = PaymentStatus.PENDING
         payment.method = PaymentMethod.valueOf(params.method)
         payment.dueDate = DateUtils.formatStringToDate(params.dueDate, "yyyy-MM-dd")
-        payment.customer = Customer.get(Long.valueOf(params.customerId))
         payment.payer = Payer.get(Long.valueOf(params.payerId))
         payment.save(failOnError: true)
-
+        payment.customer = Customer.get(Long.valueOf(params.customerId))
+        
         paymentNotificationService.notifyCreatedPayment(payment)
 
         return payment
@@ -66,17 +66,4 @@ class PaymentService {
 
         paymentNotificationService.notifyOverduePayment() 
     }
-    public List<Payment> getPaymentByCustomer(Long customerId, Integer max = null, Integer offset = null) {
-
-        if (max == null || offset == null) {
-            List<Payment> paymentList = Payment.createCriteria().list() {
-                eq("customer", Customer.get("customerId"))
-            }
-            return paymentList
-        }
-        List<Payment> paymentList = Payment.createCriteria().list() {
-            eq("customer", Customer.get("customerId"))
-        }
-        return paymentList
-        }
-    }
+}

@@ -11,6 +11,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured(['ROLE_ADMIN', 'ROLE_USER'])
 class PayerController extends BaseController {
 
+    def springSecurityService
     def payerService
 
     def create() {
@@ -18,9 +19,9 @@ class PayerController extends BaseController {
     }
 
     def index() {
-        Long customerId = Long.valueOf(params.customerId)
+        Customer customer = springSecurityService.getCurrentUser().customer 
         PagedResultList payerList =  Payer.createCriteria().list(max: getLimitPage(), offset: getCurrentPage()) {
-            eq("customer.id", customerId) 
+            eq("customer", customer) 
         }
         return [payerList: payerList, totalCount: payerList.totalCount]
     }
